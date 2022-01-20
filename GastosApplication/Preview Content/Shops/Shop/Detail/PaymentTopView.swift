@@ -16,6 +16,8 @@ struct PaymentTopView: View {
         LinearGradient(gradient: Gradient(colors: [Color("deepGreen"), Color("textGreen")]), startPoint: .leading, endPoint: .trailing)
           .frame(width: UIScreen.screenWidth, height: UIScreen.screenHeight / 3, alignment: .top)
           .foregroundColor(Color("deepGreen"))
+          //.edgesIgnoringSafeArea(.all)
+          .cornerRadius(24, corners: [.bottomLeft, .bottomRight])
           .edgesIgnoringSafeArea(.all)
 
         VStack(alignment: .leading) {
@@ -28,22 +30,23 @@ struct PaymentTopView: View {
                 .frame(width: 22.5, height: 15)
                 .foregroundColor(.white)
             })
-              .padding()
-              .padding(.top, 24)
+              .padding(.horizontal, 24)
+              .padding(.top, UIApplication.shared.windows.first?.safeAreaInsets.top)
+
 
             Spacer()
           }
 
           Text(shopName)
-            .font(.system(size: 30).weight(.bold))
+            .font(.title.weight(.bold))
             .foregroundColor(.white)
-            .padding(.horizontal)
+            .padding(.horizontal, 24)
             .padding(.vertical, 4)
 
           Text(shopAddress)
-            .font(.system(size: 15).weight(.regular))
+            .font(.body.weight(.regular))
             .foregroundColor(.gray)
-            .padding(.horizontal)
+            .padding(.horizontal, 24)
         }
         .frame(height: UIScreen.screenHeight / 3, alignment: .top)
       }

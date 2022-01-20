@@ -15,6 +15,9 @@ struct Success: View {
         GradientView(firstColor: "deepGreen", secondColor: "deepGreen")
 
         VStack {
+
+          Spacer()
+
           HStack {
               Button(action: {
                 // back
@@ -32,8 +35,7 @@ struct Success: View {
           Spacer()
 
           Text("Bill Paid Successfully")
-            .font(.system(size: 18))
-            .fontWeight(.bold)
+            .font(.headline.weight(.bold))
             .foregroundColor(.white)
             .padding(.top, 1)
             .padding(.bottom, 40)
@@ -45,22 +47,26 @@ struct Success: View {
               .padding()
 
             PaymentSymbol(shapeColor: Color("lightGreen"), paymentSymbol: "checkmark")
-              .offset(y: -240)
+              .offset(y: -0.3 * UIScreen.screenHeight)
           }
 
           Spacer()
 
-          Rating(productRating: $rating)
-            .padding(.bottom)
+          Group {
+            Rating(productRating: $rating)
+              .padding(.bottom)
+
+            Spacer()
+
+            Button(action: {
+              // go home
+            }, label: {
+              BottomButton(buttonText: "Jump to Home", buttonColor: "white", textColor: "5")
+                .padding(.bottom, 30)
+            })
+          }
 
           Spacer()
-
-          Button(action: {
-            // go home
-          }, label: {
-            BottomButton(buttonText: "Jump to Home", buttonColor: "white", textColor: "5")
-              .padding(.bottom, 30)
-          })
         }
       }
     }
@@ -68,6 +74,11 @@ struct Success: View {
 
 struct Success_Previews: PreviewProvider {
     static var previews: some View {
-        Success()
+      Success()
+        //.previewDevice(PreviewDevice(rawValue: "iPhone SE (2nd generation)"))
+
+      //Success()
+        //.previewDevice(PreviewDevice(rawValue: "iPhone SE (2nd generation)"))
+
     }
 }

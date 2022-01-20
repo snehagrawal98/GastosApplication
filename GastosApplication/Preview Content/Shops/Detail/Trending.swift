@@ -31,3 +31,45 @@ struct Trending_Previews: PreviewProvider {
         Trending()
     }
 }
+
+// Trending Item
+struct TrendingItem: View {
+  var itemImage: String
+  var itemName: String
+  var itemPlace: String
+  var itemRating: Double
+  var itemRatings: Int
+
+    var body: some View {
+        HStack {
+          Image(itemImage)
+
+          VStack(alignment: .leading) {
+            VStack(alignment: .leading) {
+              Text(itemName)
+                .normalTextStyle()
+                .padding(.bottom, 1)
+
+              Text(itemPlace)
+                .subTextStyle()
+                .padding(.bottom, 1)
+            } //: VSTACK
+
+            HStack {
+              Image(systemName: "star.fill")
+                .foregroundColor(.orange)
+
+              Text("\(itemRating, specifier: "%g")")
+                .subTextNumberStyle()
+
+              Text("(\(itemRatings) ratings)")
+                .subTextStyle()
+            } //: HSTACK
+          } //: VSTACK
+          .frame(width: 250, alignment: .leading)
+      } //: HSTACK
+      .padding(.horizontal)
+      .padding(.vertical, 8)
+      .frame(width: UIScreen.screenWidth, height: 104, alignment: .leading)
+  }
+}

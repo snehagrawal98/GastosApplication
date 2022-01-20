@@ -44,8 +44,8 @@ struct Pending: View {
           Reciept(billAmount: 10000, customerName: "Krishna Kumar", shopName: "shop name", date: "02 August 2021", time: "02 : 35 : 45 PM", discount: 20, paymentStatus: false, shapeColor: Color("deepYellow"))
             .padding()
 
-          PaymentSymbol(shapeColor: Color("lightYellow"), paymentSymbol: "exclamationmark")
-            .offset(y: -240)
+            PaymentSymbol(shapeColor: Color("lightYellow"), paymentSymbol: "exclamationmark")
+            .offset(y: -0.3 * UIScreen.screenHeight)
         }
 
         Spacer()
@@ -69,6 +69,10 @@ struct Pending: View {
 
 struct Pending_Previews: PreviewProvider {
     static var previews: some View {
-        Pending()
+      Pending()
+
+      Pending()
+      .previewDevice(PreviewDevice(rawValue: "iPhone SE (2nd generation)"))
+
     }
 }
