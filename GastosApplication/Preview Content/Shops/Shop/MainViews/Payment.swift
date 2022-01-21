@@ -22,8 +22,12 @@ struct Payment: View {
           }
           .frame(height: UIScreen.screenHeight, alignment: .top)
 
-         PaymentBottomView()
-            .offset(y: 75)
+          VStack {
+            Spacer()
+
+            PaymentBottomView()
+              .padding(.bottom)
+          }
 
         Spacer()
       }

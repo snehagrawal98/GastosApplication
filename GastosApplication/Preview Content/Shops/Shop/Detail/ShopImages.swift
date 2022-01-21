@@ -13,12 +13,14 @@ struct ShopImages: View {
         ForEach(1..<5) { _ in
           Image("detailShop")
             .resizable()
-            .scaledToFit()
+            .scaledToFill()
+            .frame(width: 0.864 * UIScreen.screenWidth, height: 0.226 * UIScreen.screenHeight)
             .cornerRadius(10)
-            .padding(.top, 10)
-            .padding(.horizontal, 15)
+           // .padding(.top, 10)
+            //.padding(.horizontal, 15)
         }
       }//: TAB
+      .frame(width: 0.864 * UIScreen.screenWidth, height: 0.226 * UIScreen.screenHeight)
       .tabViewStyle(PageTabViewStyle(indexDisplayMode: .always))
     }
 }

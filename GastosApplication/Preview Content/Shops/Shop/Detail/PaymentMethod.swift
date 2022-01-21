@@ -22,6 +22,7 @@ struct PaymentMethod: View {
 
           Image(paymentMethod)
             .resizable()
+            .scaledToFit()
             .frame(width: 45, height: 45, alignment: .center)
         }
 
@@ -38,6 +39,7 @@ struct PaymentMethod: View {
         }
       }
       .frame(width: 82, height: 108)
+      .scaledToFit()
     }
 }
 

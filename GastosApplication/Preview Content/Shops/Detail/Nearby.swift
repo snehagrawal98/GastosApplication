@@ -35,3 +35,20 @@ struct Nearby_Previews: PreviewProvider {
         Nearby()
     }
 }
+
+// Nearby Shop
+struct NearbyShop: View {
+  var shopImage: String
+  var shopName: String
+
+    var body: some View {
+      VStack(alignment: .leading) {
+        Image(shopImage)
+          .resizable()
+          .frame(width: 141, height: 70)
+
+        Text(shopName)
+          .title4TextStyle()
+      } //: VSTACK
+    }
+}

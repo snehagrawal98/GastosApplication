@@ -15,12 +15,16 @@ struct ShopView: View {
         ZStack {
           Rectangle()
             .foregroundColor(.white)
-            .frame(height: 370)
-            .cornerRadius(22)
+            .frame(height: 0.405 * UIScreen.screenHeight)
+            .cornerRadius(22, corners: [.bottomRight, .bottomLeft])
             .shadow(color: Color.gray, radius: 5)
             .edgesIgnoringSafeArea(.all)
 
+          // NAavigation Bar & Shop Image
           VStack {
+            Spacer()
+
+            // Navigation Bar
             HStack {
               Image(systemName: "arrow.left")
                 .resizable()
@@ -31,46 +35,61 @@ struct ShopView: View {
               Spacer()
 
               Text(shopName)
-                .font(.system(size: 25).weight(.bold))
+                .font(.title.weight(.bold))
                 .foregroundColor(Color("deepGreen"))
 
               Spacer()
-                .frame(width: 180)
-            }
+              Spacer()
+              Spacer()
+              Spacer()
+            } //: HSTACK
+
+            Spacer()
 
             ShopImages()
-              .frame(height: 220)
+
+            Spacer()
+            Spacer()
           }
-          .frame(height: 330)
-        }
+          .frame(height: 0.405 * UIScreen.screenHeight)
+        } //: ZSTACK
 
         ShopDetails()
-          .padding(.bottom)
+          .padding(.top, -20)
 
         Spacer()
 
+        // Discount Image
         Image("discount")
           .resizable()
-          .frame(width: 360, height: 127, alignment: .center)
           .scaledToFill()
+          .frame(width: 0.896 * UIScreen.screenWidth, height: 0.157 * UIScreen.screenHeight, alignment: .center)
+
+        Spacer()
+
         ContactUs(contactName: "Mansi Gupta", address: "Whiteields 134 - 4, Sector 22, Chandigarh- 411007")
           .padding(.top)
 
+        Spacer()
+
+        // Pay button
         Button(action: {
           Payment(shopName: "Sai-Mart", shopAddress: "43-BD, Delhi", discount: 10.0)
         }, label: {
           BottomButton(buttonText: "Pay", buttonColor: "textGreen", textColor: "white")
-            .font(.system(size: 18))
+            .font(.headline)
         })
         
         Spacer()
-        Spacer()
-      }
+      } //: VSTACK
     }
 }
 
 struct ShopView_Previews: PreviewProvider {
     static var previews: some View {
         ShopView()
+
+        ShopView()
+        .previewDevice(PreviewDevice(rawValue: "iPhone SE (2nd generation)"))
     }
 }

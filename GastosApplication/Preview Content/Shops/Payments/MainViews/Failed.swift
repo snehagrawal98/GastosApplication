@@ -45,7 +45,7 @@ struct Failed: View {
             .padding()
 
           PaymentSymbol(shapeColor: Color("brightRed"), paymentSymbol: "xmark")
-            .offset(y: -240)
+            .offset(y: -0.3 * UIScreen.screenHeight)
         }
 
         Spacer()
@@ -69,6 +69,9 @@ struct Failed: View {
 
 struct Failed_Previews: PreviewProvider {
     static var previews: some View {
-        Failed()
+        //Failed()
+
+      Failed()
+      .previewDevice(PreviewDevice(rawValue: "iPhone SE (2nd generation)"))
     }
 }

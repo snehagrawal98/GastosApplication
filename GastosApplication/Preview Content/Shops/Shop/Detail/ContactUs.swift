@@ -16,11 +16,11 @@ struct ContactUs: View {
         HStack {
           VStack(alignment: .leading) {
             Text(contactName)
-              .font(.system(size: 20).weight(.bold))
+              .font(.title3.weight(.bold))
               .foregroundColor(Color("textGreen"))
 
             Text("here at your service")
-              .font(.system(size: 14).weight(.medium))
+              .font(.subheadline.weight(.medium))
               .foregroundColor(.gray)
           }
           Spacer()
@@ -33,24 +33,24 @@ struct ContactUs: View {
                 .padding(8)
 
               Text("Connect")
-                .font(.system(size: 10).weight(.medium))
+                .font(.caption2.weight(.medium))
             }
             .frame(width: 80, height: 38, alignment: .center)
             .foregroundColor(Color("textGreen"))
           })
         }
-        .padding(.horizontal)
+        .padding(.horizontal, 24)
 
         HStack {
           VStack(alignment: .leading) {
             Text("Visit us at :")
-              .font(.system(size: 14).weight(.bold))
+              .font(.subheadline.weight(.bold))
               .foregroundColor(Color("textGreen"))
-              .padding(.vertical, 4)
+              .padding(.vertical, 2)
 
             Text(address)
-              .font(.system(size: 14).weight(.regular))
-              .frame(height: 34)
+              .font(.subheadline.weight(.regular))
+              .frame(height: 40)
           }
           Spacer()
           Button(action: {
@@ -62,13 +62,14 @@ struct ContactUs: View {
                 .padding(8)
 
               Text("Jump to shop")
-                .font(.system(size: 10).weight(.medium))
+                .font(.caption2.weight(.medium))
             }
             .frame(width: 80, height: 38, alignment: .center)
             .foregroundColor(Color("textGreen"))
           })
         }
-        .padding()
+        .padding(.vertical, 8)
+        .padding(.horizontal, 24)
       }
     }
 }

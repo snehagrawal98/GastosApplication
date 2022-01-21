@@ -30,6 +30,8 @@ struct PaymentBottomView: View {
 
           VStack {
             Spacer()
+
+            // Inputs
             Group {
               HStack {
                 Image(systemName: "info.circle")
@@ -38,14 +40,14 @@ struct PaymentBottomView: View {
                   .foregroundColor(Color("textGreen"))
 
                 Text("Minimum billed amount should be $150 to avail discounts")
-                  .font(.system(size: 10).weight(.bold))
+                  .font(.caption2.weight(.bold))
                 .foregroundColor(Color("textGreen"))
               }
 
               TextField("Billed Amount", text: $billedAmount)
-                .font(.system(size: 14).bold())
+                .font(.subheadline.weight(.bold))
                 .padding()
-                .frame(width: 320, height: 48, alignment: .center)
+                .frame(width: 0.85 * UIScreen.screenWidth, height: 0.06 * UIScreen.screenHeight, alignment: .center)
                 .foregroundColor(Color.black)
                 .background(
                     RoundedRectangle(cornerRadius: 12)
@@ -53,62 +55,73 @@ struct PaymentBottomView: View {
                 )
 
               TextField("Included MRP(if any)", text: $includedMRP)
-                .font(.system(size: 14).bold())
+                .font(.subheadline.weight(.bold))
                 .padding()
-                .frame(width: 320, height: 48, alignment: .center)
+                .frame(width: 0.85 * UIScreen.screenWidth, height: 0.06 * UIScreen.screenHeight, alignment: .center)
                 .foregroundColor(Color.black)
                 .background(
                     RoundedRectangle(cornerRadius: 12)
                       .stroke(Color.gray, lineWidth: 1)
                     )
-            }
+            } //: GROUP
 
+            Spacer()
+
+            // Payment Options
             Group {
               Text("Select Method")
-                .font(.system(size: 14).bold())
+                .font(.subheadline.weight(.bold))
                 .foregroundColor(Color("deepGreen"))
                 .frame(width: UIScreen.screenWidth - 60, alignment: .leading)
 
               PaymentMethods()
-                //.padding(.horizontal)
-            }
+            } //: GROUP
 
+            // UPI Quote
             HStack {
               Image("safeUPI")
 
               Text("100% Secure & Safe Payments")
-                .font(.system(size: 10).bold())
+                .font(.caption2.weight(.bold))
                 .foregroundColor(.gray)
                 .offset(y: -7)
             }
             .frame(height: 34, alignment: .center)
 
-            HStack {
-              Text("Total Savings")
-                .font(.system(size: 14).bold())
-                .foregroundColor(.gray)
+            Spacer()
 
-              Spacer()
+            Group {
+              // Savings
+              HStack {
+                Text("Total Savings")
+                  .font(.subheadline.weight(.bold))
+                  .foregroundColor(.gray)
 
-              Text("$\(savings, specifier: "%.2f")")
-                .font(.system(size: 14).bold())
-                .foregroundColor(.orange)
+                Spacer()
+
+                Text("$\(savings, specifier: "%.2f")")
+                  .font(.subheadline.weight(.bold))
+                  .foregroundColor(.orange)
+              }
+              .padding(.horizontal)
+              .padding(.vertical, 8)
+
+              // Amount To Pay
+              HStack {
+                Text("Total Amount To Pay")
+                  .font(.subheadline.weight(.bold))
+                  .foregroundColor(.gray)
+
+                Spacer()
+
+                Text("$\(amountToPay, specifier: "%.2f")")
+                  .font(.title.weight(.bold))
+                  .foregroundColor(Color("textGreen"))
+              }
+              .padding(.horizontal)
             }
-            .padding(.horizontal)
-            .padding(.vertical, 8)
 
-            HStack {
-              Text("Total Amount To Pay")
-                .font(.system(size: 14).bold())
-                .foregroundColor(.gray)
-
-              Spacer()
-
-              Text("$\(amountToPay, specifier: "%.2f")")
-                .font(.system(size: 32).bold())
-                .foregroundColor(Color("textGreen"))
-            }
-            .padding(.horizontal)
+            Spacer()
 
             Button(action: {
               // payment url
@@ -116,15 +129,13 @@ struct PaymentBottomView: View {
               BottomButton(buttonText: "Pay", buttonColor: "textGreen", textColor: "white")
             })
 
-
+           // Spacer()
           }
           .padding()
-          .frame(width: UIScreen.screenWidth - 16, height: 3/4 * UIScreen.screenHeight, alignment: .bottom)
+          .frame(width: UIScreen.screenWidth - 16, height: 3/4 * UIScreen.screenHeight)
+          //.frame(width: UIScreen.screenWidth - 16, height: 3/4 * UIScreen.screenHeight, alignment: .bottom)
         }
       }
-      //.offset(y: 90)
-
-    
     }
 }
 

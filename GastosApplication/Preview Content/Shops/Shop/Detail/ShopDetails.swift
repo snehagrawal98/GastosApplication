@@ -11,8 +11,8 @@ struct ShopDetails: View {
     var body: some View {
       HStack {
         Text("Food & Beverage")
-          .font(.system(size: 14).weight(.bold))
-          .frame(width: 165, height: 36)
+          .font(.subheadline.weight(.bold))
+          .frame(width: 0.44 * UIScreen.screenWidth, height: 0.046 * UIScreen.screenHeight )
           .background(Color("textGreen"))
           .foregroundColor(.white)
           .cornerRadius(14)
@@ -26,7 +26,7 @@ struct ShopDetails: View {
         }
         .foregroundColor(Color("textGreen"))
         .padding(.horizontal, 4)
-        .font(.system(size: 12).weight(.bold))
+        .font(.caption.weight(.bold))
 
 
         HStack {
@@ -37,7 +37,7 @@ struct ShopDetails: View {
         }
         .foregroundColor(Color("textGreen"))
         .padding(.horizontal, 4)
-        .font(.system(size: 12).weight(.bold))
+        .font(.caption.weight(.bold))
       }
     }
 }
