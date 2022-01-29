@@ -6,8 +6,11 @@
 //
 
 import SwiftUI
+import Firebase
 
 struct HomeTab: View {
+
+  @AppStorage("log_Status") var status = false
     
     private var columns: [GridItem] = [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())]
     
@@ -21,6 +24,15 @@ struct HomeTab: View {
                 Text("Hey Tarun!")
                     .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
                 Spacer()
+
+                Button(action: {
+                      // logging out
+                      try? Auth.auth().signOut()
+                      withAnimation{ status = false }
+                    }, label: {
+                      Text("LogOut")
+                    })
+
                 
                 NavigationLink(
                     destination: UserProfile(),

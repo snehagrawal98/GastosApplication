@@ -8,20 +8,45 @@
 import SwiftUI
 
 struct ContentView: View {
+  @AppStorage("log_Status") var status = false
     
     @State private var showOnboardingScreen = true
-    
+
+  //  var body: some View {
+//
+//      ZStack {
+//        NavigationView {
+//          Group {
+//                if showOnboardingScreen {
+//                    OnbordingView(showOnboardingScreen: $showOnboardingScreen)
+//                } else {
+//                    EnterMobileNumber()
+//              }
+//          }
+//          .navigationBarHidden(true)
+//          .navigationBarBackButtonHidden(true)
+//        }
+//      }
+//    }
+// }
+
+
     var body: some View {
-        
-        Group {
-            if showOnboardingScreen {
-                OnbordingView(showOnboardingScreen: $showOnboardingScreen)
-            } else {
-                AuthenticationView()
-            }
+      ZStack {
+        if status {
+          SetPin()
+        } else {
+          NavigationView {
+            EnterMobileNumber()
+              .navigationBarHidden(true)
+              .navigationBarBackButtonHidden(true)
+          }
+
         }
+      }
     }
 }
+
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
