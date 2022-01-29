@@ -16,7 +16,7 @@ struct ProfilePage: View {
     @State private var emailAddress = ""
     @State private var code = ""
     @State var date = Date()
-
+  @State var showingVerified = false
     
     var body: some View {
         NavigationView{
@@ -76,9 +76,13 @@ struct ProfilePage: View {
                     Spacer()
                     Button(action: {
 //                        firebaseRegister.register(user: <#T##GUser#>)
+                      showingVerified.toggle()
                     }, label: {
                         Image(systemName: "chevron.right").font(.system(size: 20)).foregroundColor(.white).frame(width: 45, height: 45, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                     }).padding(3).background(Color("7")).clipShape(Circle()).padding()
+                    .fullScreenCover(isPresented: $showingVerified, content: {
+                        VerifiedSuccessfully()
+                    })
                 }
               
             }.navigationBarItems(leading: Image(systemName: "arrow.backward")).foregroundColor(Color("5")).edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)

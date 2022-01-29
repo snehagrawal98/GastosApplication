@@ -16,7 +16,7 @@ struct PaymentTopView: View {
         LinearGradient(gradient: Gradient(colors: [Color("deepGreen"), Color("textGreen")]), startPoint: .leading, endPoint: .trailing)
           .frame(width: UIScreen.screenWidth, height: UIScreen.screenHeight / 3, alignment: .top)
           .foregroundColor(Color("deepGreen"))
-          //.edgesIgnoringSafeArea(.all)
+          .edgesIgnoringSafeArea(.all)
           .cornerRadius(24, corners: [.bottomLeft, .bottomRight])
           .edgesIgnoringSafeArea(.all)
 

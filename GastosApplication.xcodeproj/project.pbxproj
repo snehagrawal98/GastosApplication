@@ -89,6 +89,11 @@
 		693D6C312799A9A700DF62C4 /* AboutUs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 693D6C302799A9A700DF62C4 /* AboutUs.swift */; };
 		693D6C372799AA2600DF62C4 /* PrivacyPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 693D6C362799AA2600DF62C4 /* PrivacyPolicy.swift */; };
 		693D6C392799AA5200DF62C4 /* TermsOfService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 693D6C382799AA5200DF62C4 /* TermsOfService.swift */; };
+		69E542E927A53E070096C821 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 69E542E827A53E070096C821 /* FirebaseAuth */; };
+		69E542ED27A53E700096C821 /* SipAndBite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69E542EC27A53E700096C821 /* SipAndBite.swift */; };
+		69E542EF27A541130096C821 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69E542EE27A541130096C821 /* LoginViewModel.swift */; };
+		69E542F127A5420C0096C821 /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69E542F027A5420C0096C821 /* AlertView.swift */; };
+		69E542F727A544510096C821 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 69E542F627A544510096C821 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -175,6 +180,11 @@
 		693D6C302799A9A700DF62C4 /* AboutUs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutUs.swift; sourceTree = "<group>"; };
 		693D6C362799AA2600DF62C4 /* PrivacyPolicy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicy.swift; sourceTree = "<group>"; };
 		693D6C382799AA5200DF62C4 /* TermsOfService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsOfService.swift; sourceTree = "<group>"; };
+		69E542EC27A53E700096C821 /* SipAndBite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SipAndBite.swift; sourceTree = "<group>"; };
+		69E542EE27A541130096C821 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		69E542F027A5420C0096C821 /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
+		69E542F627A544510096C821 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		69E542F827A544600096C821 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -182,6 +192,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				69E542E927A53E070096C821 /* FirebaseAuth in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -207,7 +218,9 @@
 		3F8777C8279433B300667C86 /* GastosApplication */ = {
 			isa = PBXGroup;
 			children = (
+				69E542F827A544600096C821 /* Info.plist */,
 				3F8777C9279433B300667C86 /* GastosApplicationApp.swift */,
+				69E542F627A544510096C821 /* GoogleService-Info.plist */,
 				3F8777CD279433BA00667C86 /* Assets.xcassets */,
 				3F8777CF279433BA00667C86 /* Preview Content */,
 			);
@@ -227,7 +240,6 @@
 				3F8777DC2794340E00667C86 /* ShopProfile.swift */,
 				3F8777D0279433BA00667C86 /* Preview Assets.xcassets */,
 				3F8777ED2794342F00667C86 /* Deals.swift */,
-				3F8778252794343100667C86 /* Entry Screens */,
 				3F8777FB2794343000667C86 /* ExpensesTab.swift */,
 				3F8778242794343100667C86 /* FavoriteTab.swift */,
 				3F8777FD2794343000667C86 /* HomeTab.swift */,
@@ -241,6 +253,7 @@
 				3F8777EA2794342E00667C86 /* Preview Content */,
 				3F8777FE2794343100667C86 /* Shops */,
 				3F87782D2794343200667C86 /* View */,
+				3F8778252794343100667C86 /* Entry Screens */,
 				3F87783E2794343200667C86 /* View Model */,
 			);
 			path = "Preview Content";
@@ -288,6 +301,7 @@
 		3F8777FE2794343100667C86 /* Shops */ = {
 			isa = PBXGroup;
 			children = (
+				69E542EA27A53E590096C821 /* Categories */,
 				3F8777FF2794343100667C86 /* Payments */,
 				3F87780A2794343100667C86 /* MainViews */,
 				3F87780D2794343100667C86 /* Shop */,
@@ -392,6 +406,7 @@
 				3F87782A2794343100667C86 /* VerifiedSuccessfully.swift */,
 				3F87782B2794343100667C86 /* EnterPin.swift */,
 				3F87782C2794343100667C86 /* OTPPin.swift */,
+				69E542F027A5420C0096C821 /* AlertView.swift */,
 			);
 			path = "Entry Screens";
 			sourceTree = "<group>";
@@ -439,6 +454,7 @@
 				3F87783F2794343200667C86 /* PageTabView.swift */,
 				3F8778402794343200667C86 /* TabDetailsView.swift */,
 				3F8778412794343200667C86 /* FirebaseViewModel.swift */,
+				69E542EE27A541130096C821 /* LoginViewModel.swift */,
 			);
 			path = "View Model";
 			sourceTree = "<group>";
@@ -461,6 +477,22 @@
 			path = MainViews;
 			sourceTree = "<group>";
 		};
+		69E542EA27A53E590096C821 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				69E542EB27A53E650096C821 /* MainViews */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		69E542EB27A53E650096C821 /* MainViews */ = {
+			isa = PBXGroup;
+			children = (
+				69E542EC27A53E700096C821 /* SipAndBite.swift */,
+			);
+			path = MainViews;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -477,6 +509,9 @@
 			dependencies = (
 			);
 			name = GastosApplication;
+			packageProductDependencies = (
+				69E542E827A53E070096C821 /* FirebaseAuth */,
+			);
 			productName = GastosApplication;
 			productReference = 3F8777C6279433B300667C86 /* GastosApplication.app */;
 			productType = "com.apple.product-type.application";
@@ -505,6 +540,9 @@
 				Base,
 			);
 			mainGroup = 3F8777BD279433B300667C86;
+			packageReferences = (
+				69E542E727A53E070096C821 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = 3F8777C7279433B300667C86 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -521,6 +559,7 @@
 			files = (
 				3F8777D1279433BA00667C86 /* Preview Assets.xcassets in Resources */,
 				3F8778422794343200667C86 /* Preview Assets.xcassets in Resources */,
+				69E542F727A544510096C821 /* GoogleService-Info.plist in Resources */,
 				3F8778512794343200667C86 /* Launch Screen.storyboard in Resources */,
 				3F8777CE279433BA00667C86 /* Assets.xcassets in Resources */,
 			);
@@ -570,6 +609,7 @@
 				3F87785E2794343200667C86 /* Payment.swift in Sources */,
 				3F8778802794343300667C86 /* PieChartWindow.swift in Sources */,
 				3F8778862794343300667C86 /* PageTabView.swift in Sources */,
+				69E542ED27A53E700096C821 /* SipAndBite.swift in Sources */,
 				3F8778682794343200667C86 /* NearbyFood.swift in Sources */,
 				3F87784D2794343200667C86 /* KeyboardPad.swift in Sources */,
 				3F87786D2794343300667C86 /* NearbySalon.swift in Sources */,
@@ -588,6 +628,7 @@
 				3F8778602794343200667C86 /* PaymentMethods.swift in Sources */,
 				3F8778522794343200667C86 /* HomeTab.swift in Sources */,
 				3F8778492794343200667C86 /* PaymentSuccess.swift in Sources */,
+				69E542F127A5420C0096C821 /* AlertView.swift in Sources */,
 				3F8777E82794340F00667C86 /* Text.swift in Sources */,
 				3F87786A2794343200667C86 /* Nearby.swift in Sources */,
 				3F8778712794343300667C86 /* EnterMobileNumber.swift in Sources */,
@@ -600,6 +641,7 @@
 				3F8778432794343200667C86 /* PieCharts.swift in Sources */,
 				3F8778782794343300667C86 /* OTPView.swift in Sources */,
 				693D6C372799AA2600DF62C4 /* PrivacyPolicy.swift in Sources */,
+				69E542EF27A541130096C821 /* LoginViewModel.swift in Sources */,
 				3F8777E22794340F00667C86 /* Places.swift in Sources */,
 				3F8778792794343300667C86 /* Gullak.swift in Sources */,
 				3F8778532794343200667C86 /* Pending.swift in Sources */,
@@ -744,6 +786,7 @@
 				DEVELOPMENT_TEAM = 9FQ2FNLF2H;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = GastosApplication/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -773,6 +816,7 @@
 				DEVELOPMENT_TEAM = 9FQ2FNLF2H;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = GastosApplication/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -813,6 +857,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		69E542E727A53E070096C821 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		69E542E827A53E070096C821 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 69E542E727A53E070096C821 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 3F8777BE279433B300667C86 /* Project object */;
 }
