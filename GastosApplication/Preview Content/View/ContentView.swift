@@ -34,7 +34,8 @@ struct ContentView: View {
     var body: some View {
       ZStack {
         if status {
-          SetPin()
+          // change to SetPin view after phone call testing
+          ShopView()
         } else {
           NavigationView {
             EnterMobileNumber()

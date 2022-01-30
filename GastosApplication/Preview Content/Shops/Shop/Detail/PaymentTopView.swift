@@ -10,6 +10,7 @@ import SwiftUI
 struct PaymentTopView: View {
   @State var shopName: String
   @State var shopAddress: String
+  @State var isShowingShop = false
 
     var body: some View {
       ZStack {
@@ -23,7 +24,7 @@ struct PaymentTopView: View {
         VStack(alignment: .leading) {
           HStack {
             Button(action: {
-              ShopView()
+              isShowingShop.toggle()
             }, label: {
               Image(systemName: "arrow.left")
                 .resizable()
@@ -32,7 +33,9 @@ struct PaymentTopView: View {
             })
               .padding(.horizontal, 24)
               .padding(.top, UIApplication.shared.windows.first?.safeAreaInsets.top)
-
+              .fullScreenCover(isPresented: $isShowingShop, content: {
+                ShopView()
+              })
 
             Spacer()
           }
