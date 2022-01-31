@@ -6,10 +6,12 @@
 //
 
 import SwiftUI
+import UIKit
 
 struct ContactUs: View {
   @State var contactName: String
   @State var address: String
+  var strNumber = "911234567890"
 
     var body: some View {
       VStack {
@@ -26,6 +28,10 @@ struct ContactUs: View {
           Spacer()
           Button(action: {
             // call shop
+            let tel = "tel://"
+            let formattedString = tel + strNumber
+            guard let url = URL(string: formattedString) else { return }
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
           }, label: {
             VStack {
               Image(systemName: "phone.fill.arrow.up.right")

@@ -6,9 +6,11 @@
 //
 
 import SwiftUI
+import UIKit
 
 struct ShopView: View {
     @State var shopName = "Cafe Bistro"
+    @State var isShowingPayments = false
 
     var body: some View {
       VStack {
@@ -74,11 +76,16 @@ struct ShopView: View {
 
         // Pay button
         Button(action: {
-          Payment(shopName: "Sai-Mart", shopAddress: "43-BD, Delhi", discount: 10.0)
+          isShowingPayments.toggle()
         }, label: {
           BottomButton(buttonText: "Pay", buttonColor: "textGreen", textColor: "white")
             .font(.headline)
         })
+          .fullScreenCover(isPresented: $isShowingPayments, content: {
+            Payment(shopName: "Sai-Mart", shopAddress: "43-BD, Delhi", discount: 10.0)
+          })
+
+          
         
         Spacer()
       } //: VSTACK
