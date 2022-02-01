@@ -32,7 +32,7 @@ class LoginViewModel: ObservableObject {
 
     // enabling testing code
     // disable when you need to test with real device
-    Auth.auth().settings?.isAppVerificationDisabledForTesting = true
+    //Auth.auth().settings?.isAppVerificationDisabledForTesting = true
 
     let number = "+91\(phNo)"
     PhoneAuthProvider.provider().verifyPhoneNumber(number, uiDelegate: nil) { (CODE, err) in

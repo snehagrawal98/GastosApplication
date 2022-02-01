@@ -14,7 +14,6 @@ struct OTPPin: View {
   @Environment(\.dismiss) var dismiss
 
   var body: some View {
-    ZStack {
       ZStack{
             Image("Layer3").offset(x: 95.0, y: -300.0)
             VStack{
@@ -25,7 +24,7 @@ struct OTPPin: View {
 
                 HStack{
 
-                  TextField("Mobile Number", text: $loginData.code).textFieldStyle(MyTextFieldStyle())
+                  TextField("Enter OTP", text: $loginData.code).textFieldStyle(MyTextFieldStyle())
 
 
 //                    TextField("", text: $otp1).frame(width: 30, height: 30, alignment: .center).underlineTextField().keyboardType(.decimalPad)
@@ -59,28 +58,20 @@ struct OTPPin: View {
                   Button(action: loginData.verifyCode, label: {
                     Image(systemName: "chevron.right").font(.system(size: 25)).foregroundColor(.white).frame(width: 50, height: 50, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                 }).padding(3).background(Color("textGreen")).clipShape(Circle()).padding()
-//
-//                    .fullScreenCover(isPresented: $nextPin, content: {
-//                    SetPin()
-//                })
                 }
             }
       }
-
-      if loginData.error {
-        AlertView(msg: loginData.errorMsg, show: $loginData.error)
+      .alert(isPresented: $loginData.error) {
+        Alert(title: Text("Message"), message: Text(loginData.errorMsg), dismissButton: .default(Text("Ok")))
       }
-    }
   }
 }
 
-//struct OTPPin_Previews: PreviewProvider {
-//    static var previews: some View {
-//        OTPPin()
-//    }
-//}
-//
-
+struct OTPPin_Previews: PreviewProvider {
+    static var previews: some View {
+        OTPPin(loginData: LoginViewModel())
+    }
+}
 
 extension View {
   func underlineTextField() -> some View {
