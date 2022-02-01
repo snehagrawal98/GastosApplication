@@ -15,7 +15,6 @@ struct EnterMobileNumber: View {
   @State var countryCode = "+91"
 
   var body: some View {
-    ZStack {
       ZStack{
 
           Image("Layer").offset(x: 100.0, y: -250.0)
@@ -23,14 +22,12 @@ struct EnterMobileNumber: View {
 
           HStack{
             Text("Welcome to").fontWeight(.semibold).font(.system(size: 25)).foregroundColor(Color("5"))
-              //.shadow(radius: 3, x: 0.0, y: 5)
               .padding(.horizontal)
             Spacer()
           }
 
           HStack{
             Text("Gastos").fontWeight(.bold).font(.system(size: 40)).foregroundColor(Color("5"))
-             // .shadow(radius: 3, x: 5, y: 5)
               .padding(.horizontal)
             Spacer()
           }.padding(.bottom, 30)
@@ -57,19 +54,18 @@ struct EnterMobileNumber: View {
                 .hidden()
             }
 
-            Button(action: loginData.sendCode, label: {
+            Button(action: {
+              loginData.sendCode()
+            }, label: {
               Image(systemName: "chevron.right").font(.system(size: 25)).foregroundColor(.white).frame(width: 50, height: 50, alignment: .center)
             }).padding(3).background(Color("textGreen")).clipShape(Circle()).padding()
               .disabled(loginData.phNo == "" ? true : false)
           }
         }.padding(.vertical, 50)
       }
-
-      if loginData.error {
-        AlertView(msg: loginData.errorMsg, show: $loginData.error)
+      .alert(isPresented: $loginData.error) {
+        Alert(title: Text("Message"), message: Text(loginData.errorMsg), dismissButton: .default(Text("Ok")))
       }
-    }
-
   }
 }
 
@@ -78,7 +74,6 @@ struct EnterMobileNumber_Previews: PreviewProvider {
       EnterMobileNumber()
   }
 }
-
 
 
 extension View {

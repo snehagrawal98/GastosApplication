@@ -92,7 +92,6 @@
 		69E542E927A53E070096C821 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 69E542E827A53E070096C821 /* FirebaseAuth */; };
 		69E542ED27A53E700096C821 /* SipAndBite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69E542EC27A53E700096C821 /* SipAndBite.swift */; };
 		69E542EF27A541130096C821 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69E542EE27A541130096C821 /* LoginViewModel.swift */; };
-		69E542F127A5420C0096C821 /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69E542F027A5420C0096C821 /* AlertView.swift */; };
 		69E542F727A544510096C821 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 69E542F627A544510096C821 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
@@ -182,7 +181,6 @@
 		693D6C382799AA5200DF62C4 /* TermsOfService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsOfService.swift; sourceTree = "<group>"; };
 		69E542EC27A53E700096C821 /* SipAndBite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SipAndBite.swift; sourceTree = "<group>"; };
 		69E542EE27A541130096C821 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
-		69E542F027A5420C0096C821 /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
 		69E542F627A544510096C821 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		69E542F827A544600096C821 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -399,14 +397,13 @@
 		3F8778252794343100667C86 /* Entry Screens */ = {
 			isa = PBXGroup;
 			children = (
-				3F8778262794343100667C86 /* EnterMobileNumber.swift */,
 				3F8778272794343100667C86 /* SetPin.swift */,
+				3F8778262794343100667C86 /* EnterMobileNumber.swift */,
 				3F8778282794343100667C86 /* ProfilePage.swift */,
 				3F8778292794343100667C86 /* keyBoard.swift */,
 				3F87782A2794343100667C86 /* VerifiedSuccessfully.swift */,
 				3F87782B2794343100667C86 /* EnterPin.swift */,
 				3F87782C2794343100667C86 /* OTPPin.swift */,
-				69E542F027A5420C0096C821 /* AlertView.swift */,
 			);
 			path = "Entry Screens";
 			sourceTree = "<group>";
@@ -418,8 +415,8 @@
 				3F87782F2794343200667C86 /* ProfileView */,
 				3F8778372794343200667C86 /* ChartsView */,
 				3F87783B2794343200667C86 /* AuthenticationView.swift */,
-				3F87783C2794343200667C86 /* OnbordingView.swift */,
 				3F87783D2794343200667C86 /* ContentView.swift */,
+				3F87783C2794343200667C86 /* OnbordingView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -628,7 +625,6 @@
 				3F8778602794343200667C86 /* PaymentMethods.swift in Sources */,
 				3F8778522794343200667C86 /* HomeTab.swift in Sources */,
 				3F8778492794343200667C86 /* PaymentSuccess.swift in Sources */,
-				69E542F127A5420C0096C821 /* AlertView.swift in Sources */,
 				3F8777E82794340F00667C86 /* Text.swift in Sources */,
 				3F87786A2794343200667C86 /* Nearby.swift in Sources */,
 				3F8778712794343300667C86 /* EnterMobileNumber.swift in Sources */,
