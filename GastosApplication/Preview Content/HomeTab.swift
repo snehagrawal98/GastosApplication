@@ -14,6 +14,8 @@ struct HomeTab: View {
     
     private var columns: [GridItem] = [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())]
     
+    @State var image = ["Rectangle1","Rectangle2","Rectangle3","Rectangle4","Rectangle5"]
+    @State var categories = ["Sip & Bite","Beauty & Care","Style & Trends","Haelth & Medico","Daily Needs"]
     var body: some View {
         
         
@@ -22,24 +24,24 @@ struct HomeTab: View {
         VStack(content: {
             HStack {
                 Text("Hey Tarun!")
-                    .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+                    .font(.system(size: 25, weight: .regular, design: .default))
                 Spacer()
 
-                Button(action: {
-                      // logging out
-                      try? Auth.auth().signOut()
-                      withAnimation{ status = false }
-                    }, label: {
-                      Text("LogOut")
-                    })
+//                Button(action: {
+//                      // logging out
+//                      try? Auth.auth().signOut()
+//                      withAnimation{ status = false }
+//                    }, label: {
+//                      Text("LogOut")
+//                    })
 
                 
                 NavigationLink(
                     destination: UserProfile(),
                     label: {
-                        Image(systemName: "bell.badge")
-                            .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
-                            .foregroundColor(.green)
+                        Image(systemName: "bell.fill")
+                            .font(.system(size: 20))
+                            .foregroundColor(.black)
 
                     })
                     .navigationTitle("")
@@ -109,56 +111,51 @@ struct HomeTab: View {
                         RoundedRectangle(cornerRadius: /*@START_MENU_TOKEN@*/25.0/*@END_MENU_TOKEN@*/)
                             .foregroundColor(Color("5"))
                     }
-                    .frame(width: Constants.sW - 64, height: Constants.sH * 0.3, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                    .frame(width: Constants.sW - 24, height: Constants.sH * 0.3, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
 
                 })
                 .navigationTitle("")
                 .navigationBarHidden(true)
 //                .navigationBarBackButtonHidden(true)
             
-            LazyVGrid(columns: columns, content: {
+            HStack(spacing:-15){
                 
-                ForEach(0..<7) { i in
+                ForEach(image, id: \.self) { i in
                     
                     NavigationLink(
                         destination: Places(),
                         label: {
-                            VStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: /*@START_MENU_TOKEN@*/nil/*@END_MENU_TOKEN@*/, content: {
+                            ZStack {
                                 
                                 
-                                RoundedRectangle(cornerRadius: 10)
-                                    .frame(width: Constants.sH * 0.08, height: Constants.sH * 0.08, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                                Text("\(HomeCategories.allCases[i].rawValue)")
-                                    .fixedSize()
-                                    .font(.caption)
-                                    .lineLimit(0)
-                            })
+                                Image(i).resizable()
+                                    .frame(width: 95, height:200, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                                
+                               
+                            }
 
                         })
-                        .navigationBarHidden(true)
-                        .navigationTitle("")
-                        .navigationBarBackButtonHidden(true)
-                        .navigationBarTitle("")
-                }
-            })
-            .padding(.horizontal)
+                
+                       
+                
+            }
+            }
+            
             .padding(.top)
             
-            ScrollView(.horizontal, showsIndicators: false, content: {
-                HStack {
-                    ForEach(0..<10) { i in
-                        Rectangle()
-                            .fill(LinearGradient(gradient: Gradient(colors: [Color.blue, Color.green]), startPoint: /*@START_MENU_TOKEN@*/.leading/*@END_MENU_TOKEN@*/, endPoint: /*@START_MENU_TOKEN@*/.trailing/*@END_MENU_TOKEN@*/))
-                            .frame(width: 230, height: Constants.sH * 0.2, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                            .cornerRadius(10)
-                            .shadow(color: .black, radius: 5, x: /*@START_MENU_TOKEN@*/0.0/*@END_MENU_TOKEN@*/, y: /*@START_MENU_TOKEN@*/0.0/*@END_MENU_TOKEN@*/)
-                    }
-                    .padding()
-                }
-            })
-            .edgesIgnoringSafeArea(.all)
-            .frame(height: Constants.sH * 0.2)
-            .padding(.leading)
+//            ScrollView(.horizontal, showsIndicators: false, content: {
+//                HStack {
+//                    ForEach(0..<10) { i in
+//                        Rectangle()
+//                            .fill(LinearGradient(gradient: Gradient(colors: [Color.blue, Color.green]), startPoint: /*@START_MENU_TOKEN@*/.leading/*@END_MENU_TOKEN@*/, endPoint: /*@START_MENU_TOKEN@*/.trailing/*@END_MENU_TOKEN@*/))
+//                            .frame(width: 230, height: Constants.sH * 0.2, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+//                            .cornerRadius(10)
+//                            .shadow(color: .black, radius: 5, x: /*@START_MENU_TOKEN@*/0.0/*@END_MENU_TOKEN@*/, y: /*@START_MENU_TOKEN@*/0.0/*@END_MENU_TOKEN@*/)
+//                    }
+//                    .padding()
+//                }
+//            })
+            
             
             Spacer()
 
@@ -169,13 +166,12 @@ struct HomeTab: View {
 }
 
 enum HomeCategories: String, CaseIterable {
-    case food = "Food"
-    case beverage = "Beverage"
-    case clothing = "Clothing"
-    case salon = "Salon"
-    case stores = "Stores"
-    case health = "Health"
-    case others = "Others"
+    case food = "Sip and Bite"
+    case beauty = "Beauty & Care"
+    case clothing = "Style & Trends"
+    case medical = "Health and Medico"
+    case daily = "Daily Needs"
+    
 }
 
 struct HomeTab_Previews: PreviewProvider {

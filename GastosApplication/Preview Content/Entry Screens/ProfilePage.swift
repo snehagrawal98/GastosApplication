@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ProfilePage: View {
     
-    @ObservedObject var firebaseRegister = FirebaseViewModel()
+  //  @ObservedObject var firebaseRegister = FirebaseViewModel()
     
     @State private var firstName = ""
     @State private var lastName = ""

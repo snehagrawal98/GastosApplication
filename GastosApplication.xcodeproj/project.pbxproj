@@ -23,12 +23,7 @@
 		3F8778442794343200667C86 /* Deals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8777ED2794342F00667C86 /* Deals.swift */; };
 		3F8778452794343200667C86 /* MainTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8777EE2794342F00667C86 /* MainTab.swift */; };
 		3F8778462794343200667C86 /* NewPayment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8777EF2794342F00667C86 /* NewPayment.swift */; };
-		3F8778472794343200667C86 /* PaymentDecline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8777F12794342F00667C86 /* PaymentDecline.swift */; };
 		3F8778482794343200667C86 /* ShopProfileScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8777F22794342F00667C86 /* ShopProfileScreen.swift */; };
-		3F8778492794343200667C86 /* PaymentSuccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8777F32794342F00667C86 /* PaymentSuccess.swift */; };
-		3F87784A2794343200667C86 /* BillSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8777F42794342F00667C86 /* BillSummary.swift */; };
-		3F87784B2794343200667C86 /* BillAmount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8777F52794342F00667C86 /* BillAmount.swift */; };
-		3F87784C2794343200667C86 /* Bill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8777F62794342F00667C86 /* Bill.swift */; };
 		3F87784D2794343200667C86 /* KeyboardPad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8777F72794342F00667C86 /* KeyboardPad.swift */; };
 		3F87784E2794343200667C86 /* GUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8777F92794343000667C86 /* GUser.swift */; };
 		3F87784F2794343200667C86 /* OnboardingData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8777FA2794343000667C86 /* OnboardingData.swift */; };
@@ -111,12 +106,7 @@
 		3F8777ED2794342F00667C86 /* Deals.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Deals.swift; sourceTree = "<group>"; };
 		3F8777EE2794342F00667C86 /* MainTab.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTab.swift; sourceTree = "<group>"; };
 		3F8777EF2794342F00667C86 /* NewPayment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewPayment.swift; sourceTree = "<group>"; };
-		3F8777F12794342F00667C86 /* PaymentDecline.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentDecline.swift; sourceTree = "<group>"; };
 		3F8777F22794342F00667C86 /* ShopProfileScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShopProfileScreen.swift; sourceTree = "<group>"; };
-		3F8777F32794342F00667C86 /* PaymentSuccess.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentSuccess.swift; sourceTree = "<group>"; };
-		3F8777F42794342F00667C86 /* BillSummary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BillSummary.swift; sourceTree = "<group>"; };
-		3F8777F52794342F00667C86 /* BillAmount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BillAmount.swift; sourceTree = "<group>"; };
-		3F8777F62794342F00667C86 /* Bill.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bill.swift; sourceTree = "<group>"; };
 		3F8777F72794342F00667C86 /* KeyboardPad.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardPad.swift; sourceTree = "<group>"; };
 		3F8777F92794343000667C86 /* GUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GUser.swift; sourceTree = "<group>"; };
 		3F8777FA2794343000667C86 /* OnboardingData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingData.swift; sourceTree = "<group>"; };
@@ -273,12 +263,7 @@
 		3F8777F02794342F00667C86 /* Payment Screens */ = {
 			isa = PBXGroup;
 			children = (
-				3F8777F12794342F00667C86 /* PaymentDecline.swift */,
 				3F8777F22794342F00667C86 /* ShopProfileScreen.swift */,
-				3F8777F32794342F00667C86 /* PaymentSuccess.swift */,
-				3F8777F42794342F00667C86 /* BillSummary.swift */,
-				3F8777F52794342F00667C86 /* BillAmount.swift */,
-				3F8777F62794342F00667C86 /* Bill.swift */,
 			);
 			path = "Payment Screens";
 			sourceTree = "<group>";
@@ -563,16 +548,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3F87784A2794343200667C86 /* BillSummary.swift in Sources */,
 				3F8778502794343200667C86 /* ExpensesTab.swift in Sources */,
 				3F8777E62794340F00667C86 /* MapScreen.swift in Sources */,
 				3F8778622794343200667C86 /* PaymentMethod.swift in Sources */,
 				3F8778722794343300667C86 /* SetPin.swift in Sources */,
 				3F87785C2794343200667C86 /* LocalMarket.swift in Sources */,
-				3F8778472794343200667C86 /* PaymentDecline.swift in Sources */,
 				3F87786F2794343300667C86 /* NearbyFashion.swift in Sources */,
 				3F8777E32794340F00667C86 /* Constants.swift in Sources */,
-				3F87784C2794343200667C86 /* Bill.swift in Sources */,
 				3F8778562794343200667C86 /* BottomButton.swift in Sources */,
 				3F87785F2794343200667C86 /* ShopDetails.swift in Sources */,
 				3F8778762794343300667C86 /* EnterPin.swift in Sources */,
@@ -618,7 +600,6 @@
 				3F8778812794343300667C86 /* BarCharts.swift in Sources */,
 				3F8778602794343200667C86 /* PaymentMethods.swift in Sources */,
 				3F8778522794343200667C86 /* HomeTab.swift in Sources */,
-				3F8778492794343200667C86 /* PaymentSuccess.swift in Sources */,
 				3F8777E82794340F00667C86 /* Text.swift in Sources */,
 				3F87786A2794343200667C86 /* Nearby.swift in Sources */,
 				3F8778712794343300667C86 /* EnterMobileNumber.swift in Sources */,
@@ -638,7 +619,6 @@
 				3F8778642794343200667C86 /* ShopImages.swift in Sources */,
 				3F87786B2794343200667C86 /* Trending.swift in Sources */,
 				3F8778542794343200667C86 /* Success.swift in Sources */,
-				3F87784B2794343200667C86 /* BillAmount.swift in Sources */,
 				3F8778612794343200667C86 /* PaymentBottomView.swift in Sources */,
 				3F8777E92794340F00667C86 /* DealsTab.swift in Sources */,
 			);
