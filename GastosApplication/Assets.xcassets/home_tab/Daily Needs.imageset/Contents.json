@@ -1,15 +1,16 @@
 {
   "images" : [
     {
-      "filename" : "Rectangle 748.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "Daily Needs@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "Daily Needs@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
