@@ -79,11 +79,11 @@
 		3F8778852794343300667C86 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F87783D2794343200667C86 /* ContentView.swift */; };
 		3F8778862794343300667C86 /* PageTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F87783F2794343200667C86 /* PageTabView.swift */; };
 		3F8778872794343300667C86 /* TabDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8778402794343200667C86 /* TabDetailsView.swift */; };
+		691EE3D127AC1B5100A3AF43 /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 691EE3D027AC1B5100A3AF43 /* CategoryView.swift */; };
 		693D6C312799A9A700DF62C4 /* AboutUs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 693D6C302799A9A700DF62C4 /* AboutUs.swift */; };
 		693D6C372799AA2600DF62C4 /* PrivacyPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 693D6C362799AA2600DF62C4 /* PrivacyPolicy.swift */; };
 		693D6C392799AA5200DF62C4 /* TermsOfService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 693D6C382799AA5200DF62C4 /* TermsOfService.swift */; };
 		6956654127AAB98300DD4928 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 6956654027AAB98300DD4928 /* FirebaseAuth */; };
-		69E542ED27A53E700096C821 /* SipAndBite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69E542EC27A53E700096C821 /* SipAndBite.swift */; };
 		69E542EF27A541130096C821 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69E542EE27A541130096C821 /* LoginViewModel.swift */; };
 		69E542F727A544510096C821 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 69E542F627A544510096C821 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
@@ -162,10 +162,10 @@
 		3F87783D2794343200667C86 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		3F87783F2794343200667C86 /* PageTabView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageTabView.swift; sourceTree = "<group>"; };
 		3F8778402794343200667C86 /* TabDetailsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabDetailsView.swift; sourceTree = "<group>"; };
+		691EE3D027AC1B5100A3AF43 /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
 		693D6C302799A9A700DF62C4 /* AboutUs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutUs.swift; sourceTree = "<group>"; };
 		693D6C362799AA2600DF62C4 /* PrivacyPolicy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicy.swift; sourceTree = "<group>"; };
 		693D6C382799AA5200DF62C4 /* TermsOfService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsOfService.swift; sourceTree = "<group>"; };
-		69E542EC27A53E700096C821 /* SipAndBite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SipAndBite.swift; sourceTree = "<group>"; };
 		69E542EE27A541130096C821 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		69E542F627A544510096C821 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		69E542F827A544600096C821 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -464,7 +464,7 @@
 		69E542EB27A53E650096C821 /* MainViews */ = {
 			isa = PBXGroup;
 			children = (
-				69E542EC27A53E700096C821 /* SipAndBite.swift */,
+				691EE3D027AC1B5100A3AF43 /* CategoryView.swift */,
 			);
 			path = MainViews;
 			sourceTree = "<group>";
@@ -582,7 +582,6 @@
 				3F87785E2794343200667C86 /* Payment.swift in Sources */,
 				3F8778802794343300667C86 /* PieChartWindow.swift in Sources */,
 				3F8778862794343300667C86 /* PageTabView.swift in Sources */,
-				69E542ED27A53E700096C821 /* SipAndBite.swift in Sources */,
 				3F8778682794343200667C86 /* NearbyFood.swift in Sources */,
 				3F87784D2794343200667C86 /* KeyboardPad.swift in Sources */,
 				3F87786D2794343300667C86 /* NearbySalon.swift in Sources */,
@@ -614,6 +613,7 @@
 				693D6C372799AA2600DF62C4 /* PrivacyPolicy.swift in Sources */,
 				69E542EF27A541130096C821 /* LoginViewModel.swift in Sources */,
 				3F8777E22794340F00667C86 /* Places.swift in Sources */,
+				691EE3D127AC1B5100A3AF43 /* CategoryView.swift in Sources */,
 				3F8778792794343300667C86 /* Gullak.swift in Sources */,
 				3F8778532794343200667C86 /* Pending.swift in Sources */,
 				3F8778642794343200667C86 /* ShopImages.swift in Sources */,

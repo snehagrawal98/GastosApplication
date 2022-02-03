@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct MainView: View {
-  @State var selectedTab = 0
+  @State var selectedTab: Int
 
   var body: some View {
     TabView(selection: $selectedTab) {
@@ -30,7 +30,7 @@ struct MainView: View {
         .tag(1)
 
       // Home Tab
-      ProgressView()
+      HomeTab()
         .tabItem {
           if selectedTab == 2 {
             Image("HomeTab")
@@ -63,6 +63,6 @@ struct MainView: View {
 
 struct MainView_Previews: PreviewProvider {
     static var previews: some View {
-        MainView()
+      MainView(selectedTab: 2)
     }
 }

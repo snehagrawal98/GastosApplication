@@ -10,17 +10,12 @@ import Firebase
 
 struct HomeTab: View {
 
-  @AppStorage("log_Status") var status = false
-    
-    private var columns: [GridItem] = [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())]
-    
+    @AppStorage("log_Status") var status = false
     @State var images = ["Sip & Bite", "Beauty & Care", "Style & Trends", "Health & Medico", "Daily Needs"]
-    @State var categories = ["Sip & Bite","Beauty & Care","Style & Trends","Health & Medico","Daily Needs"]
-    var body: some View {
-        
-        
-      NavigationView(content: {
+    @State var adImages = ["PhonePeAd"]
 
+    var body: some View {
+      NavigationView(content: {
         VStack(content: {
           HStack {
             Text("Hey Sahgal!")
@@ -48,7 +43,6 @@ struct HomeTab: View {
               .navigationTitle("")
               .navigationBarHidden(true)
               .navigationBarBackButtonHidden(true)
-              .edgesIgnoringSafeArea(.all)
           }
           .padding(.horizontal)
 
@@ -117,55 +111,49 @@ struct HomeTab: View {
             })
             .navigationTitle("")
             .navigationBarHidden(true)
-          //                .navigationBarBackButtonHidden(true)
 
+          // Categories
           HStack(spacing: -10){
-
             ForEach(images, id: \.self) { image in
-
               NavigationLink(
-                destination: Places(),
+                destination: CategoryView(title: image)
+                  .navigationBarHidden(true)
+                  .navigationBarBackButtonHidden(false),
                 label: {
                   ZStack {
-                    CategoryView(image: image)
+                    CategoryImage(image: image)
                   }
                 })
             }
           }
+          .padding()
 
-          .padding(.top)
-
-          //            ScrollView(.horizontal, showsIndicators: false, content: {
-          //                HStack {
-          //                    ForEach(0..<10) { i in
-          //                        Rectangle()
-          //                            .fill(LinearGradient(gradient: Gradient(colors: [Color.blue, Color.green]), startPoint: .leading/*@END_MENU_TOKEN@*/, endPoint: /*@START_MENU_TOKEN@*/.trailing))
-          //                            .frame(width: 230, height: Constants.sH * 0.2, alignment: .center)
-          //                            .cornerRadius(10)
-          //                            .shadow(color: .black, radius: 5, x: 0.0/*@END_MENU_TOKEN@*/, y: /*@START_MENU_TOKEN@*/0.0)
-          //                    }
-          //                    .padding()
-          //                }
-          //            })
-
-
+          // Ad Images
+          ScrollView(.horizontal) {
+            HStack {
+              ForEach(adImages, id: \.self) { adImage in
+                Image(adImage)
+                  .resizable()
+                  .scaledToFit()
+                  .frame(width: 0.71 * UIScreen.screenWidth, height: 0.142 * UIScreen.screenHeight, alignment: .center)
+              }
+            }
+          }
+          .padding(.horizontal)
           Spacer()
-
         })
-
       })
     }
 }
 
 struct HomeTab_Previews: PreviewProvider {
     static var previews: some View {
-       //CategoryView(image: "Sip & Bite")
       HomeTab()
     }
 }
 
 // Category View
-struct CategoryView: View {
+struct CategoryImage: View {
   @State var image: String
   var body: some View {
     ZStack {
