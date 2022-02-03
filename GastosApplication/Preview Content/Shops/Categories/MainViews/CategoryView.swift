@@ -1,58 +1,54 @@
 //
-//  SipAndBite.swift
+//  CategoryView.swift
 //  GastosApplication
 //
-//  Created by Sai Kumar Kasireddi's MacBook on 29/01/22.
+//  Created by Sai Kumar Kasireddi's MacBook on 03/02/22.
 //
 
 import SwiftUI
 
-struct SipAndBite: View {
+struct CategoryView: View {
+  @State var didBack = false
   @State var searchText = ""
   @State var isSearching = false
+  @State var title: String
+    var body: some View {
+      NavigationView {
+        ScrollView(.vertical) {
+            // Navigation Bar
+            HStack {
+              Button(action: {
+                withAnimation{ didBack.toggle() }
+              }, label: {
+                Image(systemName: "arrow.left")
+                  .resizable()
+                  .scaledToFit()
+                  .frame(width: 25, height: 12.5)
+                  .foregroundColor(.primary)
+              })
+                .fullScreenCover(isPresented: $didBack, content: { MainView(selectedTab: 2) })
 
-  var body: some View {
-    ScrollView(.vertical) {
-
-      // Navigation Bar
-      HStack {
-        Image(systemName: "arrow.left")
-          .resizable()
-          .scaledToFit()
-          .frame(width: 25, height: 12.5)
-
-        CategoriesTitleView(title: "Sip & Bite")
-          .padding(.leading)
-        Spacer()
-      }
-      .padding()
-
-      SearchBar(searchText: $searchText, isSearching: $isSearching)
-
-      // Search Function
-      ForEach((1..<1).filter({ "\($0)".contains(searchText) || searchText.isEmpty }), id: \.self) { shop in
-
-          HStack {
-              Text("\(shop)")
+              CategoriesTitleView(title: title)
+                .padding(.leading)
               Spacer()
-          }.padding()
+            }
+            .padding()
 
-          Divider()
-              .background(Color(.systemGray4))
-              .padding(.leading)
+          SearchBar(searchText: $searchText, isSearching: $isSearching)
+
+          Nearby()
+
+          Trending()
+        }
+        .navigationBarHidden(true)
       }
-
-      Nearby()
-
-      Trending()
     }
-  }
 }
 
-struct SipAndBite_Previews: PreviewProvider {
-  static var previews: some View {
-      SipAndBite()
-  }
+struct CategoryView_Previews: PreviewProvider {
+    static var previews: some View {
+      CategoryView(title: "Sip And Bite")
+    }
 }
 
 // CategoriesTitleView
@@ -64,7 +60,6 @@ var body: some View {
     .foregroundColor(Color("deepGreen"))
 }
 }
-
 
 // Search bar
 struct SearchBar: View {
