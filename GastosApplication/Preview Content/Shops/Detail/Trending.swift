@@ -8,21 +8,50 @@
 import SwiftUI
 
 struct Trending: View {
+    @ObservedObject private var shopsViewModel: ShopsViewModel = ShopsViewModel()
+    
     var body: some View {
-      VStack(alignment: .leading) {
-        Text("Trending")
-          .title3TextStyle()
-          .padding(.horizontal)
-          .padding(.vertical, 8)
+        NavigationView {
+            VStack(alignment: .leading) {
+              Text("Trending")
+                .title3TextStyle()
+                .padding(.horizontal)
+                .padding(.vertical, 8)
+                .onAppear {
+                    shopsViewModel.getAllMerchants()
+                    print(shopsViewModel.shopInfo)
+                }
 
-        ScrollView {
-          VStack(alignment: .leading) {
-            ForEach(1..<10) {_ in
-              TrendingItem(itemImage: "foodItem", itemName: "Meat Pizza with Chicken", itemPlace: "Beyti Restaurant", itemRating: 4.8, itemRatings: 233)
-            }
-          } //: VSTACK
-        } //: SCROLL
-      } //: VSTACK
+              ScrollView {
+                VStack(alignment: .leading) {
+                    
+                    ForEach(shopsViewModel.shopInfo, id: \.self) { shops in
+                        
+                        NavigationLink {
+                            
+                            ShopView(shopName: shops.name ?? "No Shop", shopImagesUrl: shops.imageUrl ?? "https://picsum.photos/300/200")
+                            
+                        } label: {
+                            TrendingItem(itemImageUrl: shops.imageUrl ?? "https://picsum.photos/100", itemName: shops.name ?? "No Shop", itemPlace: "Beyti Restaurant", itemRating: 4.8, itemRatings: 233)
+
+                        }
+
+                    }
+                    .onAppear {
+                        shopsViewModel.getAllMerchants()
+                        print(shopsViewModel.shopInfo)
+                    }
+      //            ForEach(1..<10) {_ in
+      //              TrendingItem(itemImageUrl: "https://picsum.photos/100", itemName: "Meat Pizza with Chicken", itemPlace: "Beyti Restaurant", itemRating: 4.8, itemRatings: 233)
+      //            }
+                } //: VSTACK
+              } //: SCROLL
+            } //: VSTACK
+            .navigationBarHidden(true)
+            .navigationBarTitle("")
+
+        }
+      
     }
 }
 
@@ -34,7 +63,7 @@ struct Trending_Previews: PreviewProvider {
 
 // Trending Item
 struct TrendingItem: View {
-  var itemImage: String
+  var itemImageUrl: String
   var itemName: String
   var itemPlace: String
   var itemRating: Double
@@ -42,13 +71,21 @@ struct TrendingItem: View {
 
     var body: some View {
         HStack {
-          Image(itemImage)
+            AsyncImage(url: URL(string: itemImageUrl)) { images in
+                images.resizable()
+            } placeholder: {
+                ProgressView()
+                    .frame(width: 100, height: 100, alignment: .center)
+            }
+
+//          Image(itemImage)
 
           VStack(alignment: .leading) {
             VStack(alignment: .leading) {
               Text(itemName)
                 .normalTextStyle()
                 .padding(.bottom, 1)
+                .foregroundColor(.black)
 
               Text(itemPlace)
                 .subTextStyle()
@@ -61,6 +98,7 @@ struct TrendingItem: View {
 
               Text("\(itemRating, specifier: "%g")")
                 .subTextNumberStyle()
+                .foregroundColor(.black)
 
               Text("(\(itemRatings) ratings)")
                 .subTextStyle()

@@ -9,10 +9,16 @@ import SwiftUI
 import UIKit
 
 struct ShopView: View {
-    @State var shopName = "Cafe Bistro"
+    var shopName: String
+    var shopImagesUrl: String
+    @Environment(\.presentationMode) var presentationMode
+    
+    
     @State var isShowingPayments = false
 
     var body: some View {
+        
+        
       VStack {
         ZStack {
           Rectangle()
@@ -33,6 +39,9 @@ struct ShopView: View {
                 .frame(width: 22, height: 15, alignment: .leading)
                 .foregroundColor(Color("textGreen"))
                 .padding(.horizontal, 20)
+                .onTapGesture {
+                    self.presentationMode.wrappedValue.dismiss()
+                }
 
               Spacer()
 
@@ -48,7 +57,7 @@ struct ShopView: View {
 
             Spacer()
 
-            ShopImages()
+            ShopImages(shopImagesUrl: shopImagesUrl)
 
             Spacer()
             Spacer()
@@ -89,14 +98,16 @@ struct ShopView: View {
         
         Spacer()
       } //: VSTACK
+      .navigationBarBackButtonHidden(true)
+      .navigationBarHidden(true)
     }
 }
 
 struct ShopView_Previews: PreviewProvider {
     static var previews: some View {
-        ShopView()
+        ShopView(shopName: "Cafe Bistro", shopImagesUrl: "https://picsum.photos/300/200")
 
-        ShopView()
+        ShopView(shopName: "Cafe Bistro", shopImagesUrl: "https://picsum.photos/300/200")
         .previewDevice(PreviewDevice(rawValue: "iPhone SE (2nd generation)"))
     }
 }

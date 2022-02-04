@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct TrendingFashion: View {
+    @ObservedObject private var shopsViewModel: ShopsViewModel = ShopsViewModel()
+
     var body: some View {
       VStack(alignment: .leading) {
         Text("Trending")
@@ -17,9 +19,15 @@ struct TrendingFashion: View {
 
         ScrollView {
           VStack(alignment: .leading) {
-            ForEach(1..<10) {_ in
-              TrendingItem(itemImage: "foodItem", itemName: "Fashion Meat Pizza with Chicken", itemPlace: "Beyti Restaurant", itemRating: 4.8, itemRatings: 233)
-            }
+              ForEach(shopsViewModel.shopInfo, id: \.self) { shops in
+                  TrendingItem(itemImageUrl: shops.imageUrl ?? "https://picsum.photos/100", itemName: shops.name ?? "No Shop", itemPlace: "Beyti Restaurant", itemRating: 4.8, itemRatings: 233)
+              }
+              .onAppear {
+                  shopsViewModel.getAllMerchants()
+              }
+//            ForEach(1..<10) {_ in
+//              TrendingItem(itemImage: "foodItem", itemName: "Fashion Meat Pizza with Chicken", itemPlace: "Beyti Restaurant", itemRating: 4.8, itemRatings: 233)
+//            }
           } //: VSTACK
         } //: SCROLL
       } //: VSTACK

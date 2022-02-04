@@ -34,7 +34,7 @@ struct PaymentTopView: View {
               .padding(.horizontal, 24)
               .padding(.top, UIApplication.shared.windows.first?.safeAreaInsets.top)
               .fullScreenCover(isPresented: $isShowingShop, content: {
-                ShopView()
+                ShopView(shopName: "Cafe Bistro", shopImagesUrl: "https://picsum.photos/300/200")
               })
 
             Spacer()

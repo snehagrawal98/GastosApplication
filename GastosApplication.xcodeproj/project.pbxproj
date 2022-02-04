@@ -91,6 +91,9 @@
 		69E542ED27A53E700096C821 /* SipAndBite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69E542EC27A53E700096C821 /* SipAndBite.swift */; };
 		69E542EF27A541130096C821 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69E542EE27A541130096C821 /* LoginViewModel.swift */; };
 		69E542F727A544510096C821 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 69E542F627A544510096C821 /* GoogleService-Info.plist */; };
+		C06D4DA027A9818900EEF7AF /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D4D9F27A9818900EEF7AF /* FirebaseManager.swift */; };
+		C06D4DA327AA820000EEF7AF /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = C06D4DA227AA820000EEF7AF /* FirebaseDatabase */; };
+		C06D4DA527AA92BC00EEF7AF /* ShopsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D4DA427AA92BC00EEF7AF /* ShopsViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -179,6 +182,8 @@
 		69E542EE27A541130096C821 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		69E542F627A544510096C821 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		69E542F827A544600096C821 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		C06D4D9F27A9818900EEF7AF /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
+		C06D4DA427AA92BC00EEF7AF /* ShopsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopsViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -186,6 +191,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C06D4DA327AA820000EEF7AF /* FirebaseDatabase in Frameworks */,
 				69E542E927A53E070096C821 /* FirebaseAuth in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -198,6 +204,7 @@
 			children = (
 				3F8777C8279433B300667C86 /* GastosApplication */,
 				3F8777C7279433B300667C86 /* Products */,
+				C06D4DA127AA820000EEF7AF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -295,6 +302,7 @@
 		3F8777FE2794343100667C86 /* Shops */ = {
 			isa = PBXGroup;
 			children = (
+				C06D4D9E27A980FF00EEF7AF /* FirebaseManager */,
 				69E542EA27A53E590096C821 /* Categories */,
 				3F8777FF2794343100667C86 /* Payments */,
 				3F87780A2794343100667C86 /* MainViews */,
@@ -484,6 +492,22 @@
 			path = MainViews;
 			sourceTree = "<group>";
 		};
+		C06D4D9E27A980FF00EEF7AF /* FirebaseManager */ = {
+			isa = PBXGroup;
+			children = (
+				C06D4D9F27A9818900EEF7AF /* FirebaseManager.swift */,
+				C06D4DA427AA92BC00EEF7AF /* ShopsViewModel.swift */,
+			);
+			path = FirebaseManager;
+			sourceTree = "<group>";
+		};
+		C06D4DA127AA820000EEF7AF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -502,6 +526,7 @@
 			name = GastosApplication;
 			packageProductDependencies = (
 				69E542E827A53E070096C821 /* FirebaseAuth */,
+				C06D4DA227AA820000EEF7AF /* FirebaseDatabase */,
 			);
 			productName = GastosApplication;
 			productReference = 3F8777C6279433B300667C86 /* GastosApplication.app */;
@@ -584,6 +609,7 @@
 				3F8778732794343300667C86 /* ProfilePage.swift in Sources */,
 				3F87785B2794343200667C86 /* MainView.swift in Sources */,
 				3F8777E52794340F00667C86 /* ShopProfile.swift in Sources */,
+				C06D4DA027A9818900EEF7AF /* FirebaseManager.swift in Sources */,
 				3F8778592794343200667C86 /* Reciept.swift in Sources */,
 				3F8778852794343300667C86 /* ContentView.swift in Sources */,
 				693D6C312799A9A700DF62C4 /* AboutUs.swift in Sources */,
@@ -618,6 +644,7 @@
 				3F8778812794343300667C86 /* BarCharts.swift in Sources */,
 				3F8778602794343200667C86 /* PaymentMethods.swift in Sources */,
 				3F8778522794343200667C86 /* HomeTab.swift in Sources */,
+				C06D4DA527AA92BC00EEF7AF /* ShopsViewModel.swift in Sources */,
 				3F8778492794343200667C86 /* PaymentSuccess.swift in Sources */,
 				3F8777E82794340F00667C86 /* Text.swift in Sources */,
 				3F87786A2794343200667C86 /* Nearby.swift in Sources */,
@@ -862,6 +889,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 69E542E727A53E070096C821 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseAuth;
+		};
+		C06D4DA227AA820000EEF7AF /* FirebaseDatabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 69E542E727A53E070096C821 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabase;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
