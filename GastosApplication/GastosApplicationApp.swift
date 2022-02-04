@@ -14,7 +14,7 @@ struct GastosApplicationApp: App {
   @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     var body: some Scene {
         WindowGroup {
-            HomeTab()
+          ActivationPaymentView(shopName: "Sai-Mart", shopAddress: "43-BD, Delhi", discount: 10.0)
         }
     }
 }
