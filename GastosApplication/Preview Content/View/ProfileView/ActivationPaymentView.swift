@@ -8,35 +8,80 @@
 import SwiftUI
 
 struct ActivationPaymentView: View {
-  @State var shopName: String
-  @State var shopAddress: String
-  @State var discount: Double
+//  @State var shopName: String
+//  @State var shopAddress: String
+//  @State var discount: Double
+  @Environment(\.dismiss) var dismiss
     var body: some View {
-      VStack {
-        ZStack {
-          VStack {
-            PaymentTopView(shopName: "Green Card Club", shopAddress: "GASTOS PRIVATE LIMITED")
+      NavigationView {
+        VStack {
+          ZStack {
+            VStack {
+              ZStack {
+                LinearGradient(gradient: Gradient(colors: [Color("deepGreen"), Color("textGreen")]), startPoint: .leading, endPoint: .trailing)
+                  .frame(width: UIScreen.screenWidth, height: UIScreen.screenHeight / 3, alignment: .top)
+                  .foregroundColor(Color("deepGreen"))
+                  .edgesIgnoringSafeArea(.all)
+                  .cornerRadius(24, corners: [.bottomLeft, .bottomRight])
+                  .edgesIgnoringSafeArea(.all)
 
-            Spacer()
-            Spacer()
-          }
-          .frame(height: UIScreen.screenHeight, alignment: .top)
+                VStack(alignment: .leading) {
+                  HStack {
+                    Button(action: {
+                      dismiss()
+                    }, label: {
+                      Image(systemName: "arrow.left")
+                        .resizable()
+                        .frame(width: 22.5, height: 15)
+                        .foregroundColor(.white)
+                    })
+                      .padding(.horizontal, 24)
+                      .padding(.top, UIApplication.shared.windows.first?.safeAreaInsets.top)
+            //          .fullScreenCover(isPresented: $isShowingShop, content: {
+            //            ShopView(shopName: "Cafe Bistro", shopImagesUrl: "https://picsum.photos/300/200")
+            //          })
 
-          VStack {
-            Spacer()
+                    Spacer()
+                  }
 
-             ActivationPaymentBottomView()
-              .padding(.bottom)
-          }
+                  Text("Green Card Club")
+                    .font(.title.weight(.bold))
+                    .foregroundColor(.white)
+                    .padding(.horizontal, 24)
+                    .padding(.vertical, 4)
 
-        Spacer()
+                  Text("GASTOS PRIVATE LIMITED")
+                    .font(.body.weight(.regular))
+                    .foregroundColor(.gray)
+                    .padding(.horizontal, 24)
+                }
+                .frame(height: UIScreen.screenHeight / 3, alignment: .top)
+              }
+
+
+              Spacer()
+              Spacer()
+            }
+            .frame(height: UIScreen.screenHeight, alignment: .top)
+
+            VStack {
+              Spacer()
+
+               ActivationPaymentBottomView()
+                .padding(.bottom)
+            }
+
+          Spacer()
+        }
+        }
+        .navigationBarHidden(true)
+        .navigationBarBackButtonHidden(true)
       }
-    }
     }}
 
 struct ActivationPaymentView_Previews: PreviewProvider {
     static var previews: some View {
-        ActivationPaymentView(shopName: "Sai-Mart", shopAddress: "43-BD, Delhi", discount: 10.0)
+        ActivationPaymentView()
       //ActivationPaymentBottomView()
     }
 }
