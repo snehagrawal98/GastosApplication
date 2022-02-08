@@ -8,13 +8,14 @@
 import SwiftUI
 
 struct TermsOfService: View {
+  @Environment(\.dismiss) var dismiss
     var body: some View {
       ScrollView(.vertical) {
 
         // Navigation Bar
         HStack {
           Button(action: {
-            // back
+            dismiss()
           }, label: {
             Image(systemName: "arrow.left")
               .resizable()
@@ -66,6 +67,7 @@ struct TermsOfService: View {
             Contact Us
             If you have any questions or suggestions about our Terms and Conditions, do not hesitate to contact us at help@gastos.in.
           """)
+            .padding(.horizontal, 24)
         }
       }
     }

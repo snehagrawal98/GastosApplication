@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct CategoryView: View {
-  @State var didBack = false
+  @Environment(\.dismiss) var dismiss
+
   @State var searchText = ""
   @State var isSearching = false
   @State var title: String
@@ -18,7 +19,7 @@ struct CategoryView: View {
             // Navigation Bar
             HStack {
               Button(action: {
-                withAnimation{ didBack.toggle() }
+                dismiss()
               }, label: {
                 Image(systemName: "arrow.left")
                   .resizable()
@@ -26,7 +27,6 @@ struct CategoryView: View {
                   .frame(width: 25, height: 12.5)
                   .foregroundColor(.primary)
               })
-                .fullScreenCover(isPresented: $didBack, content: { MainView(selectedTab: 2) })
 
               CategoriesTitleView(title: title)
                 .padding(.leading)

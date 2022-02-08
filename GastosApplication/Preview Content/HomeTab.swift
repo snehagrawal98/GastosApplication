@@ -15,25 +15,18 @@ struct HomeTab: View {
     @State var adImages = ["PhonePeAd"]
 
     var body: some View {
-      NavigationView(content: {
-        VStack(content: {
+      NavigationView {
+        VStack {
           HStack {
             Text("Hey Sahgal!")
               .font(.title2.weight(.medium))
               .foregroundColor(Color("deepGreen"))
             Spacer()
 
-            //                Button(action: {
-            //                      // logging out
-            //                      try? Auth.auth().signOut()
-            //                      withAnimation{ status = false }
-            //                    }, label: {
-            //                      Text("LogOut")
-            //                    })
-
-
             NavigationLink(
-              destination: UserProfile(),
+              destination: UserProfile()
+                .navigationBarHidden(true)
+                .navigationBarBackButtonHidden(true),
               label: {
                 Image(systemName: "bell.fill")
                   .font(.system(size: 20))
@@ -46,9 +39,10 @@ struct HomeTab: View {
           }
           .padding(.horizontal)
 
-
           NavigationLink(
-            destination: UserProfile(),
+            destination: UserProfile()
+              .navigationBarHidden(true)
+              .navigationBarBackButtonHidden(true),
             label: {
               ZStack {
                 HStack(content: {
@@ -141,8 +135,10 @@ struct HomeTab: View {
           }
           .padding(.horizontal)
           Spacer()
-        })
-      })
+        }
+          .navigationBarHidden(true)
+          .navigationBarBackButtonHidden(true)
+      }
     }
 }
 

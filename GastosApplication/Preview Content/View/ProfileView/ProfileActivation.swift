@@ -9,190 +9,159 @@ import SwiftUI
 
 struct ProfileActivation: View {
     
-    @Environment(\.presentationMode) var presentationMode
+    @Environment(\.dismiss) var dismiss
     
     @State private var btnSelected: Bool = false
     
     var body: some View {
-        
-        VStack(content: {
-            
-            ZStack(alignment: .topTrailing ,content: {
-                
-                VStack(content: {
-                    
-                    HStack(content: {
-                        Button(action: {
-                            self.presentationMode.wrappedValue.dismiss()
-                        }, label: {
-                            Image(systemName: "arrow.left")
-                                .foregroundColor(.white)
-                        })
-                        .padding(.leading)
-                        .padding(.top)
-                        
-                        Spacer()
-
+      NavigationView {
+        VStack(spacing: 20) {
+          HStack {
+                VStack {
+                  HStack {
+                    Button(action: {
+                      dismiss()
+                    }, label: {
+                      Image(systemName: "arrow.left")
+                        .resizable()
+                        .frame(width: 22.5, height: 15)
+                        .foregroundColor(.white)
                     })
-                    .padding(.top, Constants.saTop)
-                    
-                    HStack(content: {
-                        Text("Activate your account and enjoy unlimited benefits on your regular payments")
-                            .lineLimit(3)
-                            .foregroundColor(.white)
-                            .padding(.leading)
-                            .padding(.top)
-                        
-                        Spacer()
-                    })
+                      .padding(.bottom, 24)
+                    Spacer()
+                  }
 
-                })
-                .zIndex(3)
-                .edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
-                
-                Image("GastosMark")
+                  Text("Activate your account & enjoy unlimited benefits on your regular payments")
+                    .font(.body.weight(.semibold))
                     .foregroundColor(.white)
-                    .zIndex(3)
-                    .padding(.top, Constants.saTop)
+                }
+                .padding(.leading)
+                .frame(height: 0.25 * UIScreen.screenHeight)
 
-                Path({ path in
-                    path.move(to: CGPoint(x: 0, y: 0))
-                    path.addLine(to: CGPoint(x: 0, y: (Constants.sH / 3) - 30))
-                    path.addLine(to: CGPoint(x: (Constants.sW * 7 / 20), y: (Constants.sH / 3)))
-                    // add curve
-                    path.addLine(to: CGPoint(x: (Constants.sW * 13 / 20), y: Constants.sH / 3))
-                    path.addLine(to: CGPoint(x: Constants.sW, y: (Constants.sH / 3) - 30))
-                    path.addLine(to: CGPoint(x: Constants.sW, y: 0))
-                    path.addLine(to: CGPoint(x: 0, y: 0))
-                })
-                .fill(LinearGradient(gradient: Gradient(colors: [Color(red: 0 / 255, green: 55 / 255, blue: 56 / 255), Color(red: 45 / 255, green: 121 / 255, blue: 109 / 255)]), startPoint: .leading, endPoint: .trailing))
-                .edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
-                .zIndex(1.0)
-                .frame(width: Constants.sW, height: Constants.sH * 0.33, alignment: .top)
-                .shadow(color: /*@START_MENU_TOKEN@*/.black/*@END_MENU_TOKEN@*/, radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/, x: /*@START_MENU_TOKEN@*/0.0/*@END_MENU_TOKEN@*/, y: /*@START_MENU_TOKEN@*/0.0/*@END_MENU_TOKEN@*/)
-                
-            })
-            .edgesIgnoringSafeArea(.all)
-            
-            ZStack(content: {
-                
-                HStack(content: {
-                    Spacer()
-                    Image("Gastos")
-                })
-                
-                VStack(content: {
-                    
-                    
-                    Button(action: {
-                        self.btnSelected.toggle()
-                    }, label: {
-                        ZStack(content: {
-                            RoundedRectangle(cornerRadius: /*@START_MENU_TOKEN@*/25.0/*@END_MENU_TOKEN@*/)
-                                .foregroundColor(.white)
-                                .shadow(color: .gray, radius: 5, x: /*@START_MENU_TOKEN@*/0.0/*@END_MENU_TOKEN@*/, y: /*@START_MENU_TOKEN@*/0.0/*@END_MENU_TOKEN@*/)
-                            HStack(content: {
-                                /*@START_MENU_TOKEN@*/Text("Placeholder")/*@END_MENU_TOKEN@*/
-                                Spacer()
-                                Text("Prices")
-                            })
-                            .padding(.horizontal)
-                        })
-                    })
-                    .padding(.horizontal)
-                    .frame(height: Constants.sH * 0.1)
-                    .padding(.top)
-                    
-                    Button(action: {
-                        self.btnSelected.toggle()
-                    }, label: {
-                        ZStack(content: {
-                            RoundedRectangle(cornerRadius: /*@START_MENU_TOKEN@*/25.0/*@END_MENU_TOKEN@*/)
-                                .foregroundColor(.white)
-                                .shadow(color: .gray, radius: 5, x: /*@START_MENU_TOKEN@*/0.0/*@END_MENU_TOKEN@*/, y: /*@START_MENU_TOKEN@*/0.0/*@END_MENU_TOKEN@*/)
-                            HStack(content: {
-                                /*@START_MENU_TOKEN@*/Text("Placeholder")/*@END_MENU_TOKEN@*/
-                                Spacer()
-                                Text("Prices")
-                            })
-                            .padding(.horizontal)
-                        })
-                    })
-                    .padding(.horizontal)
-                    .frame(height: Constants.sH * 0.1)
-                    
-                    Button(action: {
-                        self.btnSelected.toggle()
-                    }, label: {
-                        ZStack(content: {
-                            RoundedRectangle(cornerRadius: /*@START_MENU_TOKEN@*/25.0/*@END_MENU_TOKEN@*/)
-                                .foregroundColor(.white)
-                                .shadow(color: .gray, radius: 5, x: /*@START_MENU_TOKEN@*/0.0/*@END_MENU_TOKEN@*/, y: /*@START_MENU_TOKEN@*/0.0/*@END_MENU_TOKEN@*/)
-                            HStack(content: {
-                                /*@START_MENU_TOKEN@*/Text("Placeholder")/*@END_MENU_TOKEN@*/
-                                Spacer()
-                                Text("Prices")
-                            })
-                            .padding(.horizontal)
-                        })
-                    })
-                    .padding(.horizontal)
-                    .frame(height: Constants.sH * 0.1)
-                    
-                    Button(action: {
-                        self.btnSelected.toggle()
-                    }, label: {
-                        ZStack(content: {
-                            RoundedRectangle(cornerRadius: /*@START_MENU_TOKEN@*/25.0/*@END_MENU_TOKEN@*/)
-                                .foregroundColor(.white)
-                                .shadow(color: .gray, radius: 5, x: /*@START_MENU_TOKEN@*/0.0/*@END_MENU_TOKEN@*/, y: /*@START_MENU_TOKEN@*/0.0/*@END_MENU_TOKEN@*/)
-                            HStack(content: {
-                                /*@START_MENU_TOKEN@*/Text("Placeholder")/*@END_MENU_TOKEN@*/
-                                Spacer()
-                                Text("Prices")
-                            })
-                            .padding(.horizontal)
-                        })
-                    })
-                    .padding(.horizontal)
-                    .frame(height: Constants.sH * 0.1)
+                Spacer()
 
-                    HStack(content: {
-                        Spacer()
-                        Text("* All amount inclusive Gst")
-                            .font(.caption2)
-                    })
-                    .padding(.horizontal)
-                    
-                    Spacer()
-                    
-                    Button(action: {
-                        self.btnSelected.toggle()
-                    }, label: {
-                        ZStack(content: {
-                            RoundedRectangle(cornerRadius: /*@START_MENU_TOKEN@*/25.0/*@END_MENU_TOKEN@*/)
-                                .foregroundColor(.yellow)
-                                .shadow(color: .gray, radius: 5, x: /*@START_MENU_TOKEN@*/0.0/*@END_MENU_TOKEN@*/, y: /*@START_MENU_TOKEN@*/0.0/*@END_MENU_TOKEN@*/)
-                            Text("Proceed")
-                        })
-                    })
-                    .padding(.horizontal)
-                    .frame(height: Constants.sH * 0.07)
-                    .padding(.bottom, Constants.saBottom)
+                Image("GastosMark")
+                    .frame(width: 0.314 * UIScreen.screenWidth, height: 0.25 * UIScreen.screenHeight, alignment: .topTrailing)
+              }
+              .background(
+                LinearGradient(gradient: Gradient(colors: [Color("deepGreen"), Color("textGreen")]), startPoint: .leading, endPoint: .trailing)
+                  .frame(height: 0.25 * UIScreen.screenHeight)
+                  //.edgesIgnoringSafeArea(.all)
+            )
+              .edgesIgnoringSafeArea(.all)
 
-                })
-                
-            })
-            .edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
-            
-            Spacer()
-        })
-        .edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
+
+          profileActivationBottom
+
+          //Spacer()
+        } //: VSTACK
+        .navigationBarHidden(true)
+        .navigationBarBackButtonHidden(true)
+      } //: NAV
     }
+
+  var profileActivationBottom: some View {
+    VStack(spacing: 20) {
+      HStack {
+        Text("28 Days")
+          .font(.body.weight(.medium))
+
+        Spacer()
+
+        Text("Rs 119")
+          .font(.body.weight(.semibold))
+      }
+      .padding()
+      .frame(width: 0.88 * UIScreen.screenWidth, height: 0.077 * UIScreen.screenHeight, alignment: .center)
+      .background(
+        RoundedRectangle(cornerRadius: 20)
+          .stroke(Color("textGreen").opacity(0.2), lineWidth: 1)
+      )
+      .background(Color.white)
+
+      HStack {
+        Text("98 Days")
+          .font(.body.weight(.medium))
+
+        Spacer()
+
+        Text("Rs 369")
+          .font(.body.weight(.semibold))
+      }
+      .padding()
+      .frame(width: 0.88 * UIScreen.screenWidth, height: 0.077 * UIScreen.screenHeight, alignment: .center)
+      .background(
+        RoundedRectangle(cornerRadius: 20)
+          .stroke(Color("textGreen").opacity(0.2), lineWidth: 1)
+      )
+      .background(Color.white)
+
+      HStack {
+        Text("188 Days")
+          .font(.body.weight(.medium))
+
+        Spacer()
+
+        Text("Rs 669")
+          .font(.body.weight(.semibold))
+      }
+      .padding()
+      .frame(width: 0.88 * UIScreen.screenWidth, height: 0.077 * UIScreen.screenHeight, alignment: .center)
+      .background(
+        RoundedRectangle(cornerRadius: 20)
+          .stroke(Color("textGreen").opacity(0.2), lineWidth: 1)
+      )
+      .background(Color.white)
+
+      HStack {
+        Text("368 Days")
+          .font(.body.weight(.medium))
+
+        Spacer()
+
+        Text("Rs 1269")
+          .font(.body.weight(.semibold))
+      }
+      .padding()
+      .frame(width: 0.88 * UIScreen.screenWidth, height: 0.077 * UIScreen.screenHeight, alignment: .center)
+      .background(
+        RoundedRectangle(cornerRadius: 20)
+          .stroke(Color("textGreen").opacity(0.2), lineWidth: 1)
+      )
+      .background(Color.white)
+
+      Spacer()
+      Spacer()
+      Spacer()
+
+      NavigationLink(destination: {
+        ActivationPaymentView()
+          .navigationBarHidden(true)
+          .navigationBarBackButtonHidden(true)
+      }, label: {
+        BottomButton(buttonText: "Procced", buttonColor: "textGreen", textColor: "white")
+      })
+      Spacer()
+    }
+    .frame(width: UIScreen.screenWidth, height: 0.7 * UIScreen.screenHeight)
+    .background(
+      HStack {
+        Spacer()
+        Image("Gastos")
+          .resizable()
+          .scaledToFit()
+          .frame(width: 0.525 * UIScreen.screenWidth, height: 0.287 * UIScreen.screenHeight, alignment: .topTrailing)
+      }
+        .frame(height: 0.75 * UIScreen.screenHeight, alignment: .topTrailing)
+    )
+  }
 }
 
 struct ProfileActivation_Previews: PreviewProvider {
     static var previews: some View {
         ProfileActivation()
+
+      ProfileActivation()
+        .previewDevice(PreviewDevice(rawValue: "iPhone SE (2nd generation)"))
     }
 }
