@@ -30,19 +30,91 @@ struct UserProfile: View {
                     .padding(.leading)
                     .padding(.top, 8)
             })
-            //.navigationTitle("")
             .navigationBarHidden(true)
             .navigationBarBackButtonHidden(true)
-           // .padding(.top, Constants.saTop)
-
                 Spacer()
             }
 
-            NavigationLink(
-                  destination: UserInformationScreen(),
-                  label: {
-                    UserProfileCard()
+            ZStack {
+                RoundedRectangle(cornerRadius: 10)
+                .frame(width: 0.848 * UIScreen.screenWidth, height: 0.24 * UIScreen.screenHeight)
+                .foregroundColor(.black.opacity(0.55))
+              VStack {
+                // Navigates to UserInformationScreen
+                NavigationLink(destination: {
+                  UserInformationScreen()
+                    .navigationBarHidden(true)
+                    .navigationBarBackButtonHidden(true)
+                }, label: {
+                  Image("foodItem")
+                      .resizable()
+                      .scaledToFit()
+                      .frame(width: 0.22 * UIScreen.screenWidth, height: 0.098 * UIScreen.screenHeight, alignment: .center)
+                      .clipShape(Circle())
+                      .foregroundColor(Color(.systemGreen))
+                })
+
+                Group {
+                    Text("ElizaBeth Williams")
+                      .font(.title2.weight(.semibold))
+                      .foregroundColor(.white)
+
+                    Text("Inactive Member")
+                      .font(.subheadline.weight(.semibold))
+                      .foregroundColor(.white.opacity(0.6))
+                }
+
+                Spacer()
+
+                HStack {
+                  VStack {
+                    Text(savings)
+                        .font(.title2.weight(.semibold))
+                        .foregroundColor(.white)
+
+                    Text("Savings")
+                        .font(.subheadline.weight(.semibold))
+                        .foregroundColor(.white.opacity(0.8))
+                    }
+                    .padding(.leading, 20)
+
+                Spacer()
+                VStack(spacing: -6) {
+                  ForEach(1..<5) { i in
+                      Text("|")
+                        .foregroundColor(.white)
+                    }
+                }
+                Spacer()
+
+                  NavigationLink(destination: {
+                    Gullak()
+                      .navigationBarHidden(true)
+                      .navigationBarBackButtonHidden(true)
+                  }, label: {
+                    VStack {
+                      Text(coinsEarned)
+                          .font(.title2.weight(.semibold))
+                          .foregroundColor(.yellow.opacity(0.8))
+
+                      Text("Coins Earned")
+                          .font(.subheadline.weight(.semibold))
+                          .foregroundColor(.white.opacity(0.8))
+                      }
                   })
+                } //: HSTACK
+                .padding(.horizontal)
+                .padding(.bottom, 4)
+
+                Spacer()
+                Spacer()
+                Spacer()
+            } //: VSTACK
+            .padding(.trailing)
+            .foregroundColor(.primary)
+            .frame(width: 0.848 * UIScreen.screenWidth, height: 0.33 * UIScreen.screenHeight)
+        }
+        .padding(.horizontal)
 
             VStack(alignment: .leading) {
               // Account Status
@@ -95,6 +167,7 @@ struct UserProfile: View {
 
                 Spacer()
               }
+              .foregroundColor(Color("deepGreen"))
               .padding()
               .frame(width: 0.848 * UIScreen.screenWidth, height: 0.088 * UIScreen.screenHeight)
               .background(
@@ -106,28 +179,35 @@ struct UserProfile: View {
               .padding(.bottom, 8)
 
               // Refer & Earn
-              HStack() {
-                Image(systemName: "square.and.arrow.up")
-                  .resizable()
-                  .padding(2)
-                  .foregroundColor(Color("textGreen"))
-                  .frame(width: 20, height: 20)
-                  .cornerRadius(4)
-                  .padding(.trailing, 8)
+              NavigationLink(destination: {
+                ReferAndEarn()
+                  .navigationBarHidden(true)
+                  .navigationBarBackButtonHidden(true)
+              }, label: {
+                HStack {
+                  Image("ShareSymbol")
+                    .resizable()
+                    .padding(2)
+                    .foregroundColor(Color("textGreen"))
+                    .frame(width: 20, height: 20)
+                    .cornerRadius(4)
+                    .padding(.trailing, 8)
 
-                Text("Refer & Earn")
+                  Text("Refer & Earn")
 
-                Spacer()
-              }
-              .padding()
-              .frame(width: 0.848 * UIScreen.screenWidth, height: 0.088 * UIScreen.screenHeight)
-              .background(
-                RoundedRectangle(cornerRadius: 10)
-                  .stroke(.gray, lineWidth: 0.2)
-                  .shadow(radius: 5)
-              )
-              .padding(.horizontal)
-              .padding(.bottom, 8)
+                  Spacer()
+                }
+                .foregroundColor(Color("deepGreen"))
+                .padding()
+                .frame(width: 0.848 * UIScreen.screenWidth, height: 0.088 * UIScreen.screenHeight)
+                .background(
+                  RoundedRectangle(cornerRadius: 10)
+                    .stroke(.gray, lineWidth: 0.2)
+                    .shadow(radius: 5)
+                )
+                .padding(.horizontal)
+                .padding(.bottom, 8)
+              })
             } //:  VSTACK
 
             VStack(alignment: .leading, spacing: 5) {
@@ -138,7 +218,11 @@ struct UserProfile: View {
                   .foregroundColor(Color("deepGreen"))
               })
 
-              NavigationLink(destination: TermsOfService(), label: {
+              NavigationLink(destination: {
+                TermsOfService()
+                  .navigationBarHidden(true)
+                  .navigationBarBackButtonHidden(true)
+              }, label: {
                 Text("Terms And Conditions")
                   .font(.body.weight(.semibold))
                   .foregroundColor(Color("deepGreen"))

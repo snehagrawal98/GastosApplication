@@ -39,6 +39,7 @@ struct CategoryView: View {
           Nearby()
 
           Trending()
+            .frame(height: 2 * UIScreen.screenHeight)
         }
         .navigationBarHidden(true)
       }
@@ -76,7 +77,6 @@ struct SearchBar: View {
           .padding(.vertical)
           .background(Color(.white))
           .cornerRadius(6)
-          //.padding(.horizontal)
           .shadow(radius: 2)
           .onTapGesture(perform: {
               isSearching = true
@@ -118,9 +118,7 @@ struct SearchBar: View {
               .transition(.move(edge: .trailing))
               .animation(.spring())
           }
-
       }
       .frame(width: 0.92 * UIScreen.screenWidth, height: 0.06 * UIScreen.screenHeight, alignment: .center)
-
   }
 }

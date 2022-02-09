@@ -9,210 +9,93 @@ import SwiftUI
 
 struct Gullak: View {
     
-    @Environment(\.presentationMode) var presentationMode
+    @Environment(\.dismiss) var dismiss
     
     var body: some View {
-        
-        VStack {
-            ZStack(content: {
-                
-                Path({ path in
-                    path.move(to: CGPoint(x: 0, y: 0))
-                    path.addLine(to: CGPoint(x: 0, y: Constants.sH * 0.3))
-                    path.addQuadCurve(to: CGPoint(x: Constants.sW, y: Constants.sH * 0.3), control: CGPoint(x: Constants.sW / 2, y: Constants.sH * 0.55))
-                    path.addLine(to: CGPoint(x: Constants.sW, y: 0))
-                })
-                .fill(Color.orange)
-                
-                VStack {
-                    Image("Gullak")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: Constants.sH * 0.28, height: Constants.sH * 0.28, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                        .padding(.top, Constants.saTop)
-                    
-                    Text("Total coins in Gullak")
-                    
-                    Text("300")
-                    
-                    Spacer()
-                }
-                
-                VStack(content: {
-                    
-                    HStack(content: {
-                        
-                        Button(action: {
-                            self.presentationMode.wrappedValue.dismiss()
-                        }, label: {
-                            Image(systemName: "arrow.left")
-                                .font(.title)
-                                .foregroundColor(.black)
-                                .padding(.leading)
-                                .padding(.top)
-                        })
-                        .padding(.top, Constants.saTop)
-                        
-                        Spacer()
+      NavigationView {
+        VStack(spacing: -50) {
+          // Top Image
+          ZStack {
+            Path({ path in
+                path.move(to: CGPoint(x: 0, y: 0))
+                path.addLine(to: CGPoint(x: 0, y: Constants.sH * 0.3))
+                path.addQuadCurve(to: CGPoint(x: Constants.sW, y: Constants.sH * 0.3), control: CGPoint(x: Constants.sW / 2, y: Constants.sH * 0.55))
+                path.addLine(to: CGPoint(x: Constants.sW, y: 0))
+            })
+              .fill(Color("textGreen").opacity(0.2))
+            .ignoresSafeArea(.all)
 
-                    })
-                    
-                    Spacer()
+
+            VStack(spacing: -5) {
+              HStack {
+                Button(action: {dismiss()}, label: {
+                  Image(systemName: "arrow.left")
+                    .resizable()
+                    .frame(width: 25, height: 12.5)
+                    .foregroundColor(.black)
                 })
-                
-            })
-            .edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
-            .frame(height: Constants.sH * 0.4)
-            
-            ScrollView( content: {
-                ZStack {
-                    RoundedRectangle(cornerRadius: /*@START_MENU_TOKEN@*/25.0/*@END_MENU_TOKEN@*/)
-                        .stroke(Color.gray, lineWidth: 0.5)
-                        .foregroundColor(.white)
-                        .shadow(color: .gray, radius: 3, x: /*@START_MENU_TOKEN@*/0.0/*@END_MENU_TOKEN@*/, y: /*@START_MENU_TOKEN@*/0.0/*@END_MENU_TOKEN@*/)
-                        .frame(height: Constants.sH * 0.1)
-                        .padding(.horizontal)
-                        
-                    HStack {
-                        VStack(alignment: .leading) {
-                            Text("Referral")
-                            Text("Sent to Ajay")
-                                .font(.subheadline)
-                        }
-                        .padding(.leading)
-                        Spacer()
-                        VStack(alignment: .trailing) {
-                            Text("+50")
-                            Text("12/07/21 3:30 PM")
-                                .font(.caption)
-                                .foregroundColor(.gray)
-                        }
-                        .padding(.trailing)
-                    }
-                    .padding(.horizontal)
-                    
+                  .padding(.horizontal)
+                Spacer()
+              }
+
+              VStack {
+                Image("Gullak")
+                  .resizable()
+                  .scaledToFit()
+                .frame(width: 0.60 * UIScreen.screenWidth)
+
+                Text("Total coins in Gullak")
+                  .font(.title3.weight(.bold))
+                  .foregroundColor(Color("deepGreen"))
+
+                Text("300")
+                  .font(.title2.weight(.bold))
+                  .foregroundColor(Color("deepGreen"))
+
+                Spacer()
+              }
+              .offset(y: -30)
+            }
+          }
+
+          // Transactions
+          ScrollView {
+            ForEach(1..<15) { i in
+              HStack {
+                VStack{
+                  Text("Referral")
+                    .font(.body.weight(.semibold))
+
+                  Text("Sent to Ajay")
+                    .font(.subheadline.weight(.regular))
                 }
-                .padding(.bottom)
-                
-                ZStack {
-                    RoundedRectangle(cornerRadius: /*@START_MENU_TOKEN@*/25.0/*@END_MENU_TOKEN@*/)
-                        .stroke(Color.gray, lineWidth: 0.5)
-                        .foregroundColor(.white)
-                        .shadow(color: .gray, radius: 3, x: /*@START_MENU_TOKEN@*/0.0/*@END_MENU_TOKEN@*/, y: /*@START_MENU_TOKEN@*/0.0/*@END_MENU_TOKEN@*/)
-                        .frame(height: Constants.sH * 0.1)
-                        .padding(.horizontal)
-                        
-                    HStack {
-                        VStack(alignment: .leading) {
-                            Text("Card Activation")
-                            Text("Spent to account")
-                                .font(.subheadline)
-                        }
-                        .padding(.leading)
-                        Spacer()
-                        VStack(alignment: .trailing) {
-                            Text("-350")
-                            Text("12/07/21 3:30 PM")
-                                .font(.caption)
-                                .foregroundColor(.gray)
-                        }
-                        .padding(.trailing)
-                    }
-                    .padding(.horizontal)
-                    
+                .foregroundColor(Color("deepGreen"))
+
+                Spacer()
+
+                VStack {
+                  Text("+ 50")
+                    .font(.title3.weight(.semibold))
+                    .foregroundColor(Color("textGreen"))
+
+                  Text("12/07/21  03:30pm")
+                    .font(.caption.weight(.regular))
+                    .foregroundColor(.gray)
                 }
-                .padding(.bottom)
-                
-                ZStack {
-                    RoundedRectangle(cornerRadius: /*@START_MENU_TOKEN@*/25.0/*@END_MENU_TOKEN@*/)
-                        .stroke(Color.gray, lineWidth: 0.5)
-                        .foregroundColor(.white)
-                        .shadow(color: .gray, radius: 3, x: /*@START_MENU_TOKEN@*/0.0/*@END_MENU_TOKEN@*/, y: /*@START_MENU_TOKEN@*/0.0/*@END_MENU_TOKEN@*/)
-                        .frame(height: Constants.sH * 0.1)
-                        .padding(.horizontal)
-                        
-                    HStack {
-                        VStack(alignment: .leading) {
-                            Text("Elite Code")
-                            Text("From employee")
-                                .font(.subheadline)
-                        }
-                        .padding(.leading)
-                        Spacer()
-                        VStack(alignment: .trailing) {
-                            Text("+300")
-                            Text("12/07/21 3:30 PM")
-                                .font(.caption)
-                                .foregroundColor(.gray)
-                        }
-                        .padding(.trailing)
-                    }
-                    .padding(.horizontal)
-                    
-                }
-                .padding(.bottom)
-                
-                ZStack {
-                    RoundedRectangle(cornerRadius: /*@START_MENU_TOKEN@*/25.0/*@END_MENU_TOKEN@*/)
-                        .stroke(Color.gray, lineWidth: 0.5)
-                        .foregroundColor(.white)
-                        .shadow(color: .gray, radius: 3, x: /*@START_MENU_TOKEN@*/0.0/*@END_MENU_TOKEN@*/, y: /*@START_MENU_TOKEN@*/0.0/*@END_MENU_TOKEN@*/)
-                        .frame(height: Constants.sH * 0.1)
-                        .padding(.horizontal)
-                        
-                    HStack {
-                        VStack(alignment: .leading) {
-                            Text("Referral")
-                            Text("Sent to Ajay")
-                                .font(.subheadline)
-                        }
-                        .padding(.leading)
-                        Spacer()
-                        VStack(alignment: .trailing) {
-                            Text("+50")
-                            Text("12/07/21 3:30 PM")
-                                .font(.caption)
-                                .foregroundColor(.gray)
-                        }
-                        .padding(.trailing)
-                    }
-                    .padding(.horizontal)
-                    
-                }
-                .padding(.bottom)
-                
-                ZStack {
-                    RoundedRectangle(cornerRadius: /*@START_MENU_TOKEN@*/25.0/*@END_MENU_TOKEN@*/)
-                        .stroke(Color.gray, lineWidth: 0.5)
-                        .foregroundColor(.white)
-                        .shadow(color: .gray, radius: 3, x: /*@START_MENU_TOKEN@*/0.0/*@END_MENU_TOKEN@*/, y: /*@START_MENU_TOKEN@*/0.0/*@END_MENU_TOKEN@*/)
-                        .frame(height: Constants.sH * 0.1)
-                        .padding(.horizontal)
-                        
-                    HStack {
-                        VStack(alignment: .leading) {
-                            Text("Referral")
-                            Text("Sent to Ajay")
-                                .font(.subheadline)
-                        }
-                        .padding(.leading)
-                        Spacer()
-                        VStack(alignment: .trailing) {
-                            Text("+50")
-                            Text("12/07/21 3:30 PM")
-                                .font(.caption)
-                                .foregroundColor(.gray)
-                        }
-                        .padding(.trailing)
-                    }
-                    .padding(.horizontal)
-                    
-                }
-                .padding(.bottom)
-            })
-            
-            Spacer()
+              }
+              .padding()
+              .frame(width: 0.88 * UIScreen.screenWidth, height: 0.08 * UIScreen.screenHeight)
+              .background(
+                RoundedRectangle(cornerRadius: 20)
+                  .stroke(Color("textGreen").opacity(0.2), lineWidth: 1)
+              )
+              .padding(.bottom)
+            }
+          }
         }
+        .navigationBarHidden(true)
+        .navigationBarBackButtonHidden(true)
+      }
     }
 }
 
