@@ -8,8 +8,6 @@
 import SwiftUI
 
 struct Failed: View {
-  @State var rating: Int?
-
   var body: some View {
     ZStack {
       GradientView(firstColor: "deepRed", secondColor: "deepRed")

@@ -67,7 +67,7 @@ struct ProfilePage: View {
                 TextField("Enter Code", text: $emailAddress).textFieldStyle(MyTextFieldStyle())
                     Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
                         Text("Validate").foregroundColor(.white)
-                    }).padding(5).background(Color("7")).cornerRadius(5.0).offset(x: 130)
+                    }).padding(5).background(Color("textGreen")).cornerRadius(8.0).offset(x: 130)
                     
                 }.frame(width: 350)
                 
@@ -79,13 +79,13 @@ struct ProfilePage: View {
                       showingVerified.toggle()
                     }, label: {
                         Image(systemName: "chevron.right").font(.system(size: 20)).foregroundColor(.white).frame(width: 45, height: 45, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                    }).padding(3).background(Color("7")).clipShape(Circle()).padding()
+                    }).padding(3).background(Color("textGreen")).clipShape(Circle()).padding()
                     .fullScreenCover(isPresented: $showingVerified, content: {
                         VerifiedSuccessfully()
                     })
                 }
               
-            }.navigationBarItems(leading: Image(systemName: "arrow.backward")).foregroundColor(Color("5")).edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
+            }.navigationBarItems(leading: Image(systemName: "arrow.backward")).foregroundColor(.black).edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
         }
     }
 }
