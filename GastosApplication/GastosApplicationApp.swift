@@ -14,7 +14,7 @@ struct GastosApplicationApp: App {
   @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     var body: some Scene {
         WindowGroup {
-          CategoryView(title: "Sip & Bite")
+          ContentView()
         }
     }
 }

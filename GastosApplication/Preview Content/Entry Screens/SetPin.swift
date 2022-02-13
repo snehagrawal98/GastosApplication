@@ -43,7 +43,7 @@ struct SetPin: View {
                         showingProfilePage.toggle()
                       }, label: {
                             Image(systemName: "chevron.right").font(.system(size: 25)).foregroundColor(.white).frame(width: 50, height: 50, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                        }).padding(3).background(Color("7")).clipShape(Circle()).padding()
+                        }).padding(3).background(Color("textGreen")).clipShape(Circle()).padding()
                         .fullScreenCover(isPresented: $showingProfilePage, content: {
                             ProfilePage()
                         })

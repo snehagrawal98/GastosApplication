@@ -75,10 +75,5 @@ struct Success: View {
 struct Success_Previews: PreviewProvider {
     static var previews: some View {
       Success()
-        //.previewDevice(PreviewDevice(rawValue: "iPhone SE (2nd generation)"))
-
-      //Success()
-        //.previewDevice(PreviewDevice(rawValue: "iPhone SE (2nd generation)"))
-
     }
 }

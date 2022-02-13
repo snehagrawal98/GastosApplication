@@ -36,6 +36,8 @@ struct ContentView: View {
         if status {
           // change to SetPin view after phone call testing
           SetPin()
+        } else if showOnboardingScreen {
+          OnbordingView(showOnboardingScreen: $showOnboardingScreen)
         } else {
           NavigationView {
             EnterMobileNumber()

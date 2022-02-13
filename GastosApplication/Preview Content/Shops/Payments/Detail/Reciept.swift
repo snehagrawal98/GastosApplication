@@ -16,6 +16,7 @@ struct Reciept: View {
   @State var discount: Double
   @State var paymentStatus: Bool
   @State var shapeColor: Color
+  let rupeeSymbol = "\u{20B9}"
 
   var savings: Double {
     return (billAmount * (self.discount/100))
@@ -44,7 +45,7 @@ struct Reciept: View {
               .recieptLightStyle()
               .padding(.top, 0.04 * UIScreen.screenHeight)
 
-            Text("$ \(billAmount, specifier: "%g")")
+            Text("\(rupeeSymbol) \(billAmount, specifier: "%g")")
               .font(.title.weight(.bold))
               .foregroundColor(.black)
               .padding(.top, 1)
@@ -99,7 +100,7 @@ struct Reciept: View {
 
                 Spacer()
 
-                Text("$ \(billAmount, specifier: "%g")")
+                Text("\(rupeeSymbol) \(billAmount, specifier: "%g")")
                   .recieptDarkStyle()
               }
 
@@ -109,7 +110,7 @@ struct Reciept: View {
 
                 Spacer()
 
-                Text("- $ \(savings, specifier: "%g")")
+                Text("- \(rupeeSymbol) \(savings, specifier: "%g")")
                   .font(.subheadline.weight(.bold))
                   .foregroundColor(.green)
               }
@@ -121,7 +122,7 @@ struct Reciept: View {
 
                   Spacer()
 
-                  Text("+ $ \(coins, specifier: "%g")")
+                  Text("+ \(rupeeSymbol) \(coins, specifier: "%g")")
                     .font(.subheadline.weight(.bold))
                     .foregroundColor(.orange)
                 }
@@ -133,7 +134,7 @@ struct Reciept: View {
 
                 Spacer()
 
-                Text("$ \(amountPaid, specifier: "%g")")
+                Text("\(rupeeSymbol) \(amountPaid, specifier: "%g")")
                   .font(.subheadline.weight(.bold))
                   .foregroundColor(.blue)
               }
@@ -164,11 +165,6 @@ struct Reciept_Previews: PreviewProvider {
     static var previews: some View {
       Reciept(billAmount: 10000, customerName: "Krishna Kumar", shopName: "shop name", date: "02 August 2021", time: "02 : 35 : 45 PM", discount: 20, paymentStatus: true, shapeColor: Color("circle"))
         .preferredColorScheme(.dark)
-        //.previewDevice(PreviewDevice(rawValue: "iPhone SE (2nd generation)"))
-
-      Reciept(billAmount: 10000, customerName: "Krishna Kumar", shopName: "shop name", date: "02 August 2021", time: "02 : 35 : 45 PM", discount: 20, paymentStatus: true, shapeColor: Color("circle"))
-        .preferredColorScheme(.dark)
-        .previewDevice(PreviewDevice(rawValue: "iPhone SE (2nd generation)"))
     }
 }
 
