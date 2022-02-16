@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct PaymentTopView: View {
+    @State var merch: Merchant?
   @State var shopName: String
   @State var shopAddress: String
   @State var isShowingShop = false
@@ -34,7 +35,13 @@ struct PaymentTopView: View {
               .padding(.horizontal, 24)
               .padding(.top, UIApplication.shared.windows.first?.safeAreaInsets.top)
               .fullScreenCover(isPresented: $isShowingShop, content: {
-                ShopView(shopName: "Cafe Bistro", shopImagesUrl: "https://picsum.photos/300/200")
+                  ShopView(shopName: merch?.shop.shopName ?? "No Shop Name",
+                           shopImagesUrl: merch?.shop.shopImageURI ?? "https://picsum.photos/100",
+                           shopAddress: merch?.shop.shopAddress ?? "No Shop Address",
+                           shopOwnerName: merch?.name ?? "No Owner Name",
+                           shopCategory: merch?.shop.category?.rawValue ?? "No Category",
+                           shopDelivery: merch?.shop.homeDelivery ?? false,
+                           shopPickUp: merch?.shop.pickUp ?? false)
               })
 
             Spacer()

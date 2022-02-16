@@ -19,27 +19,33 @@ struct Trending: View {
                 .padding(.vertical, 8)
                 .onAppear {
                     shopsViewModel.getAllMerchants()
-                    print(shopsViewModel.shopInfo)
+                    print(shopsViewModel.merchantArray)
                 }
 
               ScrollView {
                 VStack(alignment: .leading) {
                     
-                    ForEach(shopsViewModel.shopInfo, id: \.self) { shops in
+                    ForEach(shopsViewModel.merchantArray, id: \.self) { merch in
                         
                         NavigationLink {
                             
-                            ShopView(shopName: shops.name ?? "No Shop", shopImagesUrl: shops.imageUrl ?? "https://picsum.photos/300/200")
+                            ShopView(shopName: merch.shop.shopName ?? "No Shop Name",
+                                     shopImagesUrl: merch.shop.shopImageURI ?? "https://picsum.photos/100",
+                                     shopAddress: merch.shop.shopAddress ?? "No Shop Address",
+                                     shopOwnerName: merch.name ?? "No Owner Name",
+                                     shopCategory: merch.shop.category?.rawValue ?? "No Category",
+                                     shopDelivery: merch.shop.homeDelivery ?? false,
+                                     shopPickUp: merch.shop.pickUp ?? false)
                             
                         } label: {
-                            TrendingItem(itemImageUrl: shops.imageUrl ?? "https://picsum.photos/100", itemName: shops.name ?? "No Shop", itemPlace: "Beyti Restaurant", itemRating: 4.8, itemRatings: 233)
+                            TrendingItem(itemImageUrl: merch.shop.shopImageURI ?? "https://picsum.photos/100", itemName: merch.shop.shopName ?? "No Shop Name", itemPlace: merch.shop.shopAddress ?? "No Address", itemRating: 4.8, itemRatings: 233)
 
                         }
 
                     }
                     .onAppear {
                         shopsViewModel.getAllMerchants()
-                        print(shopsViewModel.shopInfo)
+                        print(shopsViewModel.merchantArray)
                     }
       //            ForEach(1..<10) {_ in
       //              TrendingItem(itemImageUrl: "https://picsum.photos/100", itemName: "Meat Pizza with Chicken", itemPlace: "Beyti Restaurant", itemRating: 4.8, itemRatings: 233)

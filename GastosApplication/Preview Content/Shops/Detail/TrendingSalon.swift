@@ -13,26 +13,40 @@ struct TrendingSalon: View {
 
     var body: some View {
       VStack(alignment: .leading) {
-        Text("Trending")
+        Text("Trending Salon")
           .title3TextStyle()
           .padding(.horizontal)
           .padding(.vertical, 8)
+          .onAppear {
+              self.shopsViewModel.getAllMerchants()
+          }
+
 
         ScrollView {
           VStack(alignment: .leading) {
               
-              ForEach(shopsViewModel.shopInfo, id: \.self) { shops in
-                  TrendingItem(itemImageUrl: shops.imageUrl ?? "https://picsum.photos/100", itemName: shops.name ?? "No Shop", itemPlace: "Beyti Restaurant", itemRating: 4.8, itemRatings: 233)
+              ForEach(shopsViewModel.merchantArray, id: \.self) { merch in
+                  
+                  if merch.shop.category == ShopCategory.salon {
+                      TrendingItem(itemImageUrl: merch.shop.shopImageURI ?? "https://picsum.photos/100", itemName: merch.shop.shopName ?? "No Shop Name", itemPlace: merch.shop.shopAddress ?? "No Shop Address", itemRating: 4.8, itemRatings: 233)
+                  }
               }
               .onAppear {
                   shopsViewModel.getAllMerchants()
               }
+
 //            ForEach(1..<10) {_ in
 //              TrendingItem(itemImage: "foodItem", itemName: "Salon Meat Pizza with Chicken", itemPlace: "Beyti Restaurant", itemRating: 4.8, itemRatings: 233)
 //            }
           } //: VSTACK
         } //: SCROLL
+        .frame(width: Constants.sW)
+
       } //: VSTACK
+      .onAppear {
+          shopsViewModel.getAllMerchants()
+      }
+
     }
 }
 

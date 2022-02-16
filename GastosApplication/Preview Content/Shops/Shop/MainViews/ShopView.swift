@@ -11,8 +11,13 @@ import UIKit
 struct ShopView: View {
     var shopName: String
     var shopImagesUrl: String
-    @Environment(\.presentationMode) var presentationMode
+    var shopAddress: String
+    var shopOwnerName: String
+    var shopCategory: String
+    var shopDelivery: Bool
+    var shopPickUp: Bool
     
+    @Environment(\.presentationMode) var presentationMode
     
     @State var isShowingPayments = false
 
@@ -65,7 +70,7 @@ struct ShopView: View {
           .frame(height: 0.405 * UIScreen.screenHeight)
         } //: ZSTACK
 
-        ShopDetails()
+        ShopDetails(shopCategory: shopCategory, delivery: shopDelivery, pickUp: shopPickUp)
           .padding(.top, -20)
 
         Spacer()
@@ -78,7 +83,7 @@ struct ShopView: View {
 
         Spacer()
 
-        ContactUs(contactName: "Mansi Gupta", address: "Whiteields 134 - 4, Sector 22, Chandigarh- 411007")
+        ContactUs(contactName: shopOwnerName, address: shopAddress)
           .padding(.top)
 
         Spacer()
@@ -105,15 +110,17 @@ struct ShopView: View {
 
 struct ShopView_Previews: PreviewProvider {
     static var previews: some View {
-        ShopView(shopName: "Cafe Bistro", shopImagesUrl: "https://picsum.photos/300/200")
+        ShopView(shopName: "Cafe Bistro", shopImagesUrl: "https://picsum.photos/300/200", shopAddress: "somewhere",  shopOwnerName: " A B ", shopCategory: "Food & Beverages", shopDelivery: true, shopPickUp: false)
 
-        ShopView(shopName: "Cafe Bistro", shopImagesUrl: "https://picsum.photos/300/200")
-        .previewDevice(PreviewDevice(rawValue: "iPhone SE (2nd generation)"))
+//        ShopView(shopName: "Cafe Bistro", shopImagesUrl: "https://picsum.photos/300/200")
+//        .previewDevice(PreviewDevice(rawValue: "iPhone SE (2nd generation)"))
     }
 }
 
 // Shop Images
 struct ShopImages: View {
+    
+    var shopImagesUrl: String
     var body: some View {
       TabView {
         ForEach(1..<5) { _ in
@@ -131,9 +138,12 @@ struct ShopImages: View {
 
 // Shop Details
 struct ShopDetails: View {
+    var shopCategory: String
+    var delivery: Bool
+    var pickUp: Bool
     var body: some View {
       HStack {
-        Text("Food & Beverage")
+        Text(shopCategory)
           .font(.subheadline.weight(.bold))
           .frame(width: 0.44 * UIScreen.screenWidth, height: 0.046 * UIScreen.screenHeight )
           .background(Color("textGreen"))
@@ -142,7 +152,7 @@ struct ShopDetails: View {
           .padding(.trailing, 4)
 
         HStack {
-          Image(systemName: "checkmark.circle.fill")
+            Image(systemName: delivery ? "checkmark.circle.fill" : "checkmark.circle")
             .foregroundColor(Color("textGreen"))
 
           Text("Delivery")
@@ -153,7 +163,7 @@ struct ShopDetails: View {
 
 
         HStack {
-          Image(systemName: "checkmark.circle.fill")
+            Image(systemName: pickUp ? "checkmark.circle.fill" : "checkmark.circle")
             .foregroundColor(Color("textGreen"))
 
           Text("Pickup")

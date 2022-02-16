@@ -36,9 +36,11 @@ struct CategoryView: View {
 
           SearchBar(searchText: $searchText, isSearching: $isSearching)
 
-          Nearby()
+            Nearby()
+            
+            Trending()
+                .frame(height: Constants.sH)
 
-          Trending()
         }
         .navigationBarHidden(true)
       }

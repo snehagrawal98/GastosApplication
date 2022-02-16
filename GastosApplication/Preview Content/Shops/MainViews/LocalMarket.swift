@@ -98,6 +98,7 @@ struct LocalMarket: View {
 
               // Trending
               TrendingFood()
+                    .frame(width: Constants.sW)
             }
           } else if index == 2 {
             VStack {
@@ -106,7 +107,10 @@ struct LocalMarket: View {
 
               // Trending
               TrendingFashion()
+                    .frame(width: Constants.sW)
             }
+            .frame(width: Constants.sW)
+
           } else if index == 3 {
             VStack {
               // Nearby
@@ -114,9 +118,12 @@ struct LocalMarket: View {
 
               // Trending
               TrendingSalon()
+                    .frame(width: Constants.sW)
+
             }
           }
         } //: VSTACK
+        .frame(height: Constants.sH)
         } //: VSTACK
       } //: SCROLL
     }

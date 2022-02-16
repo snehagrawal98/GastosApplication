@@ -9,14 +9,14 @@ import Foundation
 
 
 class ShopsViewModel: ObservableObject {
-    @Published var shopInfo: [ShopsName] = [ShopsName]()
+    @Published var merchantArray: [Merchant] = [Merchant]()
     
     func getAllMerchants() {
         let firebaseManager = FirebaseMnager()
         firebaseManager.getAllShops { res in
 
-            self.shopInfo = res
-            print(self.shopInfo)
+            self.merchantArray = res
+            print(self.merchantArray)
 
         }
 
