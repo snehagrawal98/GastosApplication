@@ -19,6 +19,7 @@ struct ShopView: View {
     
     @Environment(\.presentationMode) var presentationMode
     
+
     @State var isShowingPayments = false
 
     var body: some View {
@@ -63,6 +64,7 @@ struct ShopView: View {
             Spacer()
 
             ShopImages(shopImagesUrl: shopImagesUrl)
+            //ShopImages()
 
             Spacer()
             Spacer()
@@ -124,7 +126,7 @@ struct ShopImages: View {
     var body: some View {
       TabView {
         ForEach(1..<5) { _ in
-          Image("detailShop")
+          Image(shopImagesUrl)
             .resizable()
             .scaledToFill()
             .frame(width: 0.864 * UIScreen.screenWidth, height: 0.226 * UIScreen.screenHeight)

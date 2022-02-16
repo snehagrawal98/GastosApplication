@@ -6,218 +6,344 @@
 //
 
 import SwiftUI
+import Firebase
 
 struct UserProfile: View {
     
-    @Environment(\.presentationMode) var presentationMode
+    @Environment(\.dismiss) var dismiss
+    @AppStorage("log_Status") var status = false
+
+    @State var savings = "0"
+    @State var coinsEarned = "0"
+    @State var isShowingLogoutAlert = false
     
     var body: some View {
         
-        NavigationView(content: {
-            VStack(content: {
-                HStack(content: {
-                    
+        NavigationView {
+          ZStack {
+            VStack {
+              HStack {
                 Button(action: {
-                    self.presentationMode.wrappedValue.dismiss()
+                  dismiss()
+              }, label: {
+                  Image(systemName: "arrow.left")
+                      .font(.title)
+                      .foregroundColor(.black)
+                      .padding(.leading)
+                      .padding(.top, 8)
+              })
+              .navigationBarHidden(true)
+              .navigationBarBackButtonHidden(true)
+                  Spacer()
+              }
 
+              ZStack {
+                  RoundedRectangle(cornerRadius: 10)
+                  .frame(width: 0.848 * UIScreen.screenWidth, height: 0.24 * UIScreen.screenHeight)
+                  .foregroundColor(.black.opacity(0.55))
+                VStack {
+                  // Navigates to UserInformationScreen
+                  NavigationLink(destination: {
+                    UserInformationScreen()
+                      .navigationBarHidden(true)
+                      .navigationBarBackButtonHidden(true)
+                  }, label: {
+                    Image("foodItem")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 0.22 * UIScreen.screenWidth, height: 0.098 * UIScreen.screenHeight, alignment: .center)
+                        .clipShape(Circle())
+                        .foregroundColor(Color(.systemGreen))
+                  })
+
+                  Group {
+                      Text("ElizaBeth Williams")
+                        .font(.title2.weight(.semibold))
+                        .foregroundColor(.white)
+
+                      Text("Inactive Member")
+                        .font(.subheadline.weight(.semibold))
+                        .foregroundColor(.white.opacity(0.6))
+                  }
+
+                  Spacer()
+
+                  HStack {
+                    VStack {
+                      Text(savings)
+                          .font(.title2.weight(.semibold))
+                          .foregroundColor(.white)
+
+                      Text("Savings")
+                          .font(.subheadline.weight(.semibold))
+                          .foregroundColor(.white.opacity(0.8))
+                      }
+                      .padding(.leading, 20)
+
+                  Spacer()
+                  VStack(spacing: -6) {
+                    ForEach(1..<5) { i in
+                        Text("|")
+                          .foregroundColor(.white)
+                      }
+                  }
+                  Spacer()
+
+                    NavigationLink(destination: {
+                      Gullak()
+                        .navigationBarHidden(true)
+                        .navigationBarBackButtonHidden(true)
+                    }, label: {
+                      VStack {
+                        Text(coinsEarned)
+                            .font(.title2.weight(.semibold))
+                            .foregroundColor(.yellow.opacity(0.8))
+
+                        Text("Coins Earned")
+                            .font(.subheadline.weight(.semibold))
+                            .foregroundColor(.white.opacity(0.8))
+                        }
+                    })
+                  } //: HSTACK
+                  .padding(.horizontal)
+                  .padding(.bottom, 4)
+
+                  Spacer()
+                  Spacer()
+                  Spacer()
+              } //: VSTACK
+              .padding(.trailing)
+              .foregroundColor(.primary)
+              .frame(width: 0.848 * UIScreen.screenWidth, height: 0.33 * UIScreen.screenHeight)
+          }
+          .padding(.horizontal)
+
+              VStack(alignment: .leading) {
+                // Account Status
+                NavigationLink(destination: {
+                  ProfileActivationPlans()
+                    .navigationBarHidden(true)
+                    .navigationBarBackButtonHidden(true)
                 }, label: {
-                    Image(systemName: "arrow.left")
-                        .font(.title)
-                        .foregroundColor(.black)
-                        .padding(.leading)
-                        .padding(.top)
-                })
-                .navigationTitle("")
-                .navigationBarHidden(true)
-                .navigationBarBackButtonHidden(true)
-                .padding(.top, Constants.saTop)
-                                        
+                  HStack {
+                    VStack {
+                      Text("Account Status")
+                        .font(.body.weight(.semibold))
+                        .foregroundColor(Color("deepGreen"))
+
+                      Text("Inactive")
+                        .font(.subheadline.weight(.semibold))
+                        .foregroundColor(.orange.opacity(0.7))
+                    }
+
                     Spacer()
+
+                    Text("Activate Now")
+                      .font(.subheadline.weight(.semibold))
+                      .foregroundColor(Color("textGreen"))
+                  }
+                  .padding()
+                  .frame(width: 0.848 * UIScreen.screenWidth, height: 0.088 * UIScreen.screenHeight)
+                  .background(
+                    RoundedRectangle(cornerRadius: 10)
+                      .stroke(.gray, lineWidth: 0.2)
+                      .shadow(radius: 5)
+                  )
+                  .padding(.horizontal)
+                  .padding(.vertical, 8)
+
                 })
-                
-                Image(systemName: "person.fill")
+
+                // Expense Manager
+                HStack() {
+                  Image(systemName: "chart.bar.fill")
                     .resizable()
-                    .frame(width: 60, height: 60, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                    .clipShape(Circle())
-                    .foregroundColor(Color(.systemGreen))
-                    .zIndex(2)
-                
-                NavigationLink(
-                    destination: UserInformationScreen(),
-                    label: {
-                        ZStack(content: {
-                            RoundedRectangle(cornerRadius: /*@START_MENU_TOKEN@*/25.0/*@END_MENU_TOKEN@*/)
-                                .frame(height: Constants.sH * (0.19))
-                                .foregroundColor(Color(.systemTeal))
-                            HStack(content: {
-                                VStack(alignment: .leading ,content: {
-                                    
-                                    Text("Name")
+                    .padding(5)
+                    .foregroundColor(.white)
+                    .background(Color("textGreen"))
+                    .frame(width: 20, height: 20)
+                    .cornerRadius(4)
+                    .padding(.trailing, 8)
 
-                                    Text("Phone No")
-                                    
-                                    Text("Email Id")
+                  Text("Expense Manager")
 
+                  Spacer()
+                }
+                .foregroundColor(Color("deepGreen"))
+                .padding()
+                .frame(width: 0.848 * UIScreen.screenWidth, height: 0.088 * UIScreen.screenHeight)
+                .background(
+                  RoundedRectangle(cornerRadius: 10)
+                    .stroke(.gray, lineWidth: 0.2)
+                    .shadow(radius: 5)
+                )
+                .padding(.horizontal)
+                .padding(.bottom, 8)
 
-                                })
-                                .padding(.trailing)
-                                
-                                VStack(alignment: .leading ,content: {
-                                    
-                                    Text("Xxxx")
-                                    
-                                    Text("Xxxx")
+                // Refer & Earn
+                NavigationLink(destination: {
+                  ReferAndEarn()
+                    .navigationBarHidden(true)
+                    .navigationBarBackButtonHidden(true)
+                }, label: {
+                  HStack {
+                    Image("ShareSymbol")
+                      .resizable()
+                      .padding(2)
+                      .foregroundColor(Color("textGreen"))
+                      .frame(width: 20, height: 20)
+                      .cornerRadius(4)
+                      .padding(.trailing, 8)
 
-                                    Text("Xxxx")
+                    Text("Refer & Earn")
 
-                                })
-                                .padding(.trailing)
-
-                                
-                                Circle()
-                                    .frame(width: 50, height: 50, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                                    .padding(.leading)
-
-                            })
-
-                        })
-                        .offset(y: -30)
-                        .padding(.horizontal)
-                    })
-                
-                
-                
-                VStack(content: {
-                    
-                    ZStack(content: {
-                        RoundedRectangle(cornerRadius: /*@START_MENU_TOKEN@*/25.0/*@END_MENU_TOKEN@*/)
-                            .foregroundColor(.white)
-                            .shadow(color: .gray, radius: 5, x: /*@START_MENU_TOKEN@*/0.0/*@END_MENU_TOKEN@*/, y: /*@START_MENU_TOKEN@*/0.0/*@END_MENU_TOKEN@*/)
-                            .frame(height: Constants.sH * (0.09))
-                        
-                        VStack(content: {
-                            HStack(content: {
-                                /*@START_MENU_TOKEN@*/Text("Placeholder")/*@END_MENU_TOKEN@*/
-                                    .padding(.leading)
-                                Spacer()
-                            })
-                            HStack(content: {
-                                Text("Inactive")
-                                    .padding(.leading)
-                                Spacer()
-                                NavigationLink(
-                                    destination: /*@START_MENU_TOKEN@*/Text("Destination")/*@END_MENU_TOKEN@*/,
-                                    label: {
-                                        Text("Active Now")
-                                    })
-                                    .padding(.trailing)
-                            })
-                        })
-
-                    })
-                    .padding(.bottom)
-                    .padding(.horizontal)
-                    
-                    NavigationLink(
-                        destination: /*@START_MENU_TOKEN@*/Text("Destination")/*@END_MENU_TOKEN@*/,
-                        label: {
-                            ZStack(content: {
-                                RoundedRectangle(cornerRadius: /*@START_MENU_TOKEN@*/25.0/*@END_MENU_TOKEN@*/)
-                                    .foregroundColor(.white)
-                                    .shadow(color: .gray, radius: 5, x: /*@START_MENU_TOKEN@*/0.0/*@END_MENU_TOKEN@*/, y: /*@START_MENU_TOKEN@*/0.0/*@END_MENU_TOKEN@*/)
-                                    .frame(height: Constants.sH * (0.09))
-                                
-                                HStack(content: {
-                                    Image(systemName: "person.fill")
-                                        .padding(.leading)
-                                    Text("Expence Manager")
-                                    Spacer()
-                                })
-
-                            })
-                            .padding(.bottom)
-                            .padding(.horizontal)
-
-                        })
-                    
-                    NavigationLink(
-                        destination: /*@START_MENU_TOKEN@*/Text("Destination")/*@END_MENU_TOKEN@*/,
-                        label: {
-                            ZStack(content: {
-                                RoundedRectangle(cornerRadius: /*@START_MENU_TOKEN@*/25.0/*@END_MENU_TOKEN@*/)
-                                    .foregroundColor(.white)
-                                    .shadow(color: .gray, radius: 5, x: /*@START_MENU_TOKEN@*/0.0/*@END_MENU_TOKEN@*/, y: /*@START_MENU_TOKEN@*/0.0/*@END_MENU_TOKEN@*/)
-                                    .frame(height: Constants.sH * (0.09))
-                                
-                                HStack(content: {
-                                    Image(systemName: "person.fill")
-                                        .padding(.leading)
-                                    Text("Refer & Earn")
-                                    Spacer()
-                                })
-
-                            })
-                            .padding(.bottom)
-                            .padding(.horizontal)
-
-                        })
-
-
-                    HStack(content: {
-                        NavigationLink(
-                            destination: /*@START_MENU_TOKEN@*/Text("Destination")/*@END_MENU_TOKEN@*/,
-                            label: {
-                                Text("Terms and Conditions")
-                            })
-                            .padding(.leading)
-                        Spacer()
-
-                    })
-                    
-                    HStack(content: {
-                        NavigationLink(
-                            destination: /*@START_MENU_TOKEN@*/Text("Destination")/*@END_MENU_TOKEN@*/,
-                            label: {
-                                Text("About Us")
-                            })
-                            .padding(.leading)
-                        
-                        Spacer()
-
-                    })
-                    
                     Spacer()
-                    
-                    HStack(content: {
-                        NavigationLink(
-                            destination: /*@START_MENU_TOKEN@*/Text("Destination")/*@END_MENU_TOKEN@*/,
-                            label: {
-                                Text("Log Out")
-                            })
-                            .padding(.leading)
-                        
-                        Spacer()
-
-                    })
-                    .padding(.bottom)
-
-
+                  }
+                  .foregroundColor(Color("deepGreen"))
+                  .padding()
+                  .frame(width: 0.848 * UIScreen.screenWidth, height: 0.088 * UIScreen.screenHeight)
+                  .background(
+                    RoundedRectangle(cornerRadius: 10)
+                      .stroke(.gray, lineWidth: 0.2)
+                      .shadow(radius: 5)
+                  )
+                  .padding(.horizontal)
+                  .padding(.bottom, 8)
                 })
-                .edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
+              } //:  VSTACK
 
-            })
-            .edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
-        })
-        .navigationTitle("")
-        .navigationBarHidden(true)
-        .navigationBarBackButtonHidden(true)
-        .edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
+              // Bottom part
+              VStack(alignment: .leading, spacing: 5) {
+
+                NavigationLink(destination: Text("Rate Us"), label: {
+                  Text("Rate Us And Feedback")
+                    .font(.body.weight(.semibold))
+                    .foregroundColor(Color("deepGreen"))
+                })
+
+                NavigationLink(destination: {
+                  TermsOfService()
+                    .navigationBarHidden(true)
+                    .navigationBarBackButtonHidden(true)
+                }, label: {
+                  Text("Terms And Conditions")
+                    .font(.body.weight(.semibold))
+                    .foregroundColor(Color("deepGreen"))
+                })
+
+                NavigationLink(destination: AboutUs()
+                                .navigationBarHidden(true)
+                                .navigationBarBackButtonHidden(true),
+                        label: {
+                  Text("About Us")
+                    .font(.body.weight(.semibold))
+                    .foregroundColor(Color("deepGreen"))
+                })
+
+                Spacer()
+
+                Button(action: {
+                  isShowingLogoutAlert = true
+                    }, label: {
+                      Text("Logout")
+                        .font(.body.weight(.bold))
+                        .foregroundColor(Color("deepGreen"))
+                        .padding(.bottom)
+                    })
+              } //: VSTACK
+              .frame(width: 0.765 * UIScreen.screenWidth, alignment: .leading)
+
+              Spacer()
+            }
+
+            // Showing Logout Alert
+            if isShowingLogoutAlert {
+              LogoutAlert(show: $isShowingLogoutAlert)
+            }
+          }
+          .navigationBarHidden(true)
+          .navigationBarBackButtonHidden(true)
+      }
     }
-    
 }
 
 struct UserProfile_Previews: PreviewProvider {
     static var previews: some View {
         UserProfile()
     }
+}
+
+// UserProfileCard
+struct UserProfileCard: View {
+  @State var savings = "0"
+  @State var coinsEarned = "0"
+  var body: some View {
+    ZStack {
+        RoundedRectangle(cornerRadius: 10)
+        .frame(width: 0.848 * UIScreen.screenWidth, height: 0.24 * UIScreen.screenHeight)
+        .foregroundColor(.black.opacity(0.55))
+      VStack {
+          Image("foodItem")
+              .resizable()
+              .scaledToFit()
+              .frame(width: 0.22 * UIScreen.screenWidth, height: 0.098 * UIScreen.screenHeight, alignment: .center)
+              .clipShape(Circle())
+              .foregroundColor(Color(.systemGreen))
+
+        Group {
+                Text("ElizaBeth Williams")
+                .font(.title2.weight(.semibold))
+                .foregroundColor(.white)
+
+                Text("Inactive Member")
+                .font(.subheadline.weight(.semibold))
+                .foregroundColor(.white.opacity(0.6))
+        }
+
+        Spacer()
+
+        HStack {
+          VStack {
+            Text(savings)
+                .font(.title2.weight(.semibold))
+                .foregroundColor(.white)
+
+            Text("Savings")
+                .font(.subheadline.weight(.semibold))
+                .foregroundColor(.white.opacity(0.8))
+            }
+            .padding(.leading, 20)
+
+        Spacer()
+        VStack(spacing: -6) {
+          ForEach(1..<5) { i in
+              Text("|")
+                .foregroundColor(.white)
+            }
+        }
+        Spacer()
+
+        VStack {
+          Text(coinsEarned)
+              .font(.title2.weight(.semibold))
+              .foregroundColor(.yellow.opacity(0.8))
+
+          Text("Coins Earned")
+              .font(.subheadline.weight(.semibold))
+              .foregroundColor(.white.opacity(0.8))
+          }
+        } //: HSTACK
+        .padding(.horizontal)
+        .padding(.bottom, 4)
+
+        Spacer()
+        Spacer()
+        Spacer()
+    } //: VSTACK
+    .padding(.trailing)
+    .foregroundColor(.primary)
+    .frame(width: 0.848 * UIScreen.screenWidth, height: 0.33 * UIScreen.screenHeight)
+}
+.padding(.horizontal)
+  }
 }

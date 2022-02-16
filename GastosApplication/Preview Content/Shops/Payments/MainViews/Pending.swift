@@ -8,8 +8,6 @@
 import SwiftUI
 
 struct Pending: View {
-  @State var rating: Int?
-
   var body: some View {
     ZStack {
       GradientView(firstColor: "deepYellow", secondColor: "deepYellow")
