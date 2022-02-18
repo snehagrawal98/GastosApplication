@@ -11,6 +11,7 @@ struct LocalMarket: View {
     @State var index = 0
 
     var body: some View {
+        NavigationView {
       ScrollView() {
         VStack {
           Text("Local Market")
@@ -126,6 +127,9 @@ struct LocalMarket: View {
         .frame(height: Constants.sH)
         } //: VSTACK
       } //: SCROLL
+      .navigationBarHidden(true)
+      .navigationBarTitle("")
+        }
     }
 }
 

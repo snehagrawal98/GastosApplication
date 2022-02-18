@@ -11,7 +11,7 @@ struct Trending: View {
     @ObservedObject private var shopsViewModel: ShopsViewModel = ShopsViewModel()
     
     var body: some View {
-        NavigationView {
+//        NavigationView {
             VStack(alignment: .leading) {
               Text("Trending")
                 .title3TextStyle()
@@ -56,7 +56,7 @@ struct Trending: View {
             .navigationBarHidden(true)
             .navigationBarTitle("")
 
-        }
+//        }
       
     }
 }
