@@ -13,12 +13,14 @@ struct HomeTab: View {
     @AppStorage("log_Status") var status = false
     @State var images = ["Sip & Bite", "Beauty & Care", "Style & Trends", "Health & Medico", "Daily Needs"]
     @State var adImages = ["PhonePeAd"]
+  @EnvironmentObject var loginViewModel: LoginViewModel
+  @EnvironmentObject var currentUser: CurrentUser
 
     var body: some View {
       NavigationView {
         VStack {
           HStack {
-            Text("Hey Sahgal!")
+            Text("Hey \(loginViewModel.name)")//"Hey Sahgal!")
               .font(.title2.weight(.medium))
               .foregroundColor(Color("deepGreen"))
             Spacer()
@@ -54,7 +56,7 @@ struct HomeTab: View {
                       .padding(.leading)
                       .padding(.top)
                     Spacer()
-                    Text("Sahgal Yadav")
+                    Text(loginViewModel.name)
                       .foregroundColor(.white)
                       .font(.title2)
                       .fontWeight(.medium)
@@ -91,14 +93,14 @@ struct HomeTab: View {
                     Image("GastosMark")
                       .resizable()
                       .aspectRatio(contentMode: .fit)
-                      .frame(height: Constants.sH * 0.2)
+                      .frame(width: 0.402 * UIScreen.screenWidth, height: UIScreen.screenHeight * 0.22)
                   }
                   Spacer()
                 }
                 .zIndex(5)
 
-                RoundedRectangle(cornerRadius: 25.0)
-                  .foregroundColor(Color("5"))
+                LinearGradient(gradient: Gradient(colors: [Color.black, Color("deepGreen")]), startPoint: .leading, endPoint: .topTrailing)
+                  .cornerRadius(10)
               }
               .frame(width: Constants.sW - 24, height: Constants.sH * 0.3, alignment: .center)
 
@@ -145,6 +147,8 @@ struct HomeTab: View {
 struct HomeTab_Previews: PreviewProvider {
     static var previews: some View {
       HomeTab()
+        .environmentObject(LoginViewModel())
+        .environmentObject(CurrentUser())
     }
 }
 

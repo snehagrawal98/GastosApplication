@@ -74,13 +74,12 @@
 		3F8778852794343300667C86 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F87783D2794343200667C86 /* ContentView.swift */; };
 		3F8778862794343300667C86 /* PageTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F87783F2794343200667C86 /* PageTabView.swift */; };
 		3F8778872794343300667C86 /* TabDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8778402794343200667C86 /* TabDetailsView.swift */; };
+		6903E9A027BF7953008E3899 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 6903E99F27BF7953008E3899 /* FirebaseAuth */; };
+		6903E9A227BF7953008E3899 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 6903E9A127BF7953008E3899 /* FirebaseDatabase */; };
 		691EE3D127AC1B5100A3AF43 /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 691EE3D027AC1B5100A3AF43 /* CategoryView.swift */; };
 		693D6C312799A9A700DF62C4 /* AboutUs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 693D6C302799A9A700DF62C4 /* AboutUs.swift */; };
 		693D6C372799AA2600DF62C4 /* PrivacyPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 693D6C362799AA2600DF62C4 /* PrivacyPolicy.swift */; };
 		693D6C392799AA5200DF62C4 /* TermsOfService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 693D6C382799AA5200DF62C4 /* TermsOfService.swift */; };
-		6942CAE027B1362600636688 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 6942CADF27B1362600636688 /* FirebaseAuth */; };
-		6942CAE227B1362600636688 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 6942CAE127B1362600636688 /* FirebaseDatabase */; };
-		6942CAE427B1362600636688 /* FirebaseDatabaseSwift-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = 6942CAE327B1362600636688 /* FirebaseDatabaseSwift-Beta */; };
 		69B27EE527AD2F8B003DECD1 /* ActivationPaymentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B27EE427AD2F8B003DECD1 /* ActivationPaymentView.swift */; };
 		69D0199027B7E687002B23F2 /* LogoutAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69D0198F27B7E687002B23F2 /* LogoutAlert.swift */; };
 		69E542EF27A541130096C821 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69E542EE27A541130096C821 /* LoginViewModel.swift */; };
@@ -90,7 +89,6 @@
 		C06D4DA027A9818900EEF7AF /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D4D9F27A9818900EEF7AF /* FirebaseManager.swift */; };
 		C06D4DA327AA820000EEF7AF /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = C06D4DA227AA820000EEF7AF /* FirebaseDatabase */; };
 		C06D4DA527AA92BC00EEF7AF /* ShopsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D4DA427AA92BC00EEF7AF /* ShopsViewModel.swift */; };
-		C08B41AE27AEF3BC0041FA93 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = C08B41AD27AEF3BC0041FA93 /* FirebaseAuth */; };
 		C097B5E827B2663700D47BCB /* Merchant.swift in Sources */ = {isa = PBXBuildFile; fileRef = C097B5E727B2663700D47BCB /* Merchant.swift */; };
 /* End PBXBuildFile section */
 
@@ -185,10 +183,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6942CAE227B1362600636688 /* FirebaseDatabase in Frameworks */,
+				6903E9A227BF7953008E3899 /* FirebaseDatabase in Frameworks */,
 				C06D4DA327AA820000EEF7AF /* FirebaseDatabase in Frameworks */,
-				6942CAE427B1362600636688 /* FirebaseDatabaseSwift-Beta in Frameworks */,
-				6942CAE027B1362600636688 /* FirebaseAuth in Frameworks */,
+				6903E9A027BF7953008E3899 /* FirebaseAuth in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -518,9 +515,8 @@
 			name = GastosApplication;
 			packageProductDependencies = (
 				C06D4DA227AA820000EEF7AF /* FirebaseDatabase */,
-				6942CADF27B1362600636688 /* FirebaseAuth */,
-				6942CAE127B1362600636688 /* FirebaseDatabase */,
-				6942CAE327B1362600636688 /* FirebaseDatabaseSwift-Beta */,
+				6903E99F27BF7953008E3899 /* FirebaseAuth */,
+				6903E9A127BF7953008E3899 /* FirebaseDatabase */,
 			);
 			productName = GastosApplication;
 			productReference = 3F8777C6279433B300667C86 /* GastosApplication.app */;
@@ -551,7 +547,7 @@
 			);
 			mainGroup = 3F8777BD279433B300667C86;
 			packageReferences = (
-				6942CADE27B1362600636688 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				6903E99E27BF7953008E3899 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = 3F8777C7279433B300667C86 /* Products */;
 			projectDirPath = "";
@@ -863,7 +859,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		6942CADE27B1362600636688 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+		6903E99E27BF7953008E3899 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
 			requirement = {
@@ -874,20 +870,15 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		6942CADF27B1362600636688 /* FirebaseAuth */ = {
+		6903E99F27BF7953008E3899 /* FirebaseAuth */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 6942CADE27B1362600636688 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			package = 6903E99E27BF7953008E3899 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseAuth;
 		};
-		6942CAE127B1362600636688 /* FirebaseDatabase */ = {
+		6903E9A127BF7953008E3899 /* FirebaseDatabase */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 6942CADE27B1362600636688 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			package = 6903E99E27BF7953008E3899 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseDatabase;
-		};
-		6942CAE327B1362600636688 /* FirebaseDatabaseSwift-Beta */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 6942CADE27B1362600636688 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = "FirebaseDatabaseSwift-Beta";
 		};
 		C06D4DA227AA820000EEF7AF /* FirebaseDatabase */ = {
 			isa = XCSwiftPackageProductDependency;

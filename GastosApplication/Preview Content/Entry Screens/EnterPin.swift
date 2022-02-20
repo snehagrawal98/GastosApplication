@@ -11,6 +11,9 @@ struct EnterPin: View {
     
     @State private var name1 = ""
     @State var resetPin = false
+  @ObservedObject var loginViewModel: LoginViewModel
+  @ObservedObject var currentUser: CurrentUser
+
     var body: some View {
         NavigationView{
             ZStack{
@@ -57,6 +60,6 @@ struct EnterPin: View {
 
 struct EnterPin_Previews: PreviewProvider {
     static var previews: some View {
-        EnterPin()
+      EnterPin(loginViewModel: LoginViewModel(), currentUser: CurrentUser())
     }
 }

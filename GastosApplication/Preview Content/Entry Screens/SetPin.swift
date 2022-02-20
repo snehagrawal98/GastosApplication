@@ -8,27 +8,46 @@
 import SwiftUI
 
 struct SetPin: View {
-    @State private var name = Array<String>.init(repeating: "", count: 3)
+   // @State private var name = Array<String>.init(repeating: "", count: 3)
   @State var showingProfilePage = false
+  @State var pin1 = ""
+  @State var pin2 = ""
+  @EnvironmentObject var loginViewModel: LoginViewModel
+  @EnvironmentObject var currentUser: CurrentUser
+  @Environment(\.dismiss) var dismiss
 
     var body: some View {
         NavigationView{
             ZStack{
                 Image("Layer3").offset(x: 100.0, y: -350.0)
                 VStack{
-                    HStack{
-                        Text("Set Your 4-Digit Pin").foregroundColor(Color("5")).font(.system(size: 25)).fontWeight(.medium).padding(.leading)
+                  // Navigation bar
+                  HStack {
+                    Button(action: { dismiss() }, label: {
+                      Image(systemName: "arrow.left")
+                        .resizable()
+                        .frame(width: 25, height: 15)
+                        .foregroundColor(Color("deepGreen"))
+                        .padding()
+                    })
+
                     Spacer()
-                    }
-                    
+                    Text("Set Login Pin").foregroundColor(Color("deepGreen")).font(.title2).fontWeight(.semibold).padding(.vertical, 30)
+                    Spacer()
+                    Spacer()
+                  }
+
+                    Text("Create your 4 Digit Login Pin")
+                    .font(.title3.weight(.medium))
+                    .foregroundColor(Color("deepGreen"))
                     HStack{
-                    TextField("New Pin", text: $name[0]).frame(width: 350, height: 65, alignment: .center)
+                    TextField("New Pin", text: $pin1).frame(width: 350, height: 65, alignment: .center)
                         .textFieldStyle(MyTextFieldStyle()).padding(.leading, 3)
                         Spacer()
                     }
                     
                     HStack{
-                    TextField("Re-enter Pin", text: $name[1])
+                    TextField("Re-enter Pin", text: $pin2)
                         .frame(width: 350, height: 65, alignment: .center)
                         .textFieldStyle(MyTextFieldStyle()).padding(.leading, 3)
                         Spacer()
@@ -37,26 +56,47 @@ struct SetPin: View {
                     
                     Spacer()
                     HStack{
-                        
-                        Spacer()
+                      Spacer()
+//                      NavigationLink(destination: ProfilePage()
+//                                      .navigationBarHidden(true)
+//                                      .navigationBarBackButtonHidden(true), isActive: $loginViewModel.didSetPin) {
+//                        Text("")
+//                          .hidden()
+//                      }
+
                       Button(action: {
-                        showingProfilePage.toggle()
+                        self.didEnterProperPin()
                       }, label: {
                             Image(systemName: "chevron.right").font(.system(size: 25)).foregroundColor(.white).frame(width: 50, height: 50, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                        }).padding(3).background(Color("textGreen")).clipShape(Circle()).padding()
-                        .fullScreenCover(isPresented: $showingProfilePage, content: {
-                            ProfilePage()
                         })
+                        .padding(3)
+                        .background(Color("textGreen"))
+                        .clipShape(Circle())
+                        .padding()
                     }
                 }
-            }.navigationBarItems(leading: Image(systemName: "arrow.backward")).foregroundColor(Color("5"))
+            }
+            .navigationBarHidden(true)
+            .navigationBarBackButtonHidden(true)
+            .navigationBarItems(leading: Image(systemName: "arrow.backward")).foregroundColor(Color("5"))
         }
     }
+
+  func didEnterProperPin() {
+    if pin1 != "" && pin1 == pin2 {
+      loginViewModel.pin = pin1
+      currentUser.pin = loginViewModel.pin
+      currentUser.uid = loginViewModel.uid
+      loginViewModel.registerUserPin()
+    }
+  }
 }
 
 struct SetPin_Previews: PreviewProvider {
     static var previews: some View {
-        SetPin()
+      SetPin()
+        .environmentObject(LoginViewModel())
+        .environmentObject(CurrentUser())
     }
 }
 
@@ -68,7 +108,7 @@ struct MyTextFieldStyle: TextFieldStyle {
         .background(
             RoundedRectangle(cornerRadius: 10)
                 .shadow(color: Color("gray"), radius: 8, x: 0.0, y: 10.0).foregroundColor(.white)
-        )//.padding()
+        )
     }
 }
 

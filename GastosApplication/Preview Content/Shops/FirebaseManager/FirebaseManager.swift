@@ -89,3 +89,4 @@ struct ShopsName: Hashable {
 //    var id: String { name! }
 }
 
+//

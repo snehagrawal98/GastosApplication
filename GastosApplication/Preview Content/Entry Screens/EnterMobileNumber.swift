@@ -11,67 +11,75 @@ import SwiftUI
 struct EnterMobileNumber: View {
 
   @State var nextScreen = false
-  @StateObject var loginData = LoginViewModel()
+  @EnvironmentObject var loginViewModel: LoginViewModel
+  @EnvironmentObject var currentUser: CurrentUser
   @State var countryCode = "+91"
 
   var body: some View {
+    NavigationView {
       ZStack{
-
           Image("Layer").offset(x: 100.0, y: -250.0)
-        VStack{
-
-          HStack{
-            Text("Welcome to").fontWeight(.semibold).font(.system(size: 25)).foregroundColor(Color("5"))
-              .padding(.horizontal)
-            Spacer()
-          }
-
-          HStack{
-            Text("Gastos").fontWeight(.bold).font(.system(size: 40)).foregroundColor(Color("5"))
-              .padding(.horizontal)
-            Spacer()
-          }.padding(.bottom, 30)
-
-          HStack{
-            Text("Enter Mobile Number").fontWeight(.regular).font(.system(size: 25)).foregroundColor(Color("5")).padding(.horizontal)
-            Spacer()
-          }
-
-          HStack(spacing:0){
-            TextField("+91", text: $countryCode).frame(width: 60, height: 60, alignment: .center).textFieldStyle(MyTextFieldStyle())
-            TextField("Mobile Number", text: $loginData.phNo).textFieldStyle(MyTextFieldStyle())
-
-          }.padding(.horizontal)
-
-          Spacer()
-
-          HStack{
-
-            Spacer()
-
-            NavigationLink(destination: OTPPin(loginData: loginData), isActive: $loginData.gotoVerify) {
-              Text("")
-                .hidden()
+          VStack{
+            HStack{
+              Text("Welcome to").fontWeight(.semibold).font(.system(size: 25)).foregroundColor(Color("5"))
+                .padding(.horizontal)
+              Spacer()
             }
 
-            Button(action: {
-              loginData.sendCode()
-            }, label: {
-              Image(systemName: "chevron.right").font(.system(size: 25)).foregroundColor(.white).frame(width: 50, height: 50, alignment: .center)
-            }).padding(3).background(Color("textGreen")).clipShape(Circle()).padding()
-              .disabled(loginData.phNo == "" ? true : false)
-          }
-        }.padding(.vertical, 50)
+            HStack{
+              Text("Gastos").fontWeight(.bold).font(.system(size: 40)).foregroundColor(Color("5"))
+                .padding(.horizontal)
+              Spacer()
+            }.padding(.bottom, 30)
+
+            HStack{
+              Text("Enter Mobile Number").fontWeight(.regular).font(.system(size: 25)).foregroundColor(Color("5")).padding(.horizontal)
+              Spacer()
+            }
+
+            HStack(spacing:0){
+              TextField("+91", text: $countryCode).frame(width: 60, height: 60, alignment: .center).textFieldStyle(MyTextFieldStyle())
+              TextField("Mobile Number", text: $loginViewModel.phone).textFieldStyle(MyTextFieldStyle())
+
+            }.padding(.horizontal)
+
+            Spacer()
+
+            HStack{
+
+            Spacer()
+
+            NavigationLink(destination: OTPPin()
+                          .navigationBarHidden(true)
+                          .navigationBarBackButtonHidden(true), isActive: $loginViewModel.gotoVerify) {
+                Text("")
+                  .hidden()
+              }
+
+              Button(action: {
+                currentUser.phone = loginViewModel.phone
+                loginViewModel.sendCode()
+              }, label: {
+                Image(systemName: "chevron.right").font(.system(size: 25)).foregroundColor(.white).frame(width: 50, height: 50, alignment: .center)
+              }).padding(3).background(Color("textGreen")).clipShape(Circle()).padding()
+                .disabled(loginViewModel.phone == "" ? true : false)
+            }
+          }.padding(.vertical, 50)
+        }
+      .navigationBarHidden(true)
+      .navigationBarBackButtonHidden(true)
+        .alert(isPresented: $loginViewModel.error) {
+          Alert(title: Text("Message"), message: Text(loginViewModel.errorMsg), dismissButton: .default(Text("Ok")))
       }
-      .alert(isPresented: $loginData.error) {
-        Alert(title: Text("Message"), message: Text(loginData.errorMsg), dismissButton: .default(Text("Ok")))
-      }
+    }
   }
 }
 
 struct EnterMobileNumber_Previews: PreviewProvider {
   static var previews: some View {
       EnterMobileNumber()
+      .environmentObject(LoginViewModel())
+      .environmentObject(CurrentUser())
   }
 }
 

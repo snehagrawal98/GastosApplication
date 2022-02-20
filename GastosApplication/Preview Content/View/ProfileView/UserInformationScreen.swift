@@ -10,7 +10,7 @@ import SwiftUI
 struct UserInformationScreen: View {
     
     @Environment(\.dismiss) var dismiss
-    
+  @EnvironmentObject var loginViewModel: LoginViewModel
     @State private var email: String = ""
     
     @State private var edittingMode: Bool = false
@@ -68,7 +68,7 @@ struct UserInformationScreen: View {
 
               HStack {
                 VStack(alignment: .leading) {
-                  Text("Taruna Singh")
+                  Text(loginViewModel.name)
                     .font(.title3.weight(.semibold))
 
                   Text("Xxxxxxxxx4545")
@@ -95,7 +95,7 @@ struct UserInformationScreen: View {
                 .font(.headline.weight(.semibold))
                 .padding(.horizontal)
 
-              Text("tarunsingh@gmail.com")
+              Text(loginViewModel.email)
                 .font(.subheadline.weight(.medium))
                 .padding(.horizontal)
                 .frame(width: 0.883 * UIScreen.screenWidth, height: 0.043 * UIScreen.screenHeight, alignment: .leading)
@@ -114,7 +114,7 @@ struct UserInformationScreen: View {
                   .font(.headline.weight(.semibold))
                   .padding(.horizontal)
 
-                Text("Oct 17, 1964")
+                Text(loginViewModel.dob)
                   .font(.subheadline.weight(.medium))
                   .font(.subheadline.weight(.medium))
                   .padding(.horizontal)
@@ -133,7 +133,7 @@ struct UserInformationScreen: View {
                   .font(.headline.weight(.semibold))
                   .offset(x: -20)
 
-                Text("Female")
+                Text(loginViewModel.gender)
                   .font(.subheadline.weight(.medium))
                   .padding(.horizontal)
                   .frame(width: 0.341 * UIScreen.screenWidth, height: 0.043 * UIScreen.screenHeight, alignment: .leading)
@@ -152,7 +152,7 @@ struct UserInformationScreen: View {
                 .font(.headline.weight(.semibold))
                 .padding(.horizontal)
 
-              Text("+91 27388 43932")
+              Text(loginViewModel.phone)
                 .font(.subheadline.weight(.medium))
                 .padding(.horizontal)
                 .frame(width: 0.883 * UIScreen.screenWidth, height: 0.043 * UIScreen.screenHeight, alignment: .leading)
@@ -179,5 +179,6 @@ struct UserInformationScreen: View {
 struct UserInformationScreen_Previews: PreviewProvider {
     static var previews: some View {
         UserInformationScreen()
+        .environmentObject(LoginViewModel())
     }
 }

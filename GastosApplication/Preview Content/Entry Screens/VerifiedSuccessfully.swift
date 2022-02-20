@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct VerifiedSuccessfully: View {
-  @State var showingHome = false
+  @EnvironmentObject var loginViewModel: LoginViewModel
 
     var body: some View {
         NavigationView{
@@ -21,22 +21,25 @@ struct VerifiedSuccessfully: View {
                 HStack{
                     Spacer()
                     Text("Jump To Home").foregroundColor(Color("5")).fontWeight(.regular).font(.system(size: 20))
-                  Button(action: {
-                    showingHome.toggle()
-                  }, label: {
-                        Image(systemName: "chevron.right").font(.system(size: 25)).foregroundColor(.white).frame(width: 50, height: 50, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                  NavigationLink(destination: MainView(selectedTab: 2)
+                                  .navigationBarHidden(true)
+                                  .navigationBarBackButtonHidden(true), label: {
+                    Image(systemName: "chevron.right").font(.system(size: 25)).foregroundColor(.white).frame(width: 50, height: 50, alignment: .center)
                     }).padding(3).background(Color("textGreen")).clipShape(Circle()).padding()
-                    .fullScreenCover(isPresented: $showingHome, content: {
-                        MainView(selectedTab: 2)
-                    })
                 }
-            }.navigationBarItems(leading: Image(systemName: "arrow.backward")).foregroundColor(Color("5"))
+            }.navigationBarItems(leading: Image(systemName: "arrow.backward")).foregroundColor(Color("deepGreen"))
         }
+        .onDisappear(perform: self.changeDidShowVerifiedOnce)
     }
+
+  func changeDidShowVerifiedOnce() {
+    loginViewModel.didShowVerifiedScreenOnce = true
+  }
 }
 
 struct VerifiedSuccessfully_Previews: PreviewProvider {
     static var previews: some View {
         VerifiedSuccessfully()
+        .environmentObject(LoginViewModel())
     }
 }
