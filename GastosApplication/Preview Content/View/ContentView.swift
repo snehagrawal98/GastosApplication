@@ -9,50 +9,32 @@ import SwiftUI
 
 struct ContentView: View {
   @AppStorage("log_Status") var status = false
-    
-    @State private var showOnboardingScreen = true
-
-  //  var body: some View {
-//
-//      ZStack {
-//        NavigationView {
-//          Group {
-//                if showOnboardingScreen {
-//                    OnbordingView(showOnboardingScreen: $showOnboardingScreen)
-//                } else {
-//                    EnterMobileNumber()
-//              }
-//          }
-//          .navigationBarHidden(true)
-//          .navigationBarBackButtonHidden(true)
-//        }
-//      }
-//    }
-// }
-
+  @State private var showOnboardingScreen = true
+  @StateObject var loginViewModel = LoginViewModel()
+  @StateObject var currentUser = CurrentUser()
 
     var body: some View {
-      ZStack {
-        if status {
-          // change to SetPin view after phone call testing
-          SetPin()
-        } else if showOnboardingScreen {
-          OnbordingView(showOnboardingScreen: $showOnboardingScreen)
-        } else {
-          NavigationView {
+        ZStack {
+          if status && loginViewModel.didSetPin && loginViewModel.didEnterUserDetails && loginViewModel.didShowVerifiedScreenOnce {
+            withAnimation { MainView(selectedTab: 2) }
+          } else if status && loginViewModel.didSetPin {
+            ProfilePage()
+          } else if status {
+            SetPin()
+          } else if showOnboardingScreen {
+            OnbordingView(showOnboardingScreen: $showOnboardingScreen)
+          } else {
             EnterMobileNumber()
-              .navigationBarHidden(true)
-              .navigationBarBackButtonHidden(true)
           }
-
         }
-      }
+        .environmentObject(loginViewModel)
+        .environmentObject(currentUser)
     }
 }
 
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+      ContentView(currentUser: CurrentUser())
     }
 }

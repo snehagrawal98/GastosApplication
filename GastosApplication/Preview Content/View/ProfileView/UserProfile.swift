@@ -12,6 +12,7 @@ struct UserProfile: View {
     
     @Environment(\.dismiss) var dismiss
     @AppStorage("log_Status") var status = false
+    @EnvironmentObject var loginViewModel: LoginViewModel
 
     @State var savings = "0"
     @State var coinsEarned = "0"
@@ -57,7 +58,7 @@ struct UserProfile: View {
                   })
 
                   Group {
-                      Text("ElizaBeth Williams")
+                    Text(loginViewModel.name)
                         .font(.title2.weight(.semibold))
                         .foregroundColor(.white)
 
@@ -270,6 +271,7 @@ struct UserProfile: View {
 struct UserProfile_Previews: PreviewProvider {
     static var previews: some View {
         UserProfile()
+        .environmentObject(LoginViewModel())
     }
 }
 

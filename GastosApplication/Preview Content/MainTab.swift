@@ -30,7 +30,7 @@ struct MainTab: View {
                     .tag(1)
                 FavoriteTab()
                     .tag(2)
-                HomeTab()
+                //HomeTab()
                     .tag(3)
                 MapsTab()
                     .tag(4)
