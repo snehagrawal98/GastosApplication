@@ -18,13 +18,9 @@ struct ShopView: View {
     var shopPickUp: Bool
     
     @Environment(\.presentationMode) var presentationMode
-    
-
     @State var isShowingPayments = false
 
     var body: some View {
-        
-        
       VStack {
         ZStack {
           Rectangle()
@@ -34,7 +30,7 @@ struct ShopView: View {
             .shadow(color: Color.gray, radius: 5)
             .edgesIgnoringSafeArea(.all)
 
-          // NAavigation Bar & Shop Image
+          // Navigation Bar & Shop Image
           VStack {
             Spacer()
 
@@ -64,7 +60,6 @@ struct ShopView: View {
             Spacer()
 
             ShopImages(shopImagesUrl: shopImagesUrl)
-            //ShopImages()
 
             Spacer()
             Spacer()
@@ -101,8 +96,6 @@ struct ShopView: View {
             Payment(shopName: "Sai-Mart", shopAddress: "43-BD, Delhi", discount: 10.0)
           })
 
-          
-        
         Spacer()
       } //: VSTACK
       .navigationBarBackButtonHidden(true)
@@ -113,9 +106,6 @@ struct ShopView: View {
 struct ShopView_Previews: PreviewProvider {
     static var previews: some View {
         ShopView(shopName: "Cafe Bistro", shopImagesUrl: "https://picsum.photos/300/200", shopAddress: "somewhere",  shopOwnerName: " A B ", shopCategory: "Food & Beverages", shopDelivery: true, shopPickUp: false)
-
-//        ShopView(shopName: "Cafe Bistro", shopImagesUrl: "https://picsum.photos/300/200")
-//        .previewDevice(PreviewDevice(rawValue: "iPhone SE (2nd generation)"))
     }
 }
 

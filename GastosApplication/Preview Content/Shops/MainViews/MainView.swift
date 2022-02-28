@@ -6,9 +6,12 @@
 //
 
 import SwiftUI
+import CodeScanner
 
 struct MainView: View {
   @State var selectedTab: Int
+  @State var isShowingScanner = false
+  @State var scannedCode = ""
   @EnvironmentObject var loginViewModel: LoginViewModel
   @EnvironmentObject var currentUser: CurrentUser
 
@@ -35,8 +38,15 @@ struct MainView: View {
         HomeTab()
           .tabItem {
             if selectedTab == 2 {
-              Image("HomeTab")
-                .scaleEffect(5)
+//              Button(action: {
+//                isShowingScanner = true
+//              }, label: {
+                Image("HomeTab")
+                  .frame(width: 20, height: 20)
+                  .onTapGesture {
+                    isShowingScanner = true
+                  }
+//              })
             } else {
               Image("Tab3")
                 .renderingMode(.template)
@@ -63,13 +73,31 @@ struct MainView: View {
       .onAppear(perform: self.readUserDetails)
       .navigationBarHidden(true)
       .navigationBarBackButtonHidden(true)
+      .sheet(isPresented: $isShowingScanner) {
+        CodeScannerView(codeTypes: [.qr], simulatedData: "hello\nhow r u", completion: handleScan)
+      }
     }
   }
+  
   func readUserDetails() {
     if loginViewModel.didShowMainViewOnce == 0 {
       loginViewModel.didShowMainViewOnce += 1
     } else if loginViewModel.didShowMainViewOnce == 1 {
       loginViewModel.readCurrentUser()
+    }
+  }
+
+  // func for scanning
+  func handleScan(result: Result<ScanResult, ScanError>) {
+    isShowingScanner = false
+
+    switch result {
+    case .success(let result):
+      scannedCode = result.string // .components(separatedBy: "\n")
+      guard !scannedCode.isEmpty else { return }
+
+    case .failure(let error):
+      print("Scanning failed: \(error.localizedDescription)")
     }
   }
 }

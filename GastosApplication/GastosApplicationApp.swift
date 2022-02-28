@@ -14,7 +14,8 @@ struct GastosApplicationApp: App {
   @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     var body: some Scene {
         WindowGroup {
-          ContentView()
+         // ContentView()
+          MainView(selectedTab: 2)
         }
     }
 }
@@ -31,4 +32,3 @@ class AppDelegate: NSObject,UIApplicationDelegate {
 
   }
 }
-

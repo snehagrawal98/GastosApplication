@@ -26,6 +26,7 @@ class LoginViewModel: ObservableObject {
   @AppStorage("didEnterUserDetails") var didEnterUserDetails = false
   @AppStorage("didShowVerifiedScreenOnce") var didShowVerifiedScreenOnce = false
   @AppStorage("didShowMainViewOnce") var didShowMainViewOnce = 0
+
   // Loading view
   @Published var loading = false
 

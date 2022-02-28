@@ -77,6 +77,7 @@
 		6903E9A027BF7953008E3899 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 6903E99F27BF7953008E3899 /* FirebaseAuth */; };
 		6903E9A227BF7953008E3899 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 6903E9A127BF7953008E3899 /* FirebaseDatabase */; };
 		691EE3D127AC1B5100A3AF43 /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 691EE3D027AC1B5100A3AF43 /* CategoryView.swift */; };
+		6922F0C827CCFD0A00308D68 /* CodeScanner in Frameworks */ = {isa = PBXBuildFile; productRef = 6922F0C727CCFD0A00308D68 /* CodeScanner */; };
 		693D6C312799A9A700DF62C4 /* AboutUs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 693D6C302799A9A700DF62C4 /* AboutUs.swift */; };
 		693D6C372799AA2600DF62C4 /* PrivacyPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 693D6C362799AA2600DF62C4 /* PrivacyPolicy.swift */; };
 		693D6C392799AA5200DF62C4 /* TermsOfService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 693D6C382799AA5200DF62C4 /* TermsOfService.swift */; };
@@ -183,6 +184,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6922F0C827CCFD0A00308D68 /* CodeScanner in Frameworks */,
 				6903E9A227BF7953008E3899 /* FirebaseDatabase in Frameworks */,
 				C06D4DA327AA820000EEF7AF /* FirebaseDatabase in Frameworks */,
 				6903E9A027BF7953008E3899 /* FirebaseAuth in Frameworks */,
@@ -517,6 +519,7 @@
 				C06D4DA227AA820000EEF7AF /* FirebaseDatabase */,
 				6903E99F27BF7953008E3899 /* FirebaseAuth */,
 				6903E9A127BF7953008E3899 /* FirebaseDatabase */,
+				6922F0C727CCFD0A00308D68 /* CodeScanner */,
 			);
 			productName = GastosApplication;
 			productReference = 3F8777C6279433B300667C86 /* GastosApplication.app */;
@@ -548,6 +551,7 @@
 			mainGroup = 3F8777BD279433B300667C86;
 			packageReferences = (
 				6903E99E27BF7953008E3899 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				6922F0C627CCFD0A00308D68 /* XCRemoteSwiftPackageReference "CodeScanner" */,
 			);
 			productRefGroup = 3F8777C7279433B300667C86 /* Products */;
 			projectDirPath = "";
@@ -787,6 +791,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = GastosApplication/Info.plist;
+				INFOPLIST_KEY_NSCalendarsUsageDescription = "Need this to scan QRs";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -817,6 +822,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = GastosApplication/Info.plist;
+				INFOPLIST_KEY_NSCalendarsUsageDescription = "Need this to scan QRs";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -867,6 +873,14 @@
 				minimumVersion = 8.0.0;
 			};
 		};
+		6922F0C627CCFD0A00308D68 /* XCRemoteSwiftPackageReference "CodeScanner" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/twostraws/CodeScanner";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -879,6 +893,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 6903E99E27BF7953008E3899 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseDatabase;
+		};
+		6922F0C727CCFD0A00308D68 /* CodeScanner */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6922F0C627CCFD0A00308D68 /* XCRemoteSwiftPackageReference "CodeScanner" */;
+			productName = CodeScanner;
 		};
 		C06D4DA227AA820000EEF7AF /* FirebaseDatabase */ = {
 			isa = XCSwiftPackageProductDependency;

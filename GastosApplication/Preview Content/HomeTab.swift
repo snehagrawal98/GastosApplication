@@ -13,14 +13,14 @@ struct HomeTab: View {
     @AppStorage("log_Status") var status = false
     @State var images = ["Sip & Bite", "Beauty & Care", "Style & Trends", "Health & Medico", "Daily Needs"]
     @State var adImages = ["PhonePeAd"]
-  @EnvironmentObject var loginViewModel: LoginViewModel
-  @EnvironmentObject var currentUser: CurrentUser
+    @EnvironmentObject var loginViewModel: LoginViewModel
+    @EnvironmentObject var currentUser: CurrentUser
 
     var body: some View {
       NavigationView {
         VStack {
           HStack {
-            Text("Hey \(loginViewModel.name)")//"Hey Sahgal!")
+            Text("Hey Sahgal!")//\(loginViewModel.name)")//"Hey Sahgal!")
               .font(.title2.weight(.medium))
               .foregroundColor(Color("deepGreen"))
             Spacer()
@@ -49,22 +49,16 @@ struct HomeTab: View {
               ZStack {
                 HStack(content: {
                   VStack(alignment: .leading, spacing: nil, content: {
-                    Text("GASTOS")
-                      .foregroundColor(.white)
-                      .fontWeight(.semibold)
-                      .font(.largeTitle)
-                      .padding(.leading)
-                      .padding(.top)
                     Spacer()
-                    Text(loginViewModel.name)
+                    Text("Sahgal Yadav")//loginViewModel.name)
                       .foregroundColor(.white)
                       .font(.title2)
                       .fontWeight(.medium)
                       .padding(.leading)
                       .padding(.bottom)
-                    Text("1234 5678 1234 5678")
+                    Text("XXXX XXXX XXXX XXXX")
                       .foregroundColor(.white)
-                      .font(.body)
+                      .font(.subheadline.weight(.semibold))
                       .padding(.leading)
                     Text("Valid Till: 12-6-2021")
                       .foregroundColor(.white)
@@ -76,13 +70,6 @@ struct HomeTab: View {
                   VStack {
 
                     Spacer()
-                    Text("LPI")
-                      .foregroundColor(.white)
-                      .fontWeight(.bold)
-                      .italic()
-                      .font(.title)
-                      .padding(.trailing)
-                      .padding(.bottom)
                   }
                 })
                   .zIndex(5)
@@ -90,17 +77,13 @@ struct HomeTab: View {
                 VStack {
                   HStack {
                     Spacer()
-                    Image("GastosMark")
+                    Image("cardBackground")
                       .resizable()
-                      .aspectRatio(contentMode: .fit)
-                      .frame(width: 0.402 * UIScreen.screenWidth, height: UIScreen.screenHeight * 0.22)
+                      .frame(width: Constants.sW - 24, height: Constants.sH * 0.3, alignment: .center)
                   }
                   Spacer()
                 }
-                .zIndex(5)
-
-                LinearGradient(gradient: Gradient(colors: [Color.black, Color("deepGreen")]), startPoint: .leading, endPoint: .topTrailing)
-                  .cornerRadius(10)
+                .zIndex(-1)
               }
               .frame(width: Constants.sW - 24, height: Constants.sH * 0.3, alignment: .center)
 

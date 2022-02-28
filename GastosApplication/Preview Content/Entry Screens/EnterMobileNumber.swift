@@ -7,7 +7,6 @@
 
 import SwiftUI
 
-
 struct EnterMobileNumber: View {
 
   @State var nextScreen = false

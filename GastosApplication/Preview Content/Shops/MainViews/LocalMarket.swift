@@ -11,121 +11,125 @@ struct LocalMarket: View {
     @State var index = 0
 
     var body: some View {
-      ScrollView() {
-        VStack {
-          Text("Local Market")
-            .title2TextStyle()
-            .padding(.horizontal)
-            .frame(width: UIScreen.screenWidth, alignment: .leading)
+      NavigationView {
+        ScrollView {
+          VStack {
+            Text("Local Market")
+              .title2TextStyle()
+              .padding(.horizontal)
+              .frame(width: UIScreen.screenWidth, alignment: .leading)
 
-          // Local Market Categories
-          HStack() {
-            Text("All")
-              .font(.subheadline)
-              .foregroundColor(self.index == 0 ? .white : Color("5"))
-              .padding(.vertical, 10)
-              .padding(.horizontal, 10)
-              .background(Color("5").opacity(self.index == 0 ? 1 : 0 ))
-              .cornerRadius(10)
-              .onTapGesture {
-                withAnimation(.easeOut) {
-                  self.index = 0
+            // Local Market Categories
+            HStack() {
+              Text("All")
+                .font(.subheadline)
+                .foregroundColor(self.index == 0 ? .white : Color("5"))
+                .padding(.vertical, 10)
+                .padding(.horizontal, 10)
+                .background(Color("5").opacity(self.index == 0 ? 1 : 0 ))
+                .cornerRadius(10)
+                .onTapGesture {
+                  withAnimation(.easeOut) {
+                    self.index = 0
+                  }
                 }
-              }
 
-            Spacer()
+              Spacer()
 
-            Text("Food & Beverage")
-              .font(.subheadline)
-              .foregroundColor(self.index == 1 ? .white : Color("5"))
-              .padding(.vertical, 10)
-              .padding(.horizontal, 6)
-              .background(Color("5").opacity(self.index == 1 ? 1 : 0 ))
-              .cornerRadius(10)
-              .onTapGesture {
-                withAnimation(.easeOut) {
-                  self.index = 1
+              Text("Food & Beverage")
+                .font(.subheadline)
+                .foregroundColor(self.index == 1 ? .white : Color("5"))
+                .padding(.vertical, 10)
+                .padding(.horizontal, 6)
+                .background(Color("5").opacity(self.index == 1 ? 1 : 0 ))
+                .cornerRadius(10)
+                .onTapGesture {
+                  withAnimation(.easeOut) {
+                    self.index = 1
+                  }
                 }
-              }
 
-            Spacer()
+              Spacer()
 
-            Text("Fashion")
-              .font(.subheadline)
-              .foregroundColor(self.index == 2 ? .white : Color("5"))
-              .padding(.vertical, 10)
-              .padding(.horizontal, 6)
-              .background(Color("5").opacity(self.index == 2 ? 1 : 0 ))
-              .cornerRadius(10)
-              .onTapGesture {
-                withAnimation(.easeOut) {
-                  self.index = 2
+              Text("Fashion")
+                .font(.subheadline)
+                .foregroundColor(self.index == 2 ? .white : Color("5"))
+                .padding(.vertical, 10)
+                .padding(.horizontal, 6)
+                .background(Color("5").opacity(self.index == 2 ? 1 : 0 ))
+                .cornerRadius(10)
+                .onTapGesture {
+                  withAnimation(.easeOut) {
+                    self.index = 2
+                  }
                 }
-              }
 
-            Spacer()
+              Spacer()
 
-            Text("Salon & Spa")
-              .font(.subheadline)
-              .foregroundColor(self.index == 3 ? .white : Color("5"))
-              .padding(.vertical, 10)
-              .padding(.horizontal, 6)
-              .background(Color("5").opacity(self.index == 3 ? 1 : 0 ))
-              .cornerRadius(10)
-              .onTapGesture {
-                withAnimation(.easeOut) {
-                  self.index = 3
+              Text("Salon & Spa")
+                .font(.subheadline)
+                .foregroundColor(self.index == 3 ? .white : Color("5"))
+                .padding(.vertical, 10)
+                .padding(.horizontal, 6)
+                .background(Color("5").opacity(self.index == 3 ? 1 : 0 ))
+                .cornerRadius(10)
+                .onTapGesture {
+                  withAnimation(.easeOut) {
+                    self.index = 3
+                  }
                 }
+            } //: HSTACK
+            .padding(.horizontal, 10)
+            .padding(.vertical, 8)
+
+          // Nearby & Trending
+          VStack {
+            if index == 0 {
+              VStack {
+                // Nearby
+                Nearby()
+
+                // Trending
+                Trending()
               }
-          } //: HSTACK
-          .padding(.horizontal, 10)
-          .padding(.vertical, 8)
+            } else if index == 1 {
+              VStack {
+                // Nearby
+                NearbyFood()
 
-        // Nearby & Trending
-        VStack {
-          if index == 0 {
-            VStack {
-              // Nearby
-              Nearby()
+                // Trending
+                TrendingFood()
+                      .frame(width: Constants.sW)
+              }
+            } else if index == 2 {
+              VStack {
+                // Nearby
+                NearbyFashion()
 
-              // Trending
-              Trending()
+                // Trending
+                TrendingFashion()
+                      .frame(width: Constants.sW)
+              }
+              .frame(width: Constants.sW)
+
+            } else if index == 3 {
+              VStack {
+                // Nearby
+                NearbySalon()
+
+                // Trending
+                TrendingSalon()
+                      .frame(width: Constants.sW)
+
+              }
             }
-          } else if index == 1 {
-            VStack {
-              // Nearby
-              NearbyFood()
-
-              // Trending
-              TrendingFood()
-                    .frame(width: Constants.sW)
-            }
-          } else if index == 2 {
-            VStack {
-              // Nearby
-              NearbyFashion()
-
-              // Trending
-              TrendingFashion()
-                    .frame(width: Constants.sW)
-            }
-            .frame(width: Constants.sW)
-
-          } else if index == 3 {
-            VStack {
-              // Nearby
-              NearbySalon()
-
-              // Trending
-              TrendingSalon()
-                    .frame(width: Constants.sW)
-
-            }
-          }
-        } //: VSTACK
-        .frame(height: Constants.sH)
-        } //: VSTACK
-      } //: SCROLL
+          } //: VSTACK
+          .frame(height: Constants.sH)
+          } //: VSTACK
+        } //: SCROLL
+      }
+      .navigationBarHidden(true)
+      .navigationBarBackButtonHidden(true)
     }
 }
 
@@ -134,7 +138,7 @@ struct LocalMarket_Previews: PreviewProvider {
       LocalMarket()
         //.previewDevice(PreviewDevice(rawValue: "iPhone SE (2nd generation)"))
 
-      LocalMarket()
-        .previewDevice(PreviewDevice(rawValue: "iPhone SE (2nd generation)"))
+//      LocalMarket()
+//        .previewDevice(PreviewDevice(rawValue: "iPhone SE (2nd generation)"))
     }
 }

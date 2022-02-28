@@ -56,23 +56,17 @@ struct SetPin: View {
                     
                     Spacer()
                     HStack{
-                      Spacer()
-//                      NavigationLink(destination: ProfilePage()
-//                                      .navigationBarHidden(true)
-//                                      .navigationBarBackButtonHidden(true), isActive: $loginViewModel.didSetPin) {
-//                        Text("")
-//                          .hidden()
-//                      }
+                    Spacer()
 
-                      Button(action: {
+                    Button(action: {
                         self.didEnterProperPin()
-                      }, label: {
-                            Image(systemName: "chevron.right").font(.system(size: 25)).foregroundColor(.white).frame(width: 50, height: 50, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                        })
-                        .padding(3)
-                        .background(Color("textGreen"))
-                        .clipShape(Circle())
-                        .padding()
+                    }, label: {
+                      Image(systemName: "chevron.right").font(.system(size: 25)).foregroundColor(.white).frame(width: 50, height: 50, alignment: .center)
+                      })
+                      .padding(3)
+                      .background(Color("textGreen"))
+                      .clipShape(Circle())
+                      .padding()
                     }
                 }
             }
@@ -111,4 +105,3 @@ struct MyTextFieldStyle: TextFieldStyle {
         )
     }
 }
-
