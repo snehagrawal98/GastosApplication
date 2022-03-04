@@ -53,7 +53,7 @@ struct MainView: View {
           .tag(3)
 
         // Transactions
-        ProgressView()
+        QrScanView()
           .tabItem {
             Image("Tab5")
               .renderingMode(.template)
