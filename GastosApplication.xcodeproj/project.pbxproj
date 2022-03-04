@@ -77,6 +77,8 @@
 		6903E9A027BF7953008E3899 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 6903E99F27BF7953008E3899 /* FirebaseAuth */; };
 		6903E9A227BF7953008E3899 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 6903E9A127BF7953008E3899 /* FirebaseDatabase */; };
 		691EE3D127AC1B5100A3AF43 /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 691EE3D027AC1B5100A3AF43 /* CategoryView.swift */; };
+		69329AD627D20F8D00335C8B /* CodeScanner in Frameworks */ = {isa = PBXBuildFile; productRef = 69329AD527D20F8D00335C8B /* CodeScanner */; };
+		69329AD827D210B100335C8B /* QrScanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69329AD727D210B100335C8B /* QrScanView.swift */; };
 		693D6C312799A9A700DF62C4 /* AboutUs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 693D6C302799A9A700DF62C4 /* AboutUs.swift */; };
 		693D6C372799AA2600DF62C4 /* PrivacyPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 693D6C362799AA2600DF62C4 /* PrivacyPolicy.swift */; };
 		693D6C392799AA5200DF62C4 /* TermsOfService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 693D6C382799AA5200DF62C4 /* TermsOfService.swift */; };
@@ -163,6 +165,7 @@
 		3F87783F2794343200667C86 /* PageTabView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageTabView.swift; sourceTree = "<group>"; };
 		3F8778402794343200667C86 /* TabDetailsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabDetailsView.swift; sourceTree = "<group>"; };
 		691EE3D027AC1B5100A3AF43 /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
+		69329AD727D210B100335C8B /* QrScanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QrScanView.swift; sourceTree = "<group>"; };
 		693D6C302799A9A700DF62C4 /* AboutUs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutUs.swift; sourceTree = "<group>"; };
 		693D6C362799AA2600DF62C4 /* PrivacyPolicy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicy.swift; sourceTree = "<group>"; };
 		693D6C382799AA5200DF62C4 /* TermsOfService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsOfService.swift; sourceTree = "<group>"; };
@@ -183,6 +186,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				69329AD627D20F8D00335C8B /* CodeScanner in Frameworks */,
 				6903E9A227BF7953008E3899 /* FirebaseDatabase in Frameworks */,
 				C06D4DA327AA820000EEF7AF /* FirebaseDatabase in Frameworks */,
 				6903E9A027BF7953008E3899 /* FirebaseAuth in Frameworks */,
@@ -315,6 +319,7 @@
 				3F8778012794343100667C86 /* Pending.swift */,
 				3F8778022794343100667C86 /* Success.swift */,
 				3F8778032794343100667C86 /* Failed.swift */,
+				69329AD727D210B100335C8B /* QrScanView.swift */,
 			);
 			path = MainViews;
 			sourceTree = "<group>";
@@ -517,6 +522,7 @@
 				C06D4DA227AA820000EEF7AF /* FirebaseDatabase */,
 				6903E99F27BF7953008E3899 /* FirebaseAuth */,
 				6903E9A127BF7953008E3899 /* FirebaseDatabase */,
+				69329AD527D20F8D00335C8B /* CodeScanner */,
 			);
 			productName = GastosApplication;
 			productReference = 3F8777C6279433B300667C86 /* GastosApplication.app */;
@@ -548,6 +554,7 @@
 			mainGroup = 3F8777BD279433B300667C86;
 			packageReferences = (
 				6903E99E27BF7953008E3899 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				69329AD427D20F8D00335C8B /* XCRemoteSwiftPackageReference "CodeScanner" */,
 			);
 			productRefGroup = 3F8777C7279433B300667C86 /* Products */;
 			projectDirPath = "";
@@ -620,6 +627,7 @@
 				3F8778772794343300667C86 /* OTPPin.swift in Sources */,
 				3F8778572794343200667C86 /* Rating.swift in Sources */,
 				69B27EE527AD2F8B003DECD1 /* ActivationPaymentView.swift in Sources */,
+				69329AD827D210B100335C8B /* QrScanView.swift in Sources */,
 				3F87784E2794343200667C86 /* GUser.swift in Sources */,
 				3F87784F2794343200667C86 /* OnboardingData.swift in Sources */,
 				3F8778452794343200667C86 /* MainTab.swift in Sources */,
@@ -867,6 +875,14 @@
 				minimumVersion = 8.0.0;
 			};
 		};
+		69329AD427D20F8D00335C8B /* XCRemoteSwiftPackageReference "CodeScanner" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/twostraws/CodeScanner";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -879,6 +895,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 6903E99E27BF7953008E3899 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseDatabase;
+		};
+		69329AD527D20F8D00335C8B /* CodeScanner */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 69329AD427D20F8D00335C8B /* XCRemoteSwiftPackageReference "CodeScanner" */;
+			productName = CodeScanner;
 		};
 		C06D4DA227AA820000EEF7AF /* FirebaseDatabase */ = {
 			isa = XCSwiftPackageProductDependency;

@@ -9,6 +9,7 @@ import SwiftUI
 
 struct VerifiedSuccessfully: View {
   @EnvironmentObject var loginViewModel: LoginViewModel
+  @EnvironmentObject var currentUser: CurrentUser
 
     var body: some View {
         NavigationView{
@@ -41,5 +42,6 @@ struct VerifiedSuccessfully_Previews: PreviewProvider {
     static var previews: some View {
         VerifiedSuccessfully()
         .environmentObject(LoginViewModel())
+        .environmentObject(CurrentUser())
     }
 }

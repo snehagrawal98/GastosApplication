@@ -16,7 +16,7 @@ struct ContentView: View {
     var body: some View {
         ZStack {
           if status && loginViewModel.didSetPin && loginViewModel.didEnterUserDetails && loginViewModel.didShowVerifiedScreenOnce {
-            withAnimation { MainView(selectedTab: 2) }
+            withAnimation { MainView(selectedTab: 0) }
           } else if status && loginViewModel.didSetPin {
             ProfilePage()
           } else if status {

@@ -49,12 +49,6 @@ struct HomeTab: View {
               ZStack {
                 HStack(content: {
                   VStack(alignment: .leading, spacing: nil, content: {
-                    Text("GASTOS")
-                      .foregroundColor(.white)
-                      .fontWeight(.semibold)
-                      .font(.largeTitle)
-                      .padding(.leading)
-                      .padding(.top)
                     Spacer()
                     Text(loginViewModel.name)
                       .foregroundColor(.white)
@@ -73,40 +67,18 @@ struct HomeTab: View {
                       .padding(.bottom)
                   })
                   Spacer()
-                  VStack {
 
-                    Spacer()
-                    Text("LPI")
-                      .foregroundColor(.white)
-                      .fontWeight(.bold)
-                      .italic()
-                      .font(.title)
-                      .padding(.trailing)
-                      .padding(.bottom)
-                  }
                 })
                   .zIndex(5)
 
-                VStack {
-                  HStack {
-                    Spacer()
-                    Image("GastosMark")
-                      .resizable()
-                      .aspectRatio(contentMode: .fit)
-                      .frame(width: 0.402 * UIScreen.screenWidth, height: UIScreen.screenHeight * 0.22)
-                  }
-                  Spacer()
-                }
-                .zIndex(5)
-
-                LinearGradient(gradient: Gradient(colors: [Color.black, Color("deepGreen")]), startPoint: .leading, endPoint: .topTrailing)
+                Image("cardBackground")
+                  .resizable()
+                  .frame(width: Constants.sW - 24, height: Constants.sH * 0.3, alignment: .center)
                   .cornerRadius(10)
               }
               .frame(width: Constants.sW - 24, height: Constants.sH * 0.3, alignment: .center)
 
             })
-            .navigationTitle("")
-            .navigationBarHidden(true)
 
           // Categories
           HStack(spacing: -10){
