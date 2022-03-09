@@ -20,7 +20,7 @@ struct LocalMarket: View {
             .frame(width: UIScreen.screenWidth, alignment: .leading)
 
           // Local Market Categories
-          HStack() {
+          HStack {
             Text("All")
               .font(.subheadline)
               .foregroundColor(self.index == 0 ? .white : Color("5"))
