@@ -13,8 +13,8 @@ struct HomeTab: View {
     @AppStorage("log_Status") var status = false
     @State var images = ["Sip & Bite", "Beauty & Care", "Style & Trends", "Health & Medico", "Daily Needs"]
     @State var adImages = ["PhonePeAd"]
-  @EnvironmentObject var loginViewModel: LoginViewModel
-  @EnvironmentObject var currentUser: CurrentUser
+    @EnvironmentObject var loginViewModel: LoginViewModel
+    @EnvironmentObject var currentUser: CurrentUser
 
     var body: some View {
       NavigationView {
@@ -26,9 +26,19 @@ struct HomeTab: View {
             Spacer()
 
             NavigationLink(
-              destination: UserProfile()
+              destination: QrScanView()
                 .navigationBarHidden(true)
                 .navigationBarBackButtonHidden(true),
+              label: {
+                Image(systemName: "qrcode.viewfinder")
+                  .font(.system(size: 20))
+                  .foregroundColor(.black)
+                  .padding(.trailing, 8)
+
+              })
+
+            NavigationLink(
+              destination: Text("Notifications"),
               label: {
                 Image(systemName: "bell.fill")
                   .font(.system(size: 20))

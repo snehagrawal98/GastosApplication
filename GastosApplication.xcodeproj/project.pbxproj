@@ -86,6 +86,9 @@
 		69D0199027B7E687002B23F2 /* LogoutAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69D0198F27B7E687002B23F2 /* LogoutAlert.swift */; };
 		69E542EF27A541130096C821 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69E542EE27A541130096C821 /* LoginViewModel.swift */; };
 		69E542F727A544510096C821 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 69E542F627A544510096C821 /* GoogleService-Info.plist */; };
+		69E57EFE27D8EA6400C1C44C /* Expenses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69E57EFD27D8EA6400C1C44C /* Expenses.swift */; };
+		69E57F0027D8EF2B00C1C44C /* EliteMarket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69E57EFF27D8EF2B00C1C44C /* EliteMarket.swift */; };
+		69E57F0227D8FB2C00C1C44C /* ExclusiveDeals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69E57F0127D8FB2C00C1C44C /* ExclusiveDeals.swift */; };
 		69FA625627B823E1004AA1C9 /* ApiJump.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69FA625527B823E1004AA1C9 /* ApiJump.swift */; };
 		69FA625827B82936004AA1C9 /* AfterPaymentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69FA625727B82936004AA1C9 /* AfterPaymentView.swift */; };
 		C06D4DA027A9818900EEF7AF /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D4D9F27A9818900EEF7AF /* FirebaseManager.swift */; };
@@ -174,6 +177,9 @@
 		69E542EE27A541130096C821 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		69E542F627A544510096C821 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		69E542F827A544600096C821 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		69E57EFD27D8EA6400C1C44C /* Expenses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expenses.swift; sourceTree = "<group>"; };
+		69E57EFF27D8EF2B00C1C44C /* EliteMarket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EliteMarket.swift; sourceTree = "<group>"; };
+		69E57F0127D8FB2C00C1C44C /* ExclusiveDeals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExclusiveDeals.swift; sourceTree = "<group>"; };
 		69FA625527B823E1004AA1C9 /* ApiJump.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiJump.swift; sourceTree = "<group>"; };
 		69FA625727B82936004AA1C9 /* AfterPaymentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AfterPaymentView.swift; sourceTree = "<group>"; };
 		C06D4D9F27A9818900EEF7AF /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
@@ -240,7 +246,6 @@
 				3F8777ED2794342F00667C86 /* Deals.swift */,
 				3F8777FB2794343000667C86 /* ExpensesTab.swift */,
 				3F8778242794343100667C86 /* FavoriteTab.swift */,
-				3F8777FD2794343000667C86 /* HomeTab.swift */,
 				3F8777F72794342F00667C86 /* KeyboardPad.swift */,
 				3F8777FC2794343000667C86 /* Launch Screen.storyboard */,
 				3F8777EE2794342F00667C86 /* MainTab.swift */,
@@ -339,7 +344,11 @@
 			isa = PBXGroup;
 			children = (
 				3F87780B2794343100667C86 /* MainView.swift */,
+				3F8777FD2794343000667C86 /* HomeTab.swift */,
 				3F87780C2794343100667C86 /* LocalMarket.swift */,
+				69E57EFD27D8EA6400C1C44C /* Expenses.swift */,
+				69E57EFF27D8EF2B00C1C44C /* EliteMarket.swift */,
+				69E57F0127D8FB2C00C1C44C /* ExclusiveDeals.swift */,
 			);
 			path = MainViews;
 			sourceTree = "<group>";
@@ -600,6 +609,7 @@
 				3F87787D2794343300667C86 /* ReferAndEarn.swift in Sources */,
 				3F87787C2794343300667C86 /* UserProfile.swift in Sources */,
 				3F8778732794343300667C86 /* ProfilePage.swift in Sources */,
+				69E57F0227D8FB2C00C1C44C /* ExclusiveDeals.swift in Sources */,
 				3F87785B2794343200667C86 /* MainView.swift in Sources */,
 				3F8777E52794340F00667C86 /* ShopProfile.swift in Sources */,
 				C06D4DA027A9818900EEF7AF /* FirebaseManager.swift in Sources */,
@@ -622,6 +632,7 @@
 				3F8778862794343300667C86 /* PageTabView.swift in Sources */,
 				3F8778682794343200667C86 /* NearbyFood.swift in Sources */,
 				3F87784D2794343200667C86 /* KeyboardPad.swift in Sources */,
+				69E57F0027D8EF2B00C1C44C /* EliteMarket.swift in Sources */,
 				C097B5E827B2663700D47BCB /* Merchant.swift in Sources */,
 				3F87786D2794343300667C86 /* NearbySalon.swift in Sources */,
 				3F8778772794343300667C86 /* OTPPin.swift in Sources */,
@@ -640,6 +651,7 @@
 				3F8778812794343300667C86 /* BarCharts.swift in Sources */,
 				3F8778522794343200667C86 /* HomeTab.swift in Sources */,
 				C06D4DA527AA92BC00EEF7AF /* ShopsViewModel.swift in Sources */,
+				69E57EFE27D8EA6400C1C44C /* Expenses.swift in Sources */,
 				3F8777E82794340F00667C86 /* Text.swift in Sources */,
 				3F87786A2794343200667C86 /* Nearby.swift in Sources */,
 				3F8778712794343300667C86 /* EnterMobileNumber.swift in Sources */,

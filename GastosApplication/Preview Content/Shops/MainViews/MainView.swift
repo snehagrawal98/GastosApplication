@@ -16,7 +16,7 @@ struct MainView: View {
     NavigationView {
       TabView(selection: $selectedTab) {
         // Coupons
-        ProgressView()
+        ExclusiveDeals()
           .tabItem {
             Image("Tab1")
               .renderingMode(.template)
@@ -24,7 +24,7 @@ struct MainView: View {
           .tag(0)
 
         // Elite Market
-        ProgressView()
+        EliteMarket()
           .tabItem {
             Image("Tab2")
               .renderingMode(.template)
@@ -33,6 +33,8 @@ struct MainView: View {
 
         // Home Tab
         HomeTab()
+//          .navigationBarHidden(true)
+//          .navigationBarBackButtonHidden(true)
           .tabItem {
             if selectedTab == 2 {
               Image("HomeTab")
@@ -46,6 +48,8 @@ struct MainView: View {
 
         // Local Market
         LocalMarket()
+//          .navigationBarHidden(true)
+//          .navigationBarBackButtonHidden(true)
           .tabItem {
             Image("Tab4")
               .renderingMode(.template)
@@ -53,7 +57,9 @@ struct MainView: View {
           .tag(3)
 
         // Transactions
-        QrScanView()
+        Expenses()
+//          .navigationBarHidden(true)
+//          .navigationBarBackButtonHidden(true)
           .tabItem {
             Image("Tab5")
               .renderingMode(.template)
@@ -65,6 +71,7 @@ struct MainView: View {
       .navigationBarBackButtonHidden(true)
     }
   }
+
   func readUserDetails() {
     if loginViewModel.didShowMainViewOnce == 0 {
       loginViewModel.didShowMainViewOnce += 1
