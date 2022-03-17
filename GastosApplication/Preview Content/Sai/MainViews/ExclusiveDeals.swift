@@ -18,19 +18,19 @@ struct ExclusiveDeals: View {
             Image("ExclusiveDeals")
               .resizable()
               .scaledToFit()
-              .frame(width: 0.538 * UIScreen.screenWidth, height: 0.118 * UIScreen.screenHeight)
+              .frame(width: 0.538 * UIScreen.screenWidth, height: 0.1 * UIScreen.screenHeight)
           }
-          .padding(.bottom)
+          .padding(.bottom, 12)
 
           ZStack {
             Image("ExclusiveDealsBlurImg")
               .resizable()
-              .frame(width: UIScreen.screenWidth, height: 0.568 * UIScreen.screenHeight)
+              .frame(width: UIScreen.screenWidth, height: 0.54 * UIScreen.screenHeight)
 
             Image("EliteMarketComingSoon")
               .resizable()
               .scaledToFit()
-              .frame(width: 0.746 * UIScreen.screenWidth, height: 0.226 * UIScreen.screenHeight)
+              .frame(width: 0.746 * UIScreen.screenWidth, height: 0.2 * UIScreen.screenHeight)
           }
 
         }

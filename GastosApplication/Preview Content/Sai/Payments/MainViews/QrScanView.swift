@@ -19,55 +19,55 @@ struct QrScanView: View {
       NavigationView {
         VStack {
           // nav bar
-//          HStack {
-//            Button(action: { dismiss() }, label: {
-//              Image(systemName: "arrow.left")
-//                .resizable()
-//                .frame(width: 20, height: 20)
-//                .foregroundColor(.black)
-//                .padding()
-//            })
-//            Spacer()
-//            Text("Make New Payment")
-//              .font(.title2.weight(.semibold))
-//              .foregroundColor(.white)
-//            Spacer()
-//            Spacer()
-//          }
-          //.padding(.vertical)
+          HStack {
+            Button(action: { dismiss() }, label: {
+              Image(systemName: "arrow.left")
+                .resizable()
+                .frame(width: 20, height: 20)
+                .foregroundColor(.white)
+                .padding()
+            })
+            Spacer()
+            Text("Make New Payment")
+              .font(.title2.weight(.semibold))
+              .foregroundColor(.white)
+            Spacer()
+            Spacer()
+          }
+          .padding(.vertical)
 
           Text("Scanned code: \(scannedCode)")
             .font(.title3)
-            .foregroundColor(.black)
+            .foregroundColor(.white)
 
-         // Spacer()
-         // VStack {
+          Spacer()
+          VStack {
             CodeScannerView(codeTypes: [.qr], simulatedData: "hello\nhow r u", completion: handleScan)
-          //}
-//          .frame(width: 0.86 * UIScreen.screenWidth, height: 0.55 * UIScreen.screenHeight)
-//          .background(.white.opacity(1))
-//          .cornerRadius(10)
+          }
+          .frame(width: 0.86 * UIScreen.screenWidth, height: 0.55 * UIScreen.screenHeight)
+          .background(.white.opacity(1))
+          .cornerRadius(10)
 
-  //        Spacer()
-//          ZStack {
-//            Rectangle()
-//              .frame(width: UIScreen.screenWidth, height: 0.2 * UIScreen.screenHeight)
-//              .foregroundColor(Color("qrBottom"))
-//              .ignoresSafeArea(.all)
-//
-//            TextField("Enter Number Or Name", text: $numOrName)
-//              .padding()
-//              .frame(width: 0.778 * UIScreen.screenWidth, height: 0.058 * UIScreen.screenHeight)
-//              .background(
-//                RoundedRectangle(cornerRadius: 20)
-//                  .foregroundColor(.white)
-//              )
-//          }
+          Spacer()
+          ZStack {
+            Rectangle()
+              .frame(width: UIScreen.screenWidth, height: 0.2 * UIScreen.screenHeight)
+              .foregroundColor(Color("qrBottom"))
+              .ignoresSafeArea(.all)
+
+            TextField("Enter Number Or Name", text: $numOrName)
+              .padding()
+              .frame(width: 0.778 * UIScreen.screenWidth, height: 0.058 * UIScreen.screenHeight)
+              .background(
+                RoundedRectangle(cornerRadius: 20)
+                  .foregroundColor(.white)
+              )
+          }
         }
         .navigationBarHidden(true)
         .navigationBarBackButtonHidden(true)
-     //   .frame(width: UIScreen.screenWidth, height: UIScreen.screenHeight)
-        //.background(Color("deepGreen"))
+        .frame(width: UIScreen.screenWidth, height: UIScreen.screenHeight)
+        .background(Color("deepGreen"))
       }
     }
 

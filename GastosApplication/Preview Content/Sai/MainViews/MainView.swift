@@ -13,8 +13,9 @@ struct MainView: View {
   @EnvironmentObject var currentUser: CurrentUser
 
   var body: some View {
-    NavigationView {
+    //NavigationView {
       TabView(selection: $selectedTab) {
+        
         // Coupons
         ExclusiveDeals()
           .tabItem {
@@ -33,8 +34,8 @@ struct MainView: View {
 
         // Home Tab
         HomeTab()
-//          .navigationBarHidden(true)
-//          .navigationBarBackButtonHidden(true)
+          .navigationBarHidden(true)
+          .navigationBarBackButtonHidden(true)
           .tabItem {
             if selectedTab == 2 {
               Image("HomeTab")
@@ -48,8 +49,8 @@ struct MainView: View {
 
         // Local Market
         LocalMarket()
-//          .navigationBarHidden(true)
-//          .navigationBarBackButtonHidden(true)
+          .navigationBarHidden(true)
+          .navigationBarBackButtonHidden(true)
           .tabItem {
             Image("Tab4")
               .renderingMode(.template)
@@ -58,8 +59,8 @@ struct MainView: View {
 
         // Transactions
         Expenses()
-//          .navigationBarHidden(true)
-//          .navigationBarBackButtonHidden(true)
+          .navigationBarHidden(true)
+          .navigationBarBackButtonHidden(true)
           .tabItem {
             Image("Tab5")
               .renderingMode(.template)
@@ -67,9 +68,10 @@ struct MainView: View {
           .tag(4)
       }
       .onAppear(perform: self.readUserDetails)
-      .navigationBarHidden(true)
-      .navigationBarBackButtonHidden(true)
-    }
+      .edgesIgnoringSafeArea(.all)
+     // .navigationBarHidden(true)
+     // .navigationBarBackButtonHidden(true)
+   // }
   }
 
   func readUserDetails() {
