@@ -113,7 +113,7 @@ struct EliteMarket: View {
                 Image("EliteMarketTrendingImg")
                   .resizable()
                   .scaledToFit()
-                  .frame(width: 0.424 * UIScreen.screenWidth, height: 0.116 * UIScreen.screenHeight)
+                  .frame(width: 0.424 * UIScreen.screenWidth, height: 0.1 * UIScreen.screenHeight)
                   .padding(.horizontal, 2)
               }
             }
@@ -125,12 +125,12 @@ struct EliteMarket: View {
             Image("EliteMarketBlurImg")
               .resizable()
               .scaledToFit()
-              .frame(width: UIScreen.screenWidth, height: 0.568 * UIScreen.screenHeight)
+              .frame(width: UIScreen.screenWidth, height: 0.56 * UIScreen.screenHeight)
 
             Image("EliteMarketComingSoon")
               .resizable()
               .scaledToFit()
-              .frame(width: 0.746 * UIScreen.screenWidth, height: 0.226 * UIScreen.screenHeight)
+              .frame(width: 0.746 * UIScreen.screenWidth, height: 0.2 * UIScreen.screenHeight)
           }
         }
         .navigationBarHidden(true)
