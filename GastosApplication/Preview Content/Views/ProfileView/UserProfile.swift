@@ -222,24 +222,17 @@ struct UserProfile: View {
                     .foregroundColor(Color("deepGreen"))
                 })
 
-                NavigationLink(destination: {
-                  TermsOfService()
-                    .navigationBarHidden(true)
-                    .navigationBarBackButtonHidden(true)
-                }, label: {
+                  Link(destination: URL(string: "https://gastos-termsofservice.netlify.app")!) {
                   Text("Terms And Conditions")
                     .font(.body.weight(.semibold))
                     .foregroundColor(Color("deepGreen"))
-                })
+                }
 
-                NavigationLink(destination: AboutUs()
-                                .navigationBarHidden(true)
-                                .navigationBarBackButtonHidden(true),
-                        label: {
+                  Link(destination: URL(string: "https://gastos-aboutus.netlify.app")!) {
                   Text("About Us")
                     .font(.body.weight(.semibold))
                     .foregroundColor(Color("deepGreen"))
-                })
+                }
 
                 Spacer()
 
