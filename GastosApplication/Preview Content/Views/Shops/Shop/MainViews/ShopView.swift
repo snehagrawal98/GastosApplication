@@ -11,6 +11,10 @@ import UIKit
 struct ShopView: View {
     var shopName: String
     var shopImagesUrl: String
+    var shopImagesUri1: String
+    var shopImagesUri2: String
+    var shopImagesUri3: String
+    var shopImagesUri4: String
     var shopAddress: String
     var shopOwnerName: String
     var shopCategory: String
@@ -63,7 +67,11 @@ struct ShopView: View {
 
             Spacer()
 
-            ShopImages(shopImagesUrl: shopImagesUrl)
+            ShopImages(shopImagesUrl: shopImagesUrl,
+                       shopImagesUri1: shopImagesUri1,
+                       shopImagesUri2: shopImagesUri2,
+                       shopImagesUri3: shopImagesUri3,
+                       shopImagesUri4: shopImagesUri4)
             //ShopImages()
 
             Spacer()
@@ -112,10 +120,8 @@ struct ShopView: View {
 
 struct ShopView_Previews: PreviewProvider {
     static var previews: some View {
-        ShopView(shopName: "Cafe Bistro", shopImagesUrl: "https://picsum.photos/300/200", shopAddress: "somewhere",  shopOwnerName: " A B ", shopCategory: "Food & Beverages", shopDelivery: true, shopPickUp: false)
+        ShopView(shopName: "Cafe Bistro", shopImagesUrl: "https://picsum.photos/300/200", shopImagesUri1: "https://picsum.photos/300/200", shopImagesUri2: "https://picsum.photos/300/200", shopImagesUri3: "https://picsum.photos/300/200", shopImagesUri4: "https://picsum.photos/300/200", shopAddress: "somewhere",  shopOwnerName: " A B ", shopCategory: "Food & Beverages", shopDelivery: true, shopPickUp: false)
 
-//        ShopView(shopName: "Cafe Bistro", shopImagesUrl: "https://picsum.photos/300/200")
-//        .previewDevice(PreviewDevice(rawValue: "iPhone SE (2nd generation)"))
     }
 }
 
@@ -123,15 +129,45 @@ struct ShopView_Previews: PreviewProvider {
 struct ShopImages: View {
     
     var shopImagesUrl: String
+    var shopImagesUri1: String
+    var shopImagesUri2: String
+    var shopImagesUri3: String
+    var shopImagesUri4: String
+    
     var body: some View {
       TabView {
-        ForEach(1..<5) { _ in
+        
           Image(shopImagesUrl)
             .resizable()
             .scaledToFill()
             .frame(width: 0.864 * UIScreen.screenWidth, height: 0.226 * UIScreen.screenHeight)
             .cornerRadius(10)
-        }
+          
+          Image(shopImagesUri1)
+            .resizable()
+            .scaledToFill()
+            .frame(width: 0.864 * UIScreen.screenWidth, height: 0.226 * UIScreen.screenHeight)
+            .cornerRadius(10)
+          
+          Image(shopImagesUri2)
+            .resizable()
+            .scaledToFill()
+            .frame(width: 0.864 * UIScreen.screenWidth, height: 0.226 * UIScreen.screenHeight)
+            .cornerRadius(10)
+          
+          Image(shopImagesUri3)
+            .resizable()
+            .scaledToFill()
+            .frame(width: 0.864 * UIScreen.screenWidth, height: 0.226 * UIScreen.screenHeight)
+            .cornerRadius(10)
+          
+          Image(shopImagesUri4)
+            .resizable()
+            .scaledToFill()
+            .frame(width: 0.864 * UIScreen.screenWidth, height: 0.226 * UIScreen.screenHeight)
+            .cornerRadius(10)
+
+        
       }//: TAB
       .frame(width: 0.864 * UIScreen.screenWidth, height: 0.226 * UIScreen.screenHeight)
       .tabViewStyle(PageTabViewStyle(indexDisplayMode: .always))
