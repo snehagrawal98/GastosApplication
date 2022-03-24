@@ -15,7 +15,6 @@ struct GastosApplicationApp: App {
     var body: some Scene {
         WindowGroup {
           ContentView()
-            //MainView(selectedTab: 0)
         }
     }
 }

@@ -47,7 +47,10 @@ class FirebaseMnager {
                     
                     let shopName = merchant.childSnapshot(forPath: "Shop_Information/shopName").value as? String
                     let shopImageUri = merchant.childSnapshot(forPath: "Shop_Information/shopImageUri").value as? String
-                    
+                    let shopImageUri1 = merchant.childSnapshot(forPath: "Shop_Information/shopImageUri1").value as? String
+                    let shopImageUri2 = merchant.childSnapshot(forPath: "Shop_Information/shopImageUri2").value as? String
+                    let shopImageUri3 = merchant.childSnapshot(forPath: "Shop_Information/shopImageUri3").value as? String
+                    let shopImageUri4 = merchant.childSnapshot(forPath: "Shop_Information/shopImageUri4").value as? String
                     
                     let merchantShop = Shop(category: Shop.convert(txt: shopCategory ?? "No Category"),
                                             creationTimeStamp: shopCreationTimeStamp,
@@ -60,6 +63,10 @@ class FirebaseMnager {
                                             shopAddressLatitude: shopAddressLatitude,
                                             shopAddressLongitude: shopAddressLongitude,
                                             shopImageURI: shopImageUri,
+                                            shopImageURI1: shopImageUri1,
+                                            shopImageURI2: shopImageUri2,
+                                            shopImageURI3: shopImageUri3,
+                                            shopImageURI4: shopImageUri4,
                                             shopName: shopName,
                                             discounts: (shopDiscounts ?? []) as? [ShopDiscount]
                                             )

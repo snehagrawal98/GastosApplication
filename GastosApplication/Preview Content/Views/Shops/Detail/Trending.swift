@@ -31,6 +31,10 @@ struct Trending: View {
                             
                             ShopView(shopName: merch.shop.shopName ?? "No Shop Name",
                                      shopImagesUrl: merch.shop.shopImageURI ?? "https://picsum.photos/100",
+                                     shopImagesUri1: merch.shop.shopImageURI1 ?? "https://picsum.photos/100",
+                                     shopImagesUri2: merch.shop.shopImageURI2 ?? "https://picsum.photos/100",
+                                     shopImagesUri3: merch.shop.shopImageURI3 ?? "https://picsum.photos/100",
+                                     shopImagesUri4: merch.shop.shopImageURI4 ?? "https://picsum.photos/100",
                                      shopAddress: merch.shop.shopAddress ?? "No Shop Address",
                                      shopOwnerName: merch.name ?? "No Owner Name",
                                      shopCategory: merch.shop.category?.rawValue ?? "No Category",

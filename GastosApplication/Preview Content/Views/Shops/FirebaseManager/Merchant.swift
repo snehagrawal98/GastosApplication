@@ -34,6 +34,10 @@ struct Shop: Hashable, Equatable, Codable {
     var shopAddressLatitude: String?
     var shopAddressLongitude: String?
     var shopImageURI: String?
+    var shopImageURI1: String?
+    var shopImageURI2: String?
+    var shopImageURI3: String?
+    var shopImageURI4: String?
     var shopName: String?
     var discounts: [ShopDiscount]?
 //    var id: String? {
