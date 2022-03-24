@@ -24,7 +24,9 @@ struct PrivacyPolicy: View {
 
           Spacer()
 
-          SettingsTitleView(title: "Privacy Policy")
+          Text("Privacy Policy")
+            .font(.title2.weight(.semibold))
+            .foregroundColor(Color("deepGreen"))
 
           Spacer()
         } //: HSTACK

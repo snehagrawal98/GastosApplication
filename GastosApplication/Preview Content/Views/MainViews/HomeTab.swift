@@ -17,7 +17,6 @@ struct HomeTab: View {
     @EnvironmentObject var currentUser: CurrentUser
 
     var body: some View {
-      NavigationView {
         VStack {
           HStack {
             Text("Hey \(loginViewModel.name)")//"Hey Sahgal!")
@@ -120,9 +119,6 @@ struct HomeTab: View {
           .padding(.horizontal)
           Spacer()
         }
-          .navigationBarHidden(true)
-          .navigationBarBackButtonHidden(true)
-      }
     }
 }
 

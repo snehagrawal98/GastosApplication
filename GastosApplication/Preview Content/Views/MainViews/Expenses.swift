@@ -14,7 +14,6 @@ struct Expenses: View {
 
 
     var body: some View {
-      NavigationView {
         ScrollView(.vertical) {
           // Nav bar
           HStack {
@@ -75,11 +74,9 @@ struct Expenses: View {
             )
           }
         }
-        .navigationBarHidden(true)
-        .navigationBarBackButtonHidden(true)
       }
     }
-}
+
 
 struct Expenses_Previews: PreviewProvider {
     static var previews: some View {
