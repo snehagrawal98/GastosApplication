@@ -44,7 +44,9 @@ struct PaymentBottomView: View {
                 .foregroundColor(Color("textGreen"))
               }
 
-              TextField("Billed Amount", text: $billedAmount)
+              TextField("Billed Amount", text: $billedAmount).onTapGesture {
+                  self.hideKeyboard()
+              }
                 .font(.subheadline.weight(.bold))
                 .padding()
                 .frame(width: 0.85 * UIScreen.screenWidth, height: 0.06 * UIScreen.screenHeight, alignment: .center)
@@ -54,7 +56,9 @@ struct PaymentBottomView: View {
                       .stroke(Color.gray, lineWidth: 1)
                 )
 
-              TextField("Included MRP(if any)", text: $includedMRP)
+              TextField("Included MRP(if any)", text: $includedMRP).onTapGesture {
+                  self.hideKeyboard()
+              }
                 .font(.subheadline.weight(.bold))
                 .padding()
                 .frame(width: 0.85 * UIScreen.screenWidth, height: 0.06 * UIScreen.screenHeight, alignment: .center)

@@ -45,7 +45,9 @@ struct ProfilePage: View {
 
                   // name
                   HStack {
-                      TextField("First Name", text: $firstName)
+                      TextField("First Name", text: $firstName).onTapGesture {
+                          self.hideKeyboard()
+                      }
                       .padding()
                       .frame(width: 0.426 * UIScreen.screenWidth, height: 0.056 * UIScreen.screenHeight)
                       .background(
@@ -53,7 +55,9 @@ struct ProfilePage: View {
                           .stroke(Color("textGreen").opacity(0.2), lineWidth: 1)
                       )
                       Spacer()
-                      TextField("Last Name", text: $lastName)
+                      TextField("Last Name", text: $lastName).onTapGesture {
+                          self.hideKeyboard()
+                      }
                       .padding()
                       .frame(width: 0.426 * UIScreen.screenWidth, height: 0.056 * UIScreen.screenHeight)
                       .background(
@@ -65,7 +69,9 @@ struct ProfilePage: View {
                   .padding(.vertical, 8)
 
                   // email address
-                  TextField("E-Mail address", text: $emailAddress)
+                  TextField("E-Mail address", text: $emailAddress).onTapGesture {
+                      self.hideKeyboard()
+                  }
                   .padding()
                   .frame(width: UIScreen.screenWidth - 32, height: 0.056 * UIScreen.screenHeight)
                   .background(
@@ -139,7 +145,9 @@ struct ProfilePage: View {
                   .padding(.horizontal, 24)
 
                   HStack {
-                    TextField("Enter Code", text: $code)
+                    TextField("Enter Code", text: $code).onTapGesture {
+                        self.hideKeyboard()
+                    }
                       .padding()
                       .frame(width: 0.58 * UIScreen.screenWidth)
                     Button(action: {}, label: {

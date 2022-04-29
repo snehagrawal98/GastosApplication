@@ -55,7 +55,9 @@ struct QrScanView: View {
               .foregroundColor(Color("qrBottom"))
               .ignoresSafeArea(.all)
 
-            TextField("Enter Number Or Name", text: $numOrName)
+            TextField("Enter Number Or Name", text: $numOrName).onTapGesture {
+                self.hideKeyboard()
+            }
               .padding()
               .frame(width: 0.778 * UIScreen.screenWidth, height: 0.058 * UIScreen.screenHeight)
               .background(

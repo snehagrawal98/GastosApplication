@@ -74,7 +74,9 @@ struct SearchBar: View {
   var body: some View {
       HStack {
           HStack {
-              TextField("Search", text: $searchText)
+              TextField("Search", text: $searchText).onTapGesture {
+                  self.hideKeyboard()
+              }
                   .padding(.leading, 24)
           }
           .padding(.vertical)

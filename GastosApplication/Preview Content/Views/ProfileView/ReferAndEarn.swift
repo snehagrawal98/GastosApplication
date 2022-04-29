@@ -96,7 +96,9 @@ struct ReferAndEarn: View {
                   Text("Apply the Refferal code here")
 
                   HStack {
-                    TextField("Enter Code", text: $referCode)
+                    TextField("Enter Code", text: $referCode).onTapGesture {
+                        self.hideKeyboard()
+                    }
                       .foregroundColor(Color("deepGreen"))
 
                     Button(action: {}, label: {

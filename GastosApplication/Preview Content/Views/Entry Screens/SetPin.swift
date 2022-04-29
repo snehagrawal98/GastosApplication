@@ -41,15 +41,19 @@ struct SetPin: View {
                     .font(.title3.weight(.medium))
                     .foregroundColor(Color("deepGreen"))
                     HStack{
-                    TextField("New Pin", text: $pin1).frame(width: 350, height: 65, alignment: .center)
-                        .textFieldStyle(MyTextFieldStyle()).padding(.leading, 3)
+                        TextField("New Pin", text: $pin1.max(4)).frame(width: 350, height: 65, alignment: .center)
+                        .textFieldStyle(MyTextFieldStyle()).padding(.leading, 3).onTapGesture {
+                            self.hideKeyboard()
+                        }
                         Spacer()
                     }
                     
                     HStack{
-                    TextField("Re-enter Pin", text: $pin2)
+                        TextField("Re-enter Pin", text: $pin2.max(4))
                         .frame(width: 350, height: 65, alignment: .center)
-                        .textFieldStyle(MyTextFieldStyle()).padding(.leading, 3)
+                        .textFieldStyle(MyTextFieldStyle()).padding(.leading, 3).onTapGesture {
+                            self.hideKeyboard()
+                        }
                         Spacer()
                     }
                     

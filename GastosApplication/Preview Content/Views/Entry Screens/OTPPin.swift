@@ -39,7 +39,9 @@ struct OTPPin: View {
           Text("number \(loginViewModel.phone)").foregroundColor(Color("deepGreen")).font(.system(size: 18)).fontWeight(.medium).padding(.bottom, 100)
 
           HStack{
-            TextField("Enter OTP", text: $loginViewModel.code).textFieldStyle(MyTextFieldStyle())
+              TextField("Enter OTP", text: $loginViewModel.code.max(6)).onTapGesture {
+                self.hideKeyboard()
+            }.textFieldStyle(MyTextFieldStyle())
 
 //            TextField("", text: $otp[0]).frame(width: 30, height: 30, alignment: .center).underlineTextField().keyboardType(.decimalPad)
 //            TextField("", text:$otp[1]).frame(width: 30, height: 30, alignment: .center).underlineTextField().keyboardType(.decimalPad)
