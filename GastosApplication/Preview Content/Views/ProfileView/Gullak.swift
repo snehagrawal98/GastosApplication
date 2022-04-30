@@ -31,7 +31,7 @@ struct Gullak: View {
                 Button(action: {dismiss()}, label: {
                   Image(systemName: "arrow.left")
                     .resizable()
-                    .frame(width: 25, height: 12.5)
+                    .frame(width: 20, height: 12.5)
                     .foregroundColor(.black)
                 })
                   .padding(.horizontal)
@@ -44,11 +44,11 @@ struct Gullak: View {
                   .scaledToFit()
                 .frame(width: 0.60 * UIScreen.screenWidth)
 
-                Text("Total coins in Gullak")
+                Text("Total coins")
                   .font(.title3.weight(.bold))
                   .foregroundColor(Color("deepGreen"))
 
-                Text("300")
+                Text("0")
                   .font(.title2.weight(.bold))
                   .foregroundColor(Color("deepGreen"))
 
@@ -60,37 +60,37 @@ struct Gullak: View {
 
           // Transactions
           ScrollView {
-            ForEach(1..<15) { i in
-              HStack {
-                VStack{
-                  Text("Referral")
-                    .font(.body.weight(.semibold))
-
-                  Text("Sent to Ajay")
-                    .font(.subheadline.weight(.regular))
-                }
-                .foregroundColor(Color("deepGreen"))
-
-                Spacer()
-
-                VStack {
-                  Text("+ 50")
-                    .font(.title3.weight(.semibold))
-                    .foregroundColor(Color("textGreen"))
-
-                  Text("12/07/21  03:30pm")
-                    .font(.caption.weight(.regular))
-                    .foregroundColor(.gray)
-                }
-              }
-              .padding()
-              .frame(width: 0.88 * UIScreen.screenWidth, height: 0.08 * UIScreen.screenHeight)
-              .background(
-                RoundedRectangle(cornerRadius: 20)
-                  .stroke(Color("textGreen").opacity(0.2), lineWidth: 1)
-              )
-              .padding(.bottom)
-            }
+//            ForEach(1..<15) { i in
+//              HStack {
+//                VStack{
+//                  Text("Referral")
+//                    .font(.body.weight(.semibold))
+//
+//                  Text("Sent to Ajay")
+//                    .font(.subheadline.weight(.regular))
+//                }
+//                .foregroundColor(Color("deepGreen"))
+//
+//                Spacer()
+//
+//                VStack {
+//                  Text("+ 50")
+//                    .font(.title3.weight(.semibold))
+//                    .foregroundColor(Color("textGreen"))
+//
+//                  Text("12/07/21  03:30pm")
+//                    .font(.caption.weight(.regular))
+//                    .foregroundColor(.gray)
+//                }
+//              }
+//              .padding()
+//              .frame(width: 0.88 * UIScreen.screenWidth, height: 0.08 * UIScreen.screenHeight)
+//              .background(
+//                RoundedRectangle(cornerRadius: 20)
+//                  .stroke(Color("textGreen").opacity(0.2), lineWidth: 1)
+//              )
+//              .padding(.bottom)
+//            }
           }
         }
         .navigationBarHidden(true)
