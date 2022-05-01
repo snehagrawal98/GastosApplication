@@ -15,7 +15,7 @@ struct EnterPin: View {
   @ObservedObject var currentUser: CurrentUser
 
     var body: some View {
-        NavigationView{
+       // NavigationView{
             ZStack{
                 Image("Layer3").offset(x: 100.0, y: -350.0)
                 VStack{
@@ -56,7 +56,7 @@ struct EnterPin: View {
                     }
                 }
             }.navigationBarItems(leading: Image(systemName: "arrow.backward")).foregroundColor(Color("5"))
-        }
+        //}
     }
 }
 

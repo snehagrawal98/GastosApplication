@@ -11,7 +11,7 @@ struct EliteMarket: View {
     @State var index = 0
 
     var body: some View {
-      NavigationView {
+     // NavigationView {
         VStack {
           // Nav bar
           HStack {
@@ -135,7 +135,7 @@ struct EliteMarket: View {
         }
         .navigationBarHidden(true)
         .navigationBarBackButtonHidden(true)
-      }
+      //}
     }
 }
 

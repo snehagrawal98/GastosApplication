@@ -13,7 +13,7 @@ struct MainView: View {
   @EnvironmentObject var currentUser: CurrentUser
 
   var body: some View {
-    NavigationView {
+    //NavigationView {
       TabView(selection: $selectedTab) {
 
         // Coupons
@@ -61,22 +61,22 @@ struct MainView: View {
           }
           .tag(4)
       }
-      .onAppear(perform: self.readUserDetails)
+//      .onAppear(perform: self.readUserDetails)
       .edgesIgnoringSafeArea(.all)
       .navigationBarHidden(true)
       .navigationBarBackButtonHidden(true)
-    }
-    .navigationBarHidden(true)
-    .navigationBarBackButtonHidden(true)
+    //}
+   // .navigationBarHidden(true)
+    //.navigationBarBackButtonHidden(true)
   }
 
 
   func readUserDetails() {
-    if loginViewModel.didShowMainViewOnce == 0 {
-      loginViewModel.didShowMainViewOnce += 1
-    } else if loginViewModel.didShowMainViewOnce == 1 {
+//    if loginViewModel.didShowMainViewOnce == 0 {
+//      loginViewModel.didShowMainViewOnce += 1
+//    } else if loginViewModel.didShowMainViewOnce == 1 {
       loginViewModel.readCurrentUser()
-    }
+    //}
   }
 }
 

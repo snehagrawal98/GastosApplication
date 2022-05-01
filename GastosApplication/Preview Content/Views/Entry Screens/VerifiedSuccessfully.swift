@@ -12,7 +12,7 @@ struct VerifiedSuccessfully: View {
   @EnvironmentObject var currentUser: CurrentUser
 
     var body: some View {
-        NavigationView{
+       // NavigationView{
             VStack{
                 Text("Your Account Has Been").foregroundColor(Color("5")).fontWeight(.regular).font(.system(size: 25))
                 Text("Verified Successfully!").foregroundColor(Color("5")).fontWeight(.regular).font(.system(size: 25)).padding(.bottom)
@@ -22,15 +22,25 @@ struct VerifiedSuccessfully: View {
                 HStack{
                     Spacer()
                     Text("Jump To Home").foregroundColor(Color("5")).fontWeight(.regular).font(.system(size: 20))
-                  NavigationLink(destination: MainView(selectedTab: 2)
-                                  .navigationBarHidden(true)
-                                  .navigationBarBackButtonHidden(true), label: {
-                    Image(systemName: "chevron.right").font(.system(size: 25)).foregroundColor(.white).frame(width: 50, height: 50, alignment: .center)
-                    }).padding(3).background(Color("textGreen")).clipShape(Circle()).padding()
+
+                  Button(action: {
+                    loginViewModel.didShowVerifiedScreenOnce = true
+                  }, label: {
+                    Image(systemName: "chevron.right")
+                      .font(.system(size: 25))
+                      .foregroundColor(.white).frame(width: 50, height: 50, alignment: .center)
+                      .padding(3).background(Color("textGreen")).clipShape(Circle()).padding()
+                  })
+//                  NavigationLink(destination: MainView(selectedTab: 2)
+//                                  .navigationBarHidden(true)
+//                                  .navigationBarBackButtonHidden(true), label: {
+//                    Image(systemName: "chevron.right").font(.system(size: 25)).foregroundColor(.white).frame(width: 50, height: 50, alignment: .center)
+//                    }).padding(3).background(Color("textGreen")).clipShape(Circle()).padding()
                 }
-            }.navigationBarItems(leading: Image(systemName: "arrow.backward")).foregroundColor(Color("deepGreen"))
-        }
-        .onDisappear(perform: self.changeDidShowVerifiedOnce)
+            }
+//            .navigationBarItems(leading: Image(systemName: "arrow.backward")).foregroundColor(Color("deepGreen"))
+        //}
+        //.onDisappear(perform: self.changeDidShowVerifiedOnce)
     }
 
   func changeDidShowVerifiedOnce() {

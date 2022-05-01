@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ExclusiveDeals: View {
     var body: some View {
-      NavigationView {
+      //NavigationView {
         VStack {
           ZStack {
             LinearGradient(gradient: Gradient(colors: [Color("deepGreen"), Color("textGreen")]), startPoint: .leading, endPoint: .trailing)
@@ -36,7 +36,7 @@ struct ExclusiveDeals: View {
         }
         .navigationBarHidden(true)
         .navigationBarBackButtonHidden(true)
-      }
+      //}
     }
 }
 

@@ -17,6 +17,7 @@ struct HomeTab: View {
     @EnvironmentObject var currentUser: CurrentUser
 
     var body: some View {
+      NavigationView {
         VStack {
           HStack {
             Text("Hey \(loginViewModel.name)")//"Hey Sahgal!")
@@ -119,7 +120,18 @@ struct HomeTab: View {
           .padding(.horizontal)
           Spacer()
         }
+        .onAppear(perform: self.readUserDetails)
+      }
     }
+
+  func readUserDetails() {
+//    if loginViewModel.didShowMainViewOnce == 0 {
+//      loginViewModel.didShowMainViewOnce += 1
+//    } else if loginViewModel.didShowMainViewOnce == 1 {
+      loginViewModel.readCurrentUser()
+    //}
+  }
+
 }
 
 struct HomeTab_Previews: PreviewProvider {
