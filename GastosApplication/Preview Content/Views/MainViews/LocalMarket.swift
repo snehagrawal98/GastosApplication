@@ -11,7 +11,8 @@ struct LocalMarket: View {
     @State var index = 0
 
     var body: some View {
-      ScrollView {
+      NavigationView {
+        ScrollView {
         VStack {
           Text("Local Market")
             .title2TextStyle()
@@ -126,7 +127,7 @@ struct LocalMarket: View {
         .frame(height: Constants.sH)
         } //: VSTACK
       } //: SCROLL
-
+      }
     }
 }
 

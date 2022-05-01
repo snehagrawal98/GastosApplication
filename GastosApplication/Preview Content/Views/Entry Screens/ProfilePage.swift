@@ -19,7 +19,7 @@ struct ProfilePage: View {
     @EnvironmentObject var currentUser: CurrentUser
 
     var body: some View {
-        NavigationView{
+        //NavigationView{
             VStack(spacing: 15){
               // Navigation bar
               HStack {
@@ -189,7 +189,7 @@ struct ProfilePage: View {
             }
             .navigationBarHidden(true)
             .navigationBarBackButtonHidden(true)
-        }
+        //}
     }
 
     func didEnterAllData() {

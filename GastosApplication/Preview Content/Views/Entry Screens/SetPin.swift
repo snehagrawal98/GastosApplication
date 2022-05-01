@@ -17,7 +17,7 @@ struct SetPin: View {
   @Environment(\.dismiss) var dismiss
 
     var body: some View {
-        NavigationView{
+        //NavigationView{
             ZStack{
                 Image("Layer3").offset(x: 100.0, y: -350.0)
                 VStack{
@@ -83,7 +83,7 @@ struct SetPin: View {
             .navigationBarHidden(true)
             .navigationBarBackButtonHidden(true)
             .navigationBarItems(leading: Image(systemName: "arrow.backward")).foregroundColor(Color("5"))
-        }
+       // }
     }
 
   func didEnterProperPin() {

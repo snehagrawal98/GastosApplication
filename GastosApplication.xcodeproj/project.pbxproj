@@ -63,10 +63,10 @@
 		69329AD627D20F8D00335C8B /* CodeScanner in Frameworks */ = {isa = PBXBuildFile; productRef = 69329AD527D20F8D00335C8B /* CodeScanner */; };
 		69329AD827D210B100335C8B /* QrScanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69329AD727D210B100335C8B /* QrScanView.swift */; };
 		693D6C372799AA2600DF62C4 /* PrivacyPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 693D6C362799AA2600DF62C4 /* PrivacyPolicy.swift */; };
+		694B6232281EBB3B00B013D2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 694B6231281EBB3B00B013D2 /* GoogleService-Info.plist */; };
 		69B27EE527AD2F8B003DECD1 /* ActivationPaymentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B27EE427AD2F8B003DECD1 /* ActivationPaymentView.swift */; };
 		69D0199027B7E687002B23F2 /* LogoutAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69D0198F27B7E687002B23F2 /* LogoutAlert.swift */; };
 		69E542EF27A541130096C821 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69E542EE27A541130096C821 /* LoginViewModel.swift */; };
-		69E542F727A544510096C821 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 69E542F627A544510096C821 /* GoogleService-Info.plist */; };
 		69E57EFE27D8EA6400C1C44C /* Expenses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69E57EFD27D8EA6400C1C44C /* Expenses.swift */; };
 		69E57F0027D8EF2B00C1C44C /* EliteMarket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69E57EFF27D8EF2B00C1C44C /* EliteMarket.swift */; };
 		69E57F0227D8FB2C00C1C44C /* ExclusiveDeals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69E57F0127D8FB2C00C1C44C /* ExclusiveDeals.swift */; };
@@ -134,10 +134,10 @@
 		691EE3D027AC1B5100A3AF43 /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
 		69329AD727D210B100335C8B /* QrScanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QrScanView.swift; sourceTree = "<group>"; };
 		693D6C362799AA2600DF62C4 /* PrivacyPolicy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicy.swift; sourceTree = "<group>"; };
+		694B6231281EBB3B00B013D2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		69B27EE427AD2F8B003DECD1 /* ActivationPaymentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivationPaymentView.swift; sourceTree = "<group>"; };
 		69D0198F27B7E687002B23F2 /* LogoutAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutAlert.swift; sourceTree = "<group>"; };
 		69E542EE27A541130096C821 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
-		69E542F627A544510096C821 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		69E542F827A544600096C821 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		69E57EFD27D8EA6400C1C44C /* Expenses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expenses.swift; sourceTree = "<group>"; };
 		69E57EFF27D8EF2B00C1C44C /* EliteMarket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EliteMarket.swift; sourceTree = "<group>"; };
@@ -185,7 +185,7 @@
 			children = (
 				69E542F827A544600096C821 /* Info.plist */,
 				3F8777C9279433B300667C86 /* GastosApplicationApp.swift */,
-				69E542F627A544510096C821 /* GoogleService-Info.plist */,
+				694B6231281EBB3B00B013D2 /* GoogleService-Info.plist */,
 				3F8777CD279433BA00667C86 /* Assets.xcassets */,
 				3F8777CF279433BA00667C86 /* Preview Content */,
 			);
@@ -492,7 +492,7 @@
 			files = (
 				3F8777D1279433BA00667C86 /* Preview Assets.xcassets in Resources */,
 				3F8778422794343200667C86 /* Preview Assets.xcassets in Resources */,
-				69E542F727A544510096C821 /* GoogleService-Info.plist in Resources */,
+				694B6232281EBB3B00B013D2 /* GoogleService-Info.plist in Resources */,
 				3F8778512794343200667C86 /* Launch Screen.storyboard in Resources */,
 				3F8777CE279433BA00667C86 /* Assets.xcassets in Resources */,
 			);
@@ -699,11 +699,13 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = GastosApplication/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "To Scan QR Code";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -729,11 +731,13 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = GastosApplication/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "To Scan QR Code";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

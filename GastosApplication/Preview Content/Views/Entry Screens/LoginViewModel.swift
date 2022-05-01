@@ -86,7 +86,7 @@ class LoginViewModel: ObservableObject {
   var ref: DatabaseReference?
   private var db = Database.database()
 
-  @Published var uid = ""
+  @AppStorage("uid") var uid = ""
   @Published var dob = ""
   @Published var email = ""
   @Published var gender = ""
